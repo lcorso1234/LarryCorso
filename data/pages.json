@@ -1,0 +1,49 @@
+{
+  "pages": {
+    "about": {
+      "id": "about",
+      "title": "About",
+      "slug": "about",
+      "content": "<p>About page content</p>",
+      "published": true,
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    "blog": {
+      "id": "blog",
+      "title": "Blog",
+      "slug": "blog",
+      "content": "<p>Blog page content</p>",
+      "published": true,
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    "connect": {
+      "id": "connect",
+      "title": "Connect",
+      "slug": "connect",
+      "content": "<p>Connect page content</p>",
+      "published": true,
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    "manifesto": {
+      "id": "manifesto",
+      "title": "Manifesto",
+      "slug": "manifesto",
+      "content": "<p>Manifesto page content</p>",
+      "published": true,
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    },
+    "portfolio": {
+      "id": "portfolio",
+      "title": "Portfolio",
+      "slug": "portfolio",
+      "content": "<p>Portfolio page content</p>",
+      "published": true,
+      "createdAt": "2025-01-01T00:00:00Z",
+      "updatedAt": "2025-01-01T00:00:00Z"
+    }
+  }
+}
