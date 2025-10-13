@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { APIService, useAPIConnection } from '@/lib/api-service';
 
 interface NavigationProps {
   theme: 'pink' | 'yellow' | 'blue' | 'green' | 'purple';
@@ -117,28 +118,28 @@ const leftIconText = {
 export default function Navigation({ theme, leftIcon }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const { connected: isApiConnected, loading: apiLoading } = useAPIConnection();
   const colors = themeColors[theme];
 
-  // Share functionality
+  // Share functionality with API integration
   const handleShare = async () => {
-    const shareData = {
-      title: 'Larry Corso - Digital Creator & Developer',
-      text: 'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
-      url: window.location.origin
-    };
-
     try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-      } else {
-        // Fallback: copy to clipboard
+      const result = await APIService.shareContent(
+        'Larry Corso - Digital Creator & Developer',
+        'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
+        window.location.origin
+      );
+
+      if (!result.success) {
+        // Fallback to simple clipboard copy
         await navigator.clipboard.writeText(window.location.origin);
-        // You could also show a toast notification here
+        alert('Website URL copied to clipboard!');
+      } else if (result.method === 'clipboard') {
         alert('Website URL copied to clipboard!');
       }
     } catch (error) {
       console.log('Sharing failed:', error);
-      // Fallback: copy to clipboard
+      // Final fallback
       try {
         await navigator.clipboard.writeText(window.location.origin);
         alert('Website URL copied to clipboard!');
@@ -148,9 +149,23 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
     }
   };
 
-  // Security/Shield functionality - navigate to manifesto or show security status
-  const handleSecurity = () => {
-    window.location.href = '/manifesto';
+  // Security/Shield functionality with API connection status
+  const handleSecurity = async () => {
+    try {
+      // Log security check to backend
+      await APIService.testConnectivity({
+        action: 'security_check',
+        page: pathname,
+        timestamp: new Date().toISOString(),
+        api_connected: isApiConnected
+      });
+      
+      window.location.href = '/manifesto';
+    } catch (error) {
+      console.log('Security check logging failed:', error);
+      // Still navigate to manifesto even if logging fails
+      window.location.href = '/manifesto';
+    }
   };
 
   const navItems = [
@@ -216,6 +231,14 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
       {/* Mobile Navigation Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40">
         <div className={`bg-black ${colors.border} border-t-2 ${colors.glow} mx-4 mb-4 rounded-lg`}>
+          {/* API Connection Status Indicator */}
+          {!apiLoading && (
+            <div className={`flex items-center justify-center py-1 text-xs font-mono ${isApiConnected ? 'text-green-400' : 'text-red-400'}`}>
+              <div className={`w-2 h-2 rounded-full mr-2 ${isApiConnected ? 'bg-green-400' : 'bg-red-400'}`}></div>
+              {isApiConnected ? 'API CONNECTED' : 'API OFFLINE'}
+            </div>
+          )}
+          
           <div className="flex items-center justify-between px-4 py-3">
             {/* Share Icon */}
             <button 

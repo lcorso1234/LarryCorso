@@ -1,234 +1,264 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
+import { APIService } from '@/lib/api-service';
 
-interface Page {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  published: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
-interface BlogPost {
-  id: string;
-  title: string;
-  slug: string;
-  content: string;
-  youtubeUrl?: string;
-  spotifyUrl?: string;
-  images: string[];
-  published: boolean;
-  createdAt: string;
-  updatedAt: string;
+interface AdminData {
+  pages?: any[];
+  blogPosts?: any[];
+  securityLogs?: any[];
 }
 
 export default function AdminDashboard() {
-  const [pages, setPages] = useState<Page[]>([]);
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+  const [authError, setAuthError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [adminData, setAdminData] = useState<AdminData>({});
+  const [connectionStatus, setConnectionStatus] = useState<'checking' | 'connected' | 'disconnected'>('checking');
 
+  // Check API connection on component mount
   useEffect(() => {
-    fetchData();
+    const checkConnection = async () => {
+      try {
+        await APIService.getHealth();
+        setConnectionStatus('connected');
+      } catch {
+        setConnectionStatus('disconnected');
+      }
+    };
+    
+    checkConnection();
   }, []);
 
-  const fetchData = async () => {
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setAuthError('');
+
     try {
-      const [pagesResponse, blogResponse] = await Promise.all([
-        fetch('/api/admin/pages'),
-        fetch('/api/admin/blog-posts')
-      ]);
-
-      if (pagesResponse.ok) {
-        const pagesData = await pagesResponse.json();
-        setPages(pagesData.pages || []);
-      }
-
-      if (blogResponse.ok) {
-        const blogData = await blogResponse.json();
-        setBlogPosts(blogData.posts || []);
+      const response = await APIService.adminLogin(password);
+      
+      if (response.success) {
+        setIsAuthenticated(true);
+        localStorage.setItem('adminToken', response.token);
+        await loadAdminData(response.token);
+      } else {
+        setAuthError(response.message || 'Login failed');
       }
     } catch (error) {
-      console.error('Error fetching data:', error);
+      setAuthError(error instanceof Error ? error.message : 'Login failed');
     } finally {
       setLoading(false);
     }
   };
 
-  if (loading) {
+  const loadAdminData = async (token: string) => {
+    try {
+      const [pages, blogPosts, securityLogs] = await Promise.all([
+        APIService.getPages().catch(() => null),
+        APIService.getBlogPosts().catch(() => null),
+        APIService.getSecurityLogs(token).catch(() => null),
+      ]);
+
+      setAdminData({ pages, blogPosts, securityLogs });
+    } catch (error) {
+      console.error('Failed to load admin data:', error);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setAdminData({});
+    localStorage.removeItem('adminToken');
+    setPassword('');
+  };
+
+  if (connectionStatus === 'checking') {
     return (
-      <div className="flex items-center justify-center h-64">
-        <div className="text-white">Loading...</div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-green-400 font-mono text-xl">Checking API connection...</div>
+      </div>
+    );
+  }
+
+  if (connectionStatus === 'disconnected') {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="max-w-md mx-auto p-6 bg-gray-900 border border-red-500 rounded-lg">
+          <h2 className="text-2xl font-bold text-red-400 mb-4 text-center">API Connection Failed</h2>
+          <p className="text-gray-300 text-center mb-4">
+            Unable to connect to the backend API. Please ensure the server is running.
+          </p>
+          <div className="text-center">
+            <button 
+              onClick={() => window.location.reload()}
+              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-mono text-white"
+            >
+              Retry Connection
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center p-4">
+        <div className="max-w-md mx-auto p-6 bg-gray-900 border border-green-500 rounded-lg">
+          <div className="text-center mb-6">
+            <h1 className="text-2xl font-bold text-green-400 mb-2">🔐 Admin Dashboard</h1>
+            <div className="flex items-center justify-center mb-4">
+              <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+              <span className="text-green-400 font-mono text-sm">API CONNECTED</span>
+            </div>
+          </div>
+          
+          <form onSubmit={handleLogin} className="space-y-4">
+            <div>
+              <label className="block text-gray-300 font-mono mb-2">Password</label>
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-3 bg-black border border-gray-600 rounded text-green-400 font-mono focus:border-green-400 focus:outline-none"
+                placeholder="Enter admin password"
+                required
+              />
+            </div>
+            
+            {authError && (
+              <div className="text-red-400 bg-red-900/20 p-2 rounded font-mono text-sm">
+                {authError}
+              </div>
+            )}
+            
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-600 p-3 rounded font-mono text-white transition-colors"
+            >
+              {loading ? 'Authenticating...' : 'Login'}
+            </button>
+          </form>
+          
+          <div className="mt-6 text-center">
+            <a href="/" className="text-blue-400 hover:text-blue-300 underline font-mono">
+              ← Back to Website
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-white mb-4">Content Management</h1>
-        <p className="text-gray-400">
-          Manage your website pages and blog posts from this dashboard.
-        </p>
-      </div>
-
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-lg font-medium text-white mb-2">Total Pages</h3>
-          <p className="text-3xl font-bold text-yellow-400">{pages.length}</p>
-        </div>
-        <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-lg font-medium text-white mb-2">Blog Posts</h3>
-          <p className="text-3xl font-bold text-yellow-400">{blogPosts.length}</p>
-        </div>
-        <div className="bg-gray-900 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-lg font-medium text-white mb-2">Published</h3>
-          <p className="text-3xl font-bold text-yellow-400">
-            {pages.filter(p => p.published).length + blogPosts.filter(p => p.published).length}
-          </p>
-        </div>
-      </div>
-
-      {/* Action Buttons */}
-      <div className="flex flex-wrap gap-4 mb-8">
-        <Link
-          href="/admin/pages/new"
-          className="bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-md font-medium"
-        >
-          Create New Page
-        </Link>
-        <Link
-          href="/admin/blog/new"
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium"
-        >
-          Create Blog Post
-        </Link>
-      </div>
-
-      {/* Pages Section */}
-      <div className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-white">Pages</h2>
-          <Link
-            href="/admin/pages"
-            className="text-yellow-400 hover:text-yellow-500"
-          >
-            View All →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pages.slice(0, 6).map((page) => (
-            <div
-              key={page.id}
-              className="bg-gray-900 p-6 rounded-lg border border-gray-700"
-            >
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg font-medium text-white">{page.title}</h3>
-                <span
-                  className={`px-2 py-1 rounded-full text-xs ${
-                    page.published
-                      ? 'bg-green-900 text-green-200'
-                      : 'bg-gray-700 text-gray-300'
-                  }`}
-                >
-                  {page.published ? 'Published' : 'Draft'}
-                </span>
-              </div>
-              <p className="text-gray-400 text-sm mb-4">
-                Last updated: {new Date(page.updatedAt).toLocaleDateString()}
-              </p>
-              <div className="flex gap-2">
-                <Link
-                  href={`/admin/pages/edit/${page.id}`}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-                >
-                  Edit
-                </Link>
-                <a
-                  href={`/${page.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm"
-                >
-                  View
-                </a>
-              </div>
+    <div className="min-h-screen bg-black p-4">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-8 p-4 bg-gray-900 border border-green-500 rounded-lg">
+          <h1 className="text-3xl font-bold text-green-400">🚀 Admin Dashboard</h1>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center">
+              <div className="w-3 h-3 bg-green-400 rounded-full mr-2"></div>
+              <span className="text-green-400 font-mono text-sm">API CONNECTED</span>
             </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Blog Posts Section */}
-      <div>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-white">Recent Blog Posts</h2>
-          <Link
-            href="/admin/blog"
-            className="text-yellow-400 hover:text-yellow-500"
-          >
-            View All →
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.slice(0, 6).map((post) => (
-            <div
-              key={post.id}
-              className="bg-gray-900 p-6 rounded-lg border border-gray-700"
+            <button
+              onClick={handleLogout}
+              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-mono text-white"
             >
-              <div className="flex justify-between items-start mb-4">
-                <h3 className="text-lg font-medium text-white">{post.title}</h3>
-                <span
-                  className={`px-2 py-1 rounded-full text-xs ${
-                    post.published
-                      ? 'bg-green-900 text-green-200'
-                      : 'bg-gray-700 text-gray-300'
-                  }`}
-                >
-                  {post.published ? 'Published' : 'Draft'}
-                </span>
+              Logout
+            </button>
+          </div>
+        </div>
+
+        {/* Dashboard Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Pages Data */}
+          <div className="p-4 bg-gray-900 border border-blue-500 rounded-lg">
+            <h2 className="text-xl font-bold text-blue-400 mb-4">📄 Pages Data</h2>
+            {adminData.pages ? (
+              <div className="space-y-2">
+                <p className="text-gray-300">Total Pages: {adminData.pages.length}</p>
+                <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
+                  {adminData.pages.map((page, index) => (
+                    <div key={index} className="border-b border-gray-700 pb-1">
+                      {page.title || page.name || `Page ${index + 1}`}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex gap-2 mb-4">
-                {post.youtubeUrl && (
-                  <span className="bg-red-900 text-red-200 px-2 py-1 rounded text-xs">
-                    Video
-                  </span>
-                )}
-                {post.spotifyUrl && (
-                  <span className="bg-green-900 text-green-200 px-2 py-1 rounded text-xs">
-                    Podcast
-                  </span>
-                )}
-                {post.images.length > 0 && (
-                  <span className="bg-purple-900 text-purple-200 px-2 py-1 rounded text-xs">
-                    {post.images.length} Image{post.images.length !== 1 ? 's' : ''}
-                  </span>
-                )}
+            ) : (
+              <p className="text-gray-500">No pages data available</p>
+            )}
+          </div>
+
+          {/* Blog Posts */}
+          <div className="p-4 bg-gray-900 border border-purple-500 rounded-lg">
+            <h2 className="text-xl font-bold text-purple-400 mb-4">📝 Blog Posts</h2>
+            {adminData.blogPosts ? (
+              <div className="space-y-2">
+                <p className="text-gray-300">Total Posts: {adminData.blogPosts.length}</p>
+                <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
+                  {adminData.blogPosts.map((post, index) => (
+                    <div key={index} className="border-b border-gray-700 pb-1">
+                      {post.title || `Post ${index + 1}`}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <p className="text-gray-400 text-sm mb-4">
-                Last updated: {new Date(post.updatedAt).toLocaleDateString()}
-              </p>
-              <div className="flex gap-2">
-                <Link
-                  href={`/admin/blog/edit/${post.id}`}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-                >
-                  Edit
-                </Link>
-                <a
-                  href={`/blog/${post.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-700 hover:bg-gray-600 text-white px-3 py-1 rounded text-sm"
-                >
-                  View
-                </a>
+            ) : (
+              <p className="text-gray-500">No blog posts available</p>
+            )}
+          </div>
+
+          {/* Security Logs */}
+          <div className="p-4 bg-gray-900 border border-red-500 rounded-lg">
+            <h2 className="text-xl font-bold text-red-400 mb-4">🛡️ Security Logs</h2>
+            {adminData.securityLogs ? (
+              <div className="space-y-2">
+                <p className="text-gray-300">Recent Events: {adminData.securityLogs.length}</p>
+                <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
+                  {adminData.securityLogs.map((log, index) => (
+                    <div key={index} className="border-b border-gray-700 pb-1">
+                      {log.event || log.action || `Event ${index + 1}`}
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ) : (
+              <p className="text-gray-500">No security logs available</p>
+            )}
+          </div>
+        </div>
+
+        {/* API Test Section */}
+        <div className="mt-8 p-4 bg-gray-900 border border-yellow-500 rounded-lg">
+          <h2 className="text-xl font-bold text-yellow-400 mb-4">🔧 API Test Center</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a 
+              href="/api-test"
+              className="p-3 bg-black border border-green-500 rounded text-center text-green-400 hover:bg-green-500 hover:text-black transition-colors"
+            >
+              Full API Tester
+            </a>
+            <a 
+              href="/api/health"
+              target="_blank"
+              className="p-3 bg-black border border-blue-500 rounded text-center text-blue-400 hover:bg-blue-500 hover:text-black transition-colors"
+            >
+              Health Check
+            </a>
+            <a 
+              href="/api/connect"
+              target="_blank"
+              className="p-3 bg-black border border-purple-500 rounded text-center text-purple-400 hover:bg-purple-500 hover:text-black transition-colors"
+            >
+              Connectivity Test
+            </a>
+          </div>
         </div>
       </div>
     </div>

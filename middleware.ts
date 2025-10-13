@@ -1,11 +1,58 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getSecurityHeaders } from './lib/security-middleware';
 
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
   
-  // Apply security headers to all responses
-  const securityHeaders = getSecurityHeaders();
+  // Apply basic security headers
+  const securityHeaders = {
+    // Content Security Policy
+    'Content-Security-Policy': [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "font-src 'self' data:",
+      "connect-src 'self'",
+      "media-src 'self'",
+      "object-src 'none'",
+      "child-src 'none'",
+      "worker-src 'self'",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      "base-uri 'self'",
+      "upgrade-insecure-requests"
+    ].join('; '),
+    
+    // Prevent clickjacking
+    'X-Frame-Options': 'DENY',
+    
+    // Prevent MIME type sniffing
+    'X-Content-Type-Options': 'nosniff',
+    
+    // Enable XSS protection
+    'X-XSS-Protection': '1; mode=block',
+    
+    // Referrer policy
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    
+    // Permissions policy
+    'Permissions-Policy': [
+      'accelerometer=()',
+      'camera=()',
+      'geolocation=()',
+      'gyroscope=()',
+      'magnetometer=()',
+      'microphone=()',
+      'payment=()',
+      'usb=()'
+    ].join(', '),
+    
+    // Cache control for sensitive pages
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+    'Pragma': 'no-cache',
+    'Expires': '0'
+  };
+  
   Object.entries(securityHeaders).forEach(([key, value]) => {
     response.headers.set(key, value);
   });
