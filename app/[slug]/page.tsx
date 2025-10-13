@@ -7,8 +7,11 @@ interface PageProps {
 
 export async function generateStaticParams() {
   const pages = getPages();
+  // Exclude pages that have dedicated static routes
+  const excludedSlugs = ['about', 'blog', 'connect', 'manifesto', 'portfolio', 'admin', 'api', 'api-test'];
+  
   return Object.values(pages)
-    .filter(page => page.published)
+    .filter(page => page.published && !excludedSlugs.includes(page.slug))
     .map(page => ({
       slug: page.slug,
     }));

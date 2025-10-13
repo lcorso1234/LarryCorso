@@ -3,24 +3,23 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request: NextRequest) {
   const response = NextResponse.next();
   
-  // Apply basic security headers
+  // Apply basic security headers (more permissive for Vercel deployment)
   const securityHeaders = {
-    // Content Security Policy
+    // Content Security Policy - relaxed for Vercel
     'Content-Security-Policy': [
-      "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
-      "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob:",
-      "font-src 'self' data:",
-      "connect-src 'self'",
-      "media-src 'self'",
+      "default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https:",
+      "style-src 'self' 'unsafe-inline' https:",
+      "img-src 'self' data: blob: https:",
+      "font-src 'self' data: https:",
+      "connect-src 'self' https:",
+      "media-src 'self' https:",
       "object-src 'none'",
-      "child-src 'none'",
-      "worker-src 'self'",
+      "child-src 'self' https:",
+      "worker-src 'self' blob:",
       "frame-ancestors 'none'",
       "form-action 'self'",
-      "base-uri 'self'",
-      "upgrade-insecure-requests"
+      "base-uri 'self'"
     ].join('; '),
     
     // Prevent clickjacking

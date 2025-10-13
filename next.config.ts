@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true
-  }
+  },
+  outputFileTracingRoot: "/Users/lawrencecorso/LarryCorso",
+  output: 'standalone',
+  trailingSlash: false,
+  skipTrailingSlashRedirect: true
 };
 
 export default nextConfig;

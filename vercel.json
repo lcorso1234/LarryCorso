@@ -1,0 +1,50 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/about",
+      "destination": "/about"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog"
+    },
+    {
+      "source": "/connect",
+      "destination": "/connect"
+    },
+    {
+      "source": "/manifesto",
+      "destination": "/manifesto"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/admin/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        }
+      ]
+    }
+  ]
+}

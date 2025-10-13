@@ -31,9 +31,30 @@ export interface BlogPost {
 // Page management functions
 export function getPages(): Record<string, Page> {
   try {
-    if (!fs.existsSync(PAGES_FILE)) {
-      return {};
+    // Ensure the data directory exists
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
     }
+    
+    if (!fs.existsSync(PAGES_FILE)) {
+      // Create default pages.json if it doesn't exist
+      const defaultPages = {
+        pages: {
+          about: {
+            id: "about",
+            title: "About",
+            slug: "about", 
+            content: "<p>About page content</p>",
+            published: true,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          }
+        }
+      };
+      fs.writeFileSync(PAGES_FILE, JSON.stringify(defaultPages, null, 2));
+      return defaultPages.pages;
+    }
+    
     const data = fs.readFileSync(PAGES_FILE, 'utf8');
     const parsed = JSON.parse(data);
     return parsed.pages || {};
@@ -70,9 +91,18 @@ export function getPage(pageId: string): Page | null {
 // Blog post management functions
 export function getBlogPosts(): BlogPost[] {
   try {
+    // Ensure the data directory exists
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    
     if (!fs.existsSync(BLOG_POSTS_FILE)) {
+      // Create default blog-posts.json if it doesn't exist
+      const defaultBlogPosts = { posts: [] };
+      fs.writeFileSync(BLOG_POSTS_FILE, JSON.stringify(defaultBlogPosts, null, 2));
       return [];
     }
+    
     const data = fs.readFileSync(BLOG_POSTS_FILE, 'utf8');
     const parsed = JSON.parse(data);
     return parsed.posts || [];
