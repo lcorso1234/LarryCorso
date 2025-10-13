@@ -119,6 +119,40 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
   const pathname = usePathname();
   const colors = themeColors[theme];
 
+  // Share functionality
+  const handleShare = async () => {
+    const shareData = {
+      title: 'Larry Corso - Digital Creator & Developer',
+      text: 'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
+      url: window.location.origin
+    };
+
+    try {
+      if (navigator.share) {
+        await navigator.share(shareData);
+      } else {
+        // Fallback: copy to clipboard
+        await navigator.clipboard.writeText(window.location.origin);
+        // You could also show a toast notification here
+        alert('Website URL copied to clipboard!');
+      }
+    } catch (error) {
+      console.log('Sharing failed:', error);
+      // Fallback: copy to clipboard
+      try {
+        await navigator.clipboard.writeText(window.location.origin);
+        alert('Website URL copied to clipboard!');
+      } catch (clipboardError) {
+        console.log('Clipboard access failed:', clipboardError);
+      }
+    }
+  };
+
+  // Security/Shield functionality - navigate to manifesto or show security status
+  const handleSecurity = () => {
+    window.location.href = '/manifesto';
+  };
+
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
@@ -184,7 +218,11 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         <div className={`bg-black ${colors.border} border-t-2 ${colors.glow} mx-4 mb-4 rounded-lg`}>
           <div className="flex items-center justify-between px-4 py-3">
             {/* Share Icon */}
-            <button className={`h-10 w-10 ${colors.leftIconBorder} border-2 rounded-lg flex items-center justify-center bg-black ${colors.leftIconGlow} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-300`}>
+            <button 
+              onClick={handleShare}
+              className={`h-10 w-10 ${colors.leftIconBorder} border-2 rounded-lg flex items-center justify-center bg-black ${colors.leftIconGlow} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-300`}
+              title="Share this website"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.leftIconText}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
               </svg>
@@ -199,7 +237,11 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
             </button>
             
             {/* Shield Icon */}
-            <button className={`h-10 w-10 ${colors.rightIcon2Border} border-2 rounded-lg flex items-center justify-center bg-black ${colors.rightIcon2Glow} ${theme === 'pink' ? 'hover:bg-purple-400' : theme === 'yellow' ? 'hover:bg-red-400' : theme === 'blue' ? 'hover:bg-purple-400' : theme === 'green' ? 'hover:bg-yellow-400' : 'hover:bg-orange-400'} hover:text-black transition-all duration-300`}>
+            <button 
+              onClick={handleSecurity}
+              className={`h-10 w-10 ${colors.rightIcon2Border} border-2 rounded-lg flex items-center justify-center bg-black ${colors.rightIcon2Glow} ${theme === 'pink' ? 'hover:bg-purple-400' : theme === 'yellow' ? 'hover:bg-red-400' : theme === 'blue' ? 'hover:bg-purple-400' : theme === 'green' ? 'hover:bg-yellow-400' : 'hover:bg-orange-400'} hover:text-black transition-all duration-300`}
+              title="Guardian of the Night - View Manifesto"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.rightIcon2Text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>

@@ -1,52 +1,106 @@
 import { NextRequest, NextResponse } from 'next/server';
-import bcryptjs from 'bcryptjs';
-import jwt from 'jsonwebtoken';
+import { loginRateLimiter, getClientIdentifier } from '@/lib/rate-limiter';
+import { InputValidator, schemas } from '@/lib/input-validator';
+import { SecureAuth } from '@/lib/secure-auth';
+import { applySecurityHeaders } from '@/lib/security-middleware';
 
 export async function POST(request: NextRequest) {
   try {
-    const { password } = await request.json();
+    // Apply rate limiting
+    const clientId = getClientIdentifier(request);
+    const rateLimit = loginRateLimiter.isAllowed(clientId);
+    
+    if (!rateLimit.allowed) {
+      const response = NextResponse.json(
+        { error: 'Too many login attempts. Please try again later.' },
+        { status: 429 }
+      );
+      
+      response.headers.set('X-RateLimit-Limit', '5');
+      response.headers.set('X-RateLimit-Remaining', '0');
+      response.headers.set('X-RateLimit-Reset', rateLimit.resetTime.toString());
+      
+      return applySecurityHeaders(response);
+    }
+
+    const body = await request.json();
+    
+    // Validate input
+    const validation = InputValidator.validateAndSanitizeObject(body, schemas.login);
+    
+    if (!validation.isValid) {
+      return applySecurityHeaders(
+        NextResponse.json(
+          { error: 'Invalid input', details: validation.errors },
+          { status: 400 }
+        )
+      );
+    }
+
+    const { password } = validation.sanitizedData;
     
     const adminPassword = process.env.ADMIN_PASSWORD;
     const jwtSecret = process.env.JWT_SECRET;
     
     if (!adminPassword || !jwtSecret) {
-      return NextResponse.json(
-        { error: 'Server configuration error' },
-        { status: 500 }
+      console.error('Missing environment variables: ADMIN_PASSWORD or JWT_SECRET');
+      return applySecurityHeaders(
+        NextResponse.json(
+          { error: 'Server configuration error' },
+          { status: 500 }
+        )
       );
     }
     
-    // For simplicity, we'll use direct password comparison
-    // In production, you might want to hash the stored password
-    if (password !== adminPassword) {
-      return NextResponse.json(
-        { error: 'Invalid password' },
-        { status: 401 }
+    // Use constant-time comparison to prevent timing attacks
+    if (!SecureAuth.constantTimeCompare(password, adminPassword)) {
+      return applySecurityHeaders(
+        NextResponse.json(
+          { error: 'Invalid credentials' },
+          { status: 401 }
+        )
       );
     }
+
+    // Record successful login for rate limiting
+    loginRateLimiter.recordSuccess(clientId);
     
-    // Create JWT token
-    const token = jwt.sign(
-      { admin: true, timestamp: Date.now() },
+    // Create enhanced JWT token
+    const sessionId = SecureAuth.generateSessionToken();
+    const token = SecureAuth.createJWTToken(
+      { 
+        admin: true, 
+        sessionId,
+        loginTime: Date.now(),
+        clientId: clientId.substring(0, 8) // Partial client ID for tracking
+      },
       jwtSecret,
       { expiresIn: '24h' }
     );
     
-    // Set the token as an HTTP-only cookie
-    const response = NextResponse.json({ success: true });
+    // Set secure cookie
+    const response = NextResponse.json({ 
+      success: true,
+      sessionId: sessionId.substring(0, 16) // Return partial session ID for client reference
+    });
+    
     response.cookies.set('admin-token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      path: '/'
     });
+
+    return applySecurityHeaders(response);
     
-    return response;
   } catch (error) {
     console.error('Login error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+    return applySecurityHeaders(
+      NextResponse.json(
+        { error: 'Internal server error' },
+        { status: 500 }
+      )
     );
   }
 }
