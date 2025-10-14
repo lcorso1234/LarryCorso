@@ -46,75 +46,23 @@ export default function EditBlogPost({ params }: { params: Promise<{ id: string 
       const response = await fetch(`/api/admin/blog-posts/${id}`);
       if (response.ok) {
         const data = await response.json();
-        const postData = data.post;
-        setPost(postData);
-        setTitle(postData.title);
-        setContent(postData.content);
-        setYoutubeUrl(postData.youtubeUrl || '');
-        setSpotifyUrl(postData.spotifyUrl || '');
-        setImages(postData.images || []);
-        setPublished(postData.published);
-      } else {
-        alert('Blog post not found');
-        router.push('/admin/blog');
-      }
-    } catch (error) {
-      console.error('Error fetching post:', error);
-      alert('Failed to load blog post');
-    } finally {
-      setLoading(false);
-    }
-  };
+        'use client';
 
-  const extractYouTubeVideoId = (url: string): string | null => {
-    const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-  };
+        import React from 'react';
 
-  const extractSpotifyEpisodeId = (url: string): string | null => {
-    const regex = /spotify\.com\/episode\/([a-zA-Z0-9]+)/;
-    const match = url.match(regex);
-    return match ? match[1] : null;
-  };
-
-  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files) return;
-
-    setUploading(true);
-    const uploadPromises = Array.from(files).map(async (file) => {
-      const formData = new FormData();
-      formData.append('file', file);
-
-      try {
-        const response = await fetch('/api/admin/upload', {
-          method: 'POST',
-          body: formData,
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          return data.url;
-        } else {
-          const errorData = await response.json();
-          throw new Error(errorData.error || 'Upload failed');
+        export default function EditBlog() {
+          return (
+            <div className="min-h-screen bg-black flex items-center justify-center p-4">
+              <div className="max-w-2xl mx-auto p-6 bg-gray-900 border border-yellow-500 rounded-lg">
+                <h2 className="text-2xl font-bold text-yellow-400 mb-4 text-center">Edit Post — Disabled</h2>
+                <p className="text-gray-300 text-center mb-4">Blog editing is disabled because the backend has been removed.</p>
+                <div className="text-center">
+                  <a href="/admin/blog" className="bg-green-600 hover:bg-green-700 px-4 py-2 rounded font-mono text-white">Back to Blog</a>
+                </div>
+              </div>
+            </div>
+          );
         }
-      } catch (error) {
-        console.error('Upload error:', error);
-        alert(`Failed to upload ${file.name}: ${error}`);
-        return null;
-      }
-    });
-
-    try {
-      const uploadedUrls = await Promise.all(uploadPromises);
-      const validUrls = uploadedUrls.filter(url => url !== null) as string[];
-      setImages([...images, ...validUrls]);
-    } catch (error) {
-      console.error('Upload error:', error);
-    } finally {
-      setUploading(false);
     }
   };
 

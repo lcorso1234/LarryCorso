@@ -7,14 +7,17 @@ What this PR contains:
 - `README_DEPLOY.md` (already added) with the detailed deploy checklist and feature flags.
 
 Why:
+
 - Keep sensitive configuration out of repo while documenting required variables.
 - Provide a small helper script for local deploys when the vercel CLI is available.
 
 How to review:
+
 - Verify `.env.example` matches the variables used in the code.
 - Review `README_DEPLOY.md` for accuracy.
 
 Merge and deploy steps:
+
 1. Merge this PR into the branch you use for Vercel (e.g., `main`).
 2. In Vercel dashboard, add environment variables described in `README_DEPLOY.md`.
 3. Allow Vercel to auto-deploy on push or run `scripts/deploy-vercel.sh` locally.

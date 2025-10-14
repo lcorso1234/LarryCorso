@@ -1,14 +1,9 @@
-// NOTE: APIService disabled — backend removed. This file retained for backup but
-// renamed and should not be imported. If you need to re-enable backend calls,
-// restore the original file from backups/backup-2025-10-14_0001/server_libs/
-// and remove the ".disabled" suffix.
+// Full backup of lib/api-service.ts
 
-/*
 import { useState, useEffect } from 'react';
 
 // Frontend-Backend API Integration Service
 export class APIService {
-*/
   private static baseURL = typeof window !== 'undefined' 
     ? window.location.origin 
     : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
@@ -191,7 +186,3 @@ export function useAPIConnection() {
   }, []);
 
   return { connected, loading, error };
-}
-
-// Export for backwards compatibility
-export const FrontendAPI = APIService;

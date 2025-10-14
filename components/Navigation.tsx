@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import { APIService, useAPIConnection } from '@/lib/api-service';
 
 interface NavigationProps {
   theme: 'pink' | 'yellow' | 'blue' | 'green' | 'purple';
@@ -118,61 +117,41 @@ const leftIconText = {
 export default function Navigation({ theme, leftIcon }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  const { connected: isApiConnected, loading: apiLoading } = useAPIConnection();
+  // Backend removed – show client-side status only
+  const isApiConnected = false;
+  const apiLoading = false;
   const colors = themeColors[theme];
 
   // Share functionality with API integration
   const handleShare = async () => {
+    // Backend removed: use native share or clipboard fallback only
     try {
-      const result = await APIService.shareContent(
-        'Larry Corso - Digital Creator & Developer',
-        'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
-        window.location.origin
-      );
+      if (navigator.share) {
+        await navigator.share({
+          title: "Larry Corso - Digital Creator & Developer",
+          text: "Check out Larry Corso's portfolio and creative work.",
+          url: window.location.origin,
+        });
+        return;
+      }
 
-      if (!result.success) {
-        // Fallback to simple clipboard copy
-        await navigator.clipboard.writeText(window.location.origin);
-        alert('Website URL copied to clipboard!');
-      } else if (result.method === 'clipboard') {
-        alert('Website URL copied to clipboard!');
-      }
-    } catch (error) {
-      console.log('Sharing failed:', error);
-      // Final fallback
-      try {
-        await navigator.clipboard.writeText(window.location.origin);
-        alert('Website URL copied to clipboard!');
-      } catch (clipboardError) {
-        console.log('Clipboard access failed:', clipboardError);
-      }
+      await navigator.clipboard.writeText(window.location.origin);
+      alert('Website URL copied to clipboard!');
+    } catch (err) {
+      console.log('Share fallback failed:', err);
     }
   };
 
   // Security/Shield functionality with API connection status
-  const handleSecurity = async () => {
-    try {
-      // Log security check to backend
-      await APIService.testConnectivity({
-        action: 'security_check',
-        page: pathname,
-        timestamp: new Date().toISOString(),
-        api_connected: isApiConnected
-      });
-      
-      window.location.href = '/manifesto';
-    } catch (error) {
-      console.log('Security check logging failed:', error);
-      // Still navigate to manifesto even if logging fails
-      window.location.href = '/manifesto';
-    }
+  const handleSecurity = () => {
+    // Backend removed: navigate directly to manifesto
+    window.location.href = '/manifesto';
   };
 
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
     { href: '/connect', label: 'Connect' },
   ];
 
@@ -183,7 +162,6 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/portfolio', label: 'Portfolio' },
-        { href: '/blog', label: 'Blog' },
         { href: '/manifesto', label: 'Manifesto' },
         { href: '/connect', label: 'Connect' },
       ]
