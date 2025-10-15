@@ -66,7 +66,7 @@ export default function Connect() {
       </div>
 
       {/* Navigation */}
-      <Navigation theme="blue" leftIcon="CONN" />
+      <Navigation theme="blue" leftIcon="LOGO" />
     </div>
   );
 }

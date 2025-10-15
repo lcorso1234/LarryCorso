@@ -464,10 +464,18 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
           <div className="relative flex items-center justify-between px-3 sm:px-6 py-3">
             {/* Left Icon */}
             <div className="flex items-center">
-              <div className={`h-12 w-12 ${colors.leftIconBorder} border-2 rounded-full flex items-center justify-center bg-black ${colors.leftIconGlow}`}>
-                <div className={`${colors.leftIconText} font-bold text-xs`}>
-                  {leftIcon || leftIconText[theme]}
-                </div>
+              <div className={`h-12 w-12 ${colors.leftIconBorder} border-2 rounded-full flex items-center justify-center bg-black ${colors.leftIconGlow} overflow-hidden`}>
+                {leftIcon === 'LOGO' ? (
+                  <img 
+                    src="/logo.svg" 
+                    alt="LC Logo" 
+                    className="w-10 h-10 object-contain"
+                  />
+                ) : (
+                  <div className={`${colors.leftIconText} font-bold text-xs`}>
+                    {leftIcon || leftIconText[theme]}
+                  </div>
+                )}
               </div>
             </div>
             
