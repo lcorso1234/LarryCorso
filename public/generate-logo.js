@@ -1,9 +1,16 @@
 const logo = `
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-  <circle cx="50" cy="50" r="48" fill="#fff" stroke="#666" stroke-width="2"/>
-  <path d="M32,40 Q50,15 68,40" fill="none" stroke="#f55" stroke-width="6" stroke-linecap="round"/>
-  <path d="M32,60 Q50,85 68,60" fill="none" stroke="#f55" stroke-width="6" stroke-linecap="round"/>
-  <text x="50" y="65" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">MARKETING</text>
+  <!-- Bat symbol logo -->
+  <g transform="translate(50, 50) scale(0.5)">
+    <path fill="#000000" d="M -80,-20 Q -90,-40 -95,-30 Q -100,-20 -90,-10 Q -85,0 -75,5 Q -65,8 -55,5 L -40,-5 Q -50,-15 -60,-20 Q -70,-22 -80,-20 Z"/>
+    <path fill="#000000" d="M 80,-20 Q 90,-40 95,-30 Q 100,-20 90,-10 Q 85,0 75,5 Q 65,8 55,5 L 40,-5 Q 50,-15 60,-20 Q 70,-22 80,-20 Z"/>
+    <ellipse fill="#000000" cx="0" cy="-15" rx="15" ry="20"/>
+    <path fill="#000000" d="M -40,-5 Q -45,10 -50,20 Q -55,25 -60,22 Q -58,15 -55,5 L -40,-5 Z"/>
+    <path fill="#000000" d="M 40,-5 Q 45,10 50,20 Q 55,25 60,22 Q 58,15 55,5 L 40,-5 Z"/>
+    <ellipse fill="#000000" cx="0" cy="10" rx="12" ry="18"/>
+    <path fill="#000000" d="M -8,-30 L -12,-40 L -5,-35 Z"/>
+    <path fill="#000000" d="M 8,-30 L 12,-40 L 5,-35 Z"/>
+  </g>
 </svg>
 `;
 
