@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { APIService, useAPIConnection } from '@/lib/api-service';
 
 interface NavigationProps {
@@ -117,7 +117,9 @@ const leftIconText = {
 
 export default function Navigation({ theme, leftIcon }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const { connected: isApiConnected, loading: apiLoading } = useAPIConnection();
   const colors = themeColors[theme];
 
@@ -185,6 +187,164 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
     }
   };
 
+  // Glitch transition with random motivational quotes
+  const navigateWithGlitch = async (href: string) => {
+    if (isTransitioning || pathname === href) return;
+    
+    setIsTransitioning(true);
+    router.prefetch(href);
+    
+    // Random quotes array
+    const quotes = [
+      "Even if you are expecting certain things, here we will always surprise you.",
+      "In your business, we will reveal those small details that make up a surprising big picture.",
+      "Our effort is to deliver more than you expect.",
+      "Start dreaming about all the great things you will enjoy when your vision comes to life.",
+      "We encourage your risky ideas."
+    ];
+    
+    // Get random quote
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    
+    // Neon colors for glitch effect
+    const neonColors = ['#00ff00', '#ff0080', '#00ffff', '#ff8000', '#8000ff'];
+    const primaryColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+    const secondaryColor = neonColors[Math.floor(Math.random() * neonColors.length)];
+    
+    // Create glitch overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-family: 'Courier New', monospace;
+      opacity: 0;
+      transition: opacity 0.2s ease-in;
+    `;
+    
+    // Create glitch text container
+    const textContainer = document.createElement('div');
+    textContainer.style.cssText = `
+      max-width: 80%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    `;
+    
+    // Create main text
+    const mainText = document.createElement('div');
+    mainText.textContent = randomQuote;
+    mainText.style.cssText = `
+      font-size: clamp(1rem, 4vw, 2rem);
+      color: ${primaryColor};
+      text-shadow: 
+        0 0 10px ${primaryColor},
+        0 0 20px ${primaryColor},
+        0 0 30px ${primaryColor};
+      line-height: 1.4;
+      animation: glitchText 0.5s infinite;
+    `;
+    
+    // Create glitch layers
+    const glitchLayer1 = document.createElement('div');
+    glitchLayer1.textContent = randomQuote;
+    glitchLayer1.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: clamp(1rem, 4vw, 2rem);
+      color: ${secondaryColor};
+      mix-blend-mode: screen;
+      animation: glitchLayer1 0.3s infinite;
+      line-height: 1.4;
+    `;
+    
+    const glitchLayer2 = document.createElement('div');
+    glitchLayer2.textContent = randomQuote;
+    glitchLayer2.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      font-size: clamp(1rem, 4vw, 2rem);
+      color: #ff0000;
+      mix-blend-mode: screen;
+      animation: glitchLayer2 0.4s infinite;
+      line-height: 1.4;
+    `;
+    
+    // Create scanlines
+    const scanlines = document.createElement('div');
+    scanlines.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 0, 0.1) 2px,
+        rgba(0, 255, 0, 0.1) 4px
+      );
+      animation: scanlines 2s linear infinite;
+      pointer-events: none;
+    `;
+    
+    // Create noise bars
+    const noiseBar = document.createElement('div');
+    noiseBar.style.cssText = `
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: ${primaryColor};
+      animation: noiseBar 0.2s infinite;
+    `;
+    
+    // Assemble overlay
+    textContainer.appendChild(mainText);
+    textContainer.appendChild(glitchLayer1);
+    textContainer.appendChild(glitchLayer2);
+    overlay.appendChild(textContainer);
+    overlay.appendChild(scanlines);
+    overlay.appendChild(noiseBar);
+    
+    document.body.appendChild(overlay);
+    
+    // Fade in glitch effect
+    setTimeout(() => {
+      overlay.style.opacity = '1';
+    }, 10);
+    
+    // Navigate after glitch duration
+    setTimeout(() => {
+      router.push(href);
+      
+      // Fade out
+      setTimeout(() => {
+        overlay.style.opacity = '0';
+        setTimeout(() => {
+          if (document.body.contains(overlay)) {
+            document.body.removeChild(overlay);
+          }
+          setIsTransitioning(false);
+        }, 200);
+      }, 100);
+    }, 1500);
+  };
+
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
@@ -220,21 +380,25 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
           <div className="p-3">
             <div className="grid grid-cols-2 gap-2">
               {displayNavItems.map((item, index) => (
-                <a
+                <button
                   key={item.href}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMenuOpen(false);
+                    navigateWithGlitch(item.href);
+                  }}
+                  disabled={isTransitioning}
                   className={`px-3 py-2 ${colors.border} border rounded-lg ${
                     isActive(item.href) 
                       ? `text-black ${theme === 'pink' ? 'bg-pink-400' : theme === 'yellow' ? 'bg-yellow-400' : theme === 'blue' ? 'bg-blue-400' : theme === 'green' ? 'bg-green-400' : 'bg-purple-400'}` 
                       : `${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black`
-                  } transition-all duration-200 font-mono uppercase tracking-wider text-sm text-center transform hover:scale-105 active:scale-95 active:translate-y-0.5 hover:shadow-md active:shadow-sm`}
+                  } transition-all duration-200 font-mono uppercase tracking-wider text-sm text-center transform hover:scale-105 active:scale-95 active:translate-y-0.5 hover:shadow-md active:shadow-sm ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
                   <span className="transition-transform duration-200 inline-block hover:scale-110">
                     {item.label}
                   </span>
-                </a>
+                </button>
               ))}
             </div>
           </div>
@@ -310,17 +474,21 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
               {displayNavItems.map((item) => (
-                <a
+                <button
                   key={item.href}
-                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateWithGlitch(item.href);
+                  }}
+                  disabled={isTransitioning}
                   className={`px-3 lg:px-4 xl:px-6 py-3 ${colors.border} border ${
                     isActive(item.href) 
                       ? `text-black ${theme === 'pink' ? 'bg-pink-400' : theme === 'yellow' ? 'bg-yellow-400' : theme === 'blue' ? 'bg-blue-400' : theme === 'green' ? 'bg-green-400' : 'bg-purple-400'}` 
                       : `${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black`
-                  } transition-all duration-300 font-mono uppercase tracking-wider text-xs lg:text-sm ${colors.buttonGlow} ${colors.buttonHoverGlow}`}
+                  } transition-all duration-300 font-mono uppercase tracking-wider text-xs lg:text-sm ${colors.buttonGlow} ${colors.buttonHoverGlow} ${isTransitioning ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
                   {item.label}
-                </a>
+                </button>
               ))}
             </div>
             
