@@ -60,7 +60,7 @@ export default function Manifesto() {
                   → LOVE FIRST, ALWAYS
                 </p>
                 <p className="text-cyan-400 drop-shadow-[0_0_10px_rgba(0,255,255,0.5)]">
-                  → I DON'T WORK FOR YOU - I WORK FOR ME
+                  → I DON&apos;T WORK FOR YOU - I WORK FOR ME
                 </p>
                 <p className="text-orange-400 drop-shadow-[0_0_10px_rgba(255,165,0,0.5)]">
                   → I EXPRESS MYSELF THROUGH YOUR WORK
@@ -90,7 +90,7 @@ export default function Manifesto() {
                   my passion, my relentless drive to push boundaries and challenge the status quo - all rooted in love.
                 </p>
                 <p>
-                  When you work with me, you're not hiring a contractor - you're partnering with a visionary 
+                  When you work with me, you&apos;re not hiring a contractor - you&apos;re partnering with a visionary 
                   who will transform your ideas into something extraordinary, something that carries my signature 
                   of excellence, innovation, and most importantly, love.
                 </p>
@@ -114,7 +114,7 @@ export default function Manifesto() {
                   greatness in action.
                 </p>
                 <p className="text-white/90">
-                  My work is not just for me - it's my gift to the world, my way of showing love 
+                  My work is not just for me - it&apos;s my gift to the world, my way of showing love 
                   through creation, innovation, and unwavering commitment to excellence.
                 </p>
               </div>
@@ -128,12 +128,18 @@ export default function Manifesto() {
                 </span>
               </h2>
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                <a href="/portfolio" className="px-12 py-6 bg-gradient-to-r from-purple-400 to-pink-500 text-white font-black text-xl rounded-[18px] border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105">
+                <Link
+                  href="/portfolio"
+                  className="px-12 py-6 bg-gradient-to-r from-purple-400 to-pink-500 text-white font-black text-xl rounded-[18px] border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105"
+                >
                   SEE MY WORK
-                </a>
-                <a href="/connect" className="px-12 py-6 bg-transparent border-2 border-pink-400 text-pink-400 font-black text-xl rounded-[18px] hover:bg-pink-400 hover:text-white hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:scale-105">
+                </Link>
+                <Link
+                  href="/connect"
+                  className="px-12 py-6 bg-transparent border-2 border-pink-400 text-pink-400 font-black text-xl rounded-[18px] hover:bg-pink-400 hover:text-white hover:shadow-[0_0_30px_rgba(236,72,153,0.8)] transition-all duration-300 transform hover:scale-105"
+                >
                   JOIN THE FAMILY
-                </a>
+                </Link>
               </div>
             </div>
 

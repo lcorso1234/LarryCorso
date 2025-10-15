@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, MouseEvent, TouchEvent } from 'react';
+import { useState, useRef, useCallback, MouseEvent, TouchEvent } from 'react';
 
 interface EnhancedButtonProps {
   children: React.ReactNode;
@@ -24,15 +24,22 @@ export default function EnhancedButton({
   type = 'button'
 }: EnhancedButtonProps) {
   const [ripples, setRipples] = useState<Array<{ x: number; y: number; id: number }>>([]);
-  const buttonRef = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+  const elementRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(null);
   const rippleId = useRef(0);
+  const setElementRef = useCallback((node: HTMLButtonElement | HTMLAnchorElement | null) => {
+    elementRef.current = node;
+  }, []);
 
-  const createRipple = (event: MouseEvent | TouchEvent) => {
-    if (!ripple || !buttonRef.current) return;
+  const createRipple = (event: MouseEvent<HTMLElement> | TouchEvent<HTMLElement>) => {
+    if (!ripple || !elementRef.current) {
+      return;
+    }
 
-    const rect = buttonRef.current.getBoundingClientRect();
-    const clientX = 'clientX' in event ? event.clientX : event.touches[0].clientX;
-    const clientY = 'clientY' in event ? event.clientY : event.touches[0].clientY;
+    const rect = elementRef.current.getBoundingClientRect();
+    const clientX =
+      'clientX' in event ? event.clientX : event.touches[0]?.clientX ?? rect.left;
+    const clientY =
+      'clientY' in event ? event.clientY : event.touches[0]?.clientY ?? rect.top;
     
     const x = clientX - rect.left;
     const y = clientY - rect.top;
@@ -51,7 +58,7 @@ export default function EnhancedButton({
     }, 600);
   };
 
-  const handleInteraction = (event: MouseEvent | TouchEvent) => {
+  const handleInteraction = (event: MouseEvent<HTMLElement> | TouchEvent<HTMLElement>) => {
     createRipple(event);
     if (onClick) {
       onClick();
@@ -105,7 +112,7 @@ export default function EnhancedButton({
   if (href) {
     return (
       <a
-        ref={buttonRef as any}
+        ref={setElementRef}
         href={href}
         className={`${baseClasses} ${variantClasses[variant]} inline-block px-12 py-6 text-center`}
         onMouseDown={handleInteraction}
@@ -118,7 +125,7 @@ export default function EnhancedButton({
 
   return (
     <button
-      ref={buttonRef as any}
+      ref={setElementRef}
       type={type}
       disabled={disabled}
       className={`${baseClasses} ${variantClasses[variant]} px-6 py-2`}

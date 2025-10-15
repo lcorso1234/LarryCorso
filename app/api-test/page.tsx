@@ -1,3 +1,4 @@
+import Link from "next/link";
 import APIConnectionTester from '@/components/APIConnectionTester';
 
 export default function APITestPage() {
@@ -16,12 +17,12 @@ export default function APITestPage() {
         <APIConnectionTester />
         
         <div className="mt-8 text-center">
-          <a 
-            href="/" 
+          <Link
+            href="/"
             className="text-blue-400 hover:text-blue-300 underline"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

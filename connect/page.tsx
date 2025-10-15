@@ -1,4 +1,18 @@
-import Link from 'next/link';
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Connect with Larry Corso",
+  description:
+    "Open a direct channel to Larry Corso. Send transmissions, collaborate on visionary projects, and join the retro-futuristic movement.",
+  keywords: [
+    "contact Larry Corso",
+    "connect",
+    "transmission",
+    "hire night developer",
+    "retro contact page",
+  ],
+};
 
 export default function Connect() {
   const emailLink = 'mailto:lawrence@rumidesign.tech?subject=Digital Vision Project&body=Hello Lawrence,%0A%0AI have a project vision I\'d like to discuss.%0A%0ABest regards';
@@ -17,7 +31,7 @@ export default function Connect() {
           <div className="max-w-4xl mx-auto px-8">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-8">
               <span className="bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-500 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_20px_rgba(236,72,153,0.8)]">
-                LET'S CONNECT
+                LET&apos;S CONNECT
               </span>
             </h1>
             <p className="text-2xl sm:text-3xl font-bold text-pink-400 drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]">
@@ -89,32 +103,50 @@ export default function Connect() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/" className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]">
+              <Link
+                href="/"
+                className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]"
+              >
                 Home
-              </a>
-              <a href="/about" className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]">
+              </Link>
+              <Link
+                href="/about"
+                className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]"
+              >
                 About
-              </a>
-              <a href="/portfolio" className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]">
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]"
+              >
                 Portfolio
-              </a>
+              </Link>
               {/* Blog removed */}
-              <a href="/connect" className="px-6 py-3 border border-cyan-400 text-black bg-cyan-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)]">
+              <Link
+                href="/connect"
+                className="px-6 py-3 border border-cyan-400 text-black bg-cyan-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)]"
+              >
                 Connect
-              </a>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/manifesto" className="h-12 w-12 border-2 border-blue-400 bg-black flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.8)] hover:shadow-[0_0_25px_rgba(59,130,246,1)]">
+              <Link
+                href="/manifesto"
+                className="h-12 w-12 border-2 border-blue-400 bg-black flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.8)] hover:shadow-[0_0_25px_rgba(59,130,246,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a href="/portfolio" className="h-12 w-12 border-2 border-teal-400 bg-black flex items-center justify-center hover:bg-teal-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(20,184,166,0.8)] hover:shadow-[0_0_25px_rgba(20,184,166,1)]">
+              </Link>
+              <Link
+                href="/portfolio"
+                className="h-12 w-12 border-2 border-teal-400 bg-black flex items-center justify-center hover:bg-teal-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(20,184,166,0.8)] hover:shadow-[0_0_25px_rgba(20,184,166,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-teal-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           

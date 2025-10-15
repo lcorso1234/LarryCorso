@@ -2,12 +2,59 @@
 
 import { useState, useEffect } from 'react';
 
+interface ServerMeta {
+  status?: string;
+  environment?: string;
+  uptime?: string;
+  server_info?: {
+    port?: number;
+    host?: string;
+  };
+  endpoints?: Record<string, string>;
+  [key: string]: unknown;
+}
+
+interface HealthResponse extends ServerMeta {
+  message?: string;
+}
+
+interface ConnectivityResponse {
+  message?: string;
+  frontend_backend?: string;
+  api_status?: string;
+  [key: string]: unknown;
+}
+
+interface PostTestResponse {
+  message?: string;
+  echo_test?: string;
+  post_request?: string;
+  [key: string]: unknown;
+}
+
+interface TestResults {
+  health?: {
+    status?: string;
+    message?: string;
+  };
+  connectivity?: {
+    frontend_backend?: string;
+    api_status?: string;
+    message?: string;
+  };
+  postTest?: {
+    echo_test?: string;
+    post_request?: string;
+    message?: string;
+  };
+}
+
 interface ConnectionStatus {
   connected: boolean;
   loading: boolean;
   error: string | null;
   lastCheck: string | null;
-  serverInfo?: any;
+  serverInfo: ServerMeta | null;
 }
 
 export default function APIConnectionTester() {
@@ -15,10 +62,11 @@ export default function APIConnectionTester() {
     connected: false,
     loading: false,
     error: null,
-    lastCheck: null
+    lastCheck: null,
+    serverInfo: null
   });
 
-  const [testResults, setTestResults] = useState<any>(null);
+  const [testResults, setTestResults] = useState<TestResults | null>(null);
 
   const testConnection = async () => {
     setStatus(prev => ({ ...prev, loading: true, error: null }));
@@ -26,7 +74,7 @@ export default function APIConnectionTester() {
     try {
       // Test health endpoint
       const healthResponse = await fetch('/api/health');
-      const healthData = await healthResponse.json();
+      const healthData = (await healthResponse.json()) as HealthResponse;
       
       if (!healthResponse.ok) {
         throw new Error(healthData.message || 'Health check failed');
@@ -34,7 +82,7 @@ export default function APIConnectionTester() {
 
       // Test connectivity endpoint
       const connectResponse = await fetch('/api/connect');
-      const connectData = await connectResponse.json();
+      const connectData = (await connectResponse.json()) as ConnectivityResponse;
       
       if (!connectResponse.ok) {
         throw new Error(connectData.message || 'Connectivity test failed');
@@ -46,7 +94,7 @@ export default function APIConnectionTester() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ test: 'frontend-backend-connection', timestamp: new Date().toISOString() })
       });
-      const postData = await postResponse.json();
+      const postData = (await postResponse.json()) as PostTestResponse;
 
       setStatus({
         connected: true,
@@ -57,9 +105,20 @@ export default function APIConnectionTester() {
       });
 
       setTestResults({
-        health: healthData,
-        connectivity: connectData,
-        postTest: postData
+        health: {
+          status: healthData.status,
+          message: healthData.message
+        },
+        connectivity: {
+          frontend_backend: connectData.frontend_backend,
+          api_status: connectData.api_status,
+          message: connectData.message
+        },
+        postTest: {
+          echo_test: postData.echo_test,
+          post_request: postData.post_request,
+          message: postData.message
+        }
       });
 
     } catch (error) {
@@ -67,7 +126,8 @@ export default function APIConnectionTester() {
         connected: false,
         loading: false,
         error: error instanceof Error ? error.message : 'Connection failed',
-        lastCheck: new Date().toISOString()
+        lastCheck: new Date().toISOString(),
+        serverInfo: null
       });
     }
   };
@@ -190,15 +250,15 @@ export default function APIConnectionTester() {
         <div className="space-y-2 text-sm">
           <div>
             <span className="text-gray-400">Health Check:</span>
-            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch('/api/health')</code>
+            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch(&apos;/api/health&apos;)</code>
           </div>
           <div>
             <span className="text-gray-400">Connectivity Test:</span>
-            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch('/api/connect')</code>
+            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch(&apos;/api/connect&apos;)</code>
           </div>
           <div>
             <span className="text-gray-400">Admin Login:</span>
-            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch('/api/admin/login', {'{'}method: 'POST', body: JSON.stringify({'{'}password: 'pwd'{'}'}){'}'}) </code>
+            <code className="ml-2 bg-gray-800 px-2 py-1 rounded">fetch(&apos;/api/admin/login&apos;, {'{'}method: &apos;POST&apos;, body: JSON.stringify({'{'}password: &apos;pwd&apos;{'}'}){'}'}) </code>
           </div>
         </div>
       </div>

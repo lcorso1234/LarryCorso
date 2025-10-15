@@ -1,6 +1,20 @@
-import Navigation from '@/components/Navigation';
-import ScrollAnimation from '@/components/ScrollAnimation';
-import EnhancedButton from '@/components/EnhancedButton';
+import type { Metadata } from "next";
+import Navigation from "@/components/Navigation";
+import ScrollAnimation from "@/components/ScrollAnimation";
+import EnhancedButton from "@/components/EnhancedButton";
+
+export const metadata: Metadata = {
+  title: "Night Vision Home",
+  description:
+    "Explore Larry Corso&apos;s neon-charged home base, where late-night creativity, bold manifesto statements, and cosmic calls to action come alive.",
+  keywords: [
+    "hero section",
+    "creative manifesto",
+    "nocturnal developer",
+    "retro futurism",
+    "Larry Corso home",
+  ],
+};
 
 export default function Home() {
   return (
@@ -13,7 +27,7 @@ export default function Home() {
             <ScrollAnimation animation="slideInDown" delay={0.2}>
               <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black mb-12 gpu-accelerated">
                 <span className="bg-gradient-to-r from-yellow-400 via-gray-300 to-black bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,255,0,0.8)]">
-                  I DON'T WORK FOR YOU
+                  I DON&apos;T WORK FOR YOU
                 </span>
               </h1>
             </ScrollAnimation>
@@ -66,8 +80,8 @@ export default function Home() {
                 </h3>
                 <p className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 text-gray-100 leading-relaxed">
                   When you engage us for implementing your business and brand strategies, 
-                  <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(255,255,0,0.6)]"> you're not just getting a service</span> — 
-                  <span className="text-orange-400 drop-shadow-[0_0_10px_rgba(255,165,0,0.6)]"> you're acquiring a work of art</span>.
+                  <span className="text-yellow-400 drop-shadow-[0_0_10px_rgba(255,255,0,0.6)]"> you&apos;re not just getting a service</span> — 
+                  <span className="text-orange-400 drop-shadow-[0_0_10px_rgba(255,165,0,0.6)]"> you&apos;re acquiring a work of art</span>.
                 </p>
                 <p className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-300 mb-8">
                   Each strategy we craft is <span className="text-red-400 font-black">PRICELESS</span>{' '}

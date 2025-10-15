@@ -128,7 +128,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-green-400 mb-3">Clothing and Fashion <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Revolutionizing the fashion industry through sustainable materials and ethical production that doesn't compromise style for conscience. My visionary approach to clothing transforms fast fashion into a force for environmental healing while keeping humans looking absolutely legendary. <span className="text-yellow-400 font-bold">Seeking crowdfunding to make fashion sustainable and fierce.</span></p>
+                <p className="text-gray-300 mb-4">Revolutionizing the fashion industry through sustainable materials and ethical production that doesn&apos;t compromise style for conscience. My visionary approach to clothing transforms fast fashion into a force for environmental healing while keeping humans looking absolutely legendary. <span className="text-yellow-400 font-bold">Seeking crowdfunding to make fashion sustainable and fierce.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Sustainable Materials</span>
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Ethical Production</span>
@@ -185,7 +185,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-orange-400 mb-3">Animal Shelter <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Building the world's most badass animal sanctuary that actually gives a damn about every creature on this planet! My revolutionary shelter design creates healing environments for animals AND fish, combining cutting-edge veterinary care with emotional rehabilitation that restores their trust in humanity. No animal left behind. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save every animal and fish on Earth.</span></p>
+                <p className="text-gray-300 mb-4">Building the world&apos;s most badass animal sanctuary that actually gives a damn about every creature on this planet! My revolutionary shelter design creates healing environments for animals AND fish, combining cutting-edge veterinary care with emotional rehabilitation that restores their trust in humanity. No animal left behind. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save every animal and fish on Earth.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Animal Rehabilitation</span>
                   <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Marine Sanctuary</span>
@@ -204,7 +204,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-teal-400 mb-3">Global Travel Agency <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Reconnecting displaced Americans with their ancestral homelands to rebuild what was lost! My revolutionary travel agency doesn't just book trips - we orchestrate homecoming missions that help people rediscover their roots and contribute to rebuilding their ancestral communities with modern infrastructure and ancient wisdom. <span className="text-yellow-400 font-bold">Seeking crowdfunding to reconnect humanity with its origins.</span></p>
+                <p className="text-gray-300 mb-4">Reconnecting displaced Americans with their ancestral homelands to rebuild what was lost! My revolutionary travel agency doesn&apos;t just book trips - we orchestrate homecoming missions that help people rediscover their roots and contribute to rebuilding their ancestral communities with modern infrastructure and ancient wisdom. <span className="text-yellow-400 font-bold">Seeking crowdfunding to reconnect humanity with its origins.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Heritage Reconnection</span>
                   <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Infrastructure Building</span>
@@ -223,7 +223,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-amber-400 mb-3">Relic Collection <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Hunting down humanity's lost treasures and sharing their secrets with the world! My relic collection mission rescues ancient artifacts from obscurity and creates immersive experiences that let people touch, feel, and learn from our ancestors' wisdom. History isn't meant to gather dust - it's meant to inspire the future. <span className="text-yellow-400 font-bold">Seeking crowdfunding to preserve and share ancient wisdom.</span></p>
+                <p className="text-gray-300 mb-4">Hunting down humanity&apos;s lost treasures and sharing their secrets with the world! My relic collection mission rescues ancient artifacts from obscurity and creates immersive experiences that let people touch, feel, and learn from our ancestors&apos; wisdom. History isn&apos;t meant to gather dust - it&apos;s meant to inspire the future. <span className="text-yellow-400 font-bold">Seeking crowdfunding to preserve and share ancient wisdom.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-amber-400/20 text-amber-400 text-sm border border-amber-400/50">Artifact Recovery</span>
                   <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Historical Preservation</span>
@@ -242,7 +242,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-violet-400 mb-3">Community for Outcasts <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Creating the world's first true sanctuary where society's outcasts can finally feel safe, understood, and valued! My revolutionary community model provides judgment-free spaces where people can heal from trauma, addiction, and rejection while building genuine connections with others who truly get it. No masks required here. <span className="text-yellow-400 font-bold">Seeking crowdfunding to build safe havens for the forgotten.</span></p>
+                <p className="text-gray-300 mb-4">Creating the world&apos;s first true sanctuary where society&apos;s outcasts can finally feel safe, understood, and valued! My revolutionary community model provides judgment-free spaces where people can heal from trauma, addiction, and rejection while building genuine connections with others who truly get it. No masks required here. <span className="text-yellow-400 font-bold">Seeking crowdfunding to build safe havens for the forgotten.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-violet-400/20 text-violet-400 text-sm border border-violet-400/50">Safe Spaces</span>
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Trauma Recovery</span>
@@ -261,7 +261,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-rose-400 mb-3">Music & Kid Books <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Crafting revolutionary music and children's books that plant seeds of freedom in young minds before society can cage their spirits! My creative arsenal guides the next generation toward Earth liberation through stories and songs that teach them to question everything, love fiercely, and never surrender their wild hearts to conformity. <span className="text-yellow-400 font-bold">Seeking crowdfunding to raise freedom fighters through art.</span></p>
+                <p className="text-gray-300 mb-4">Crafting revolutionary music and children&apos;s books that plant seeds of freedom in young minds before society can cage their spirits! My creative arsenal guides the next generation toward Earth liberation through stories and songs that teach them to question everything, love fiercely, and never surrender their wild hearts to conformity. <span className="text-yellow-400 font-bold">Seeking crowdfunding to raise freedom fighters through art.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-rose-400/20 text-rose-400 text-sm border border-rose-400/50">Freedom Music</span>
                   <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">Liberation Stories</span>
@@ -280,7 +280,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-emerald-400 mb-3">Movie Industry Revolution <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Dismantling Hollywood's fake-ass system and rebuilding cinema with actors who can actually ACT and stories that reflect real human truth! My revolutionary studio prioritizes raw talent over pretty faces, authentic emotions over CGI spectacle, and life lessons that actually matter over mindless entertainment. Time to make movies that heal souls instead of numbing them. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring truth back to cinema.</span></p>
+                <p className="text-gray-300 mb-4">Dismantling Hollywood&apos;s fake-ass system and rebuilding cinema with actors who can actually ACT and stories that reflect real human truth! My revolutionary studio prioritizes raw talent over pretty faces, authentic emotions over CGI spectacle, and life lessons that actually matter over mindless entertainment. Time to make movies that heal souls instead of numbing them. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring truth back to cinema.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-emerald-400/20 text-emerald-400 text-sm border border-emerald-400/50">Authentic Acting</span>
                   <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Truth Storytelling</span>
@@ -299,7 +299,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-slate-400 mb-3">Restaurant Experience <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Revolutionizing dining through "The Penguin Cafe" - where spontaneity is the spice of life! My home-restaurant network lets people transform their homes into cultural dining experiences, serving family recipes in environments that celebrate their heritage and bring pure joy. No corporate chains, just authentic souls sharing their culture through food and love. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring authentic dining back to humanity.</span></p>
+                <p className="text-gray-300 mb-4">Revolutionizing dining through &quot;The Penguin Cafe&quot; - where spontaneity is the spice of life! My home-restaurant network lets people transform their homes into cultural dining experiences, serving family recipes in environments that celebrate their heritage and bring pure joy. No corporate chains, just authentic souls sharing their culture through food and love. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring authentic dining back to humanity.</span></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-slate-400/20 text-slate-400 text-sm border border-slate-400/50">Home Restaurants</span>
                   <span className="px-3 py-1 bg-gray-400/20 text-gray-400 text-sm border border-gray-400/50">Cultural Celebration</span>
@@ -364,15 +364,21 @@ export default function Portfolio() {
               These world-changing projects need visionaries, innovators, and changemakers. Join the revolution.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href="/connect" className="px-12 py-6 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-xl border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+              <Link
+                href="/connect"
+                className="px-12 py-6 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-xl border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105 text-center"
+              >
                 START A PROJECT
-              </a>
-              <a href="mailto:lawrence@rumidesign.tech?subject=I Want To Help Change The World&body=Hello Lawrence,%0A%0AI'm interested in joining your world-changing initiatives. I want to help with:%0A%0A- Brand Strategy%0A- Mental Health Revolution%0A- Earth Homes & Global Harmony%0A- Nano Technology Healthcare%0A- Clothing & Fashion Impact%0A- Gaming Innovation%0A- Educational Systems Revolution%0A- Animal Shelter & Liberation%0A- Global Travel & Heritage Agency%0A- Relic Collection & Ancient Wisdom%0A- Community for Outcasts & Recovery%0A- Music & Kid Books for Earth Freedom%0A- Movie Industry Revolution & Truth Cinema%0A- The Penguin Cafe Restaurant Experience%0A- Bebo Authentic Shopping Platform%0A%0AHere's how I can contribute:%0A%0ABest regards" className="px-12 py-6 bg-gradient-to-r from-green-400 to-cyan-400 text-black font-black text-xl border-2 border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+              </Link>
+              <a href="mailto:lawrence@rumidesign.tech?subject=I Want To Help Change The World&body=Hello Lawrence,%0A%0AI&apos;m interested in joining your world-changing initiatives. I want to help with:%0A%0A- Brand Strategy%0A- Mental Health Revolution%0A- Earth Homes & Global Harmony%0A- Nano Technology Healthcare%0A- Clothing & Fashion Impact%0A- Gaming Innovation%0A- Educational Systems Revolution%0A- Animal Shelter & Liberation%0A- Global Travel & Heritage Agency%0A- Relic Collection & Ancient Wisdom%0A- Community for Outcasts & Recovery%0A- Music & Kid Books for Earth Freedom%0A- Movie Industry Revolution & Truth Cinema%0A- The Penguin Cafe Restaurant Experience%0A- Bebo Authentic Shopping Platform%0A%0AHere&apos;s how I can contribute:%0A%0ABest regards" className="px-12 py-6 bg-gradient-to-r from-green-400 to-cyan-400 text-black font-black text-xl border-2 border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
                 WE ARE HIRING 🌍
               </a>
-              <a href="/manifesto" className="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 font-black text-xl hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+              <Link
+                href="/manifesto"
+                className="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 font-black text-xl hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transition-all duration-300 transform hover:scale-105 text-center"
+              >
                 READ MY MANIFESTO
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -425,12 +431,18 @@ export default function Portfolio() {
               </div>
               
               <div className="flex gap-3">
-                <a href="/connect" className="flex-1 py-3 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(147,51,234,0.8)] transition-all duration-300">
+                <Link
+                  href="/connect"
+                  className="flex-1 py-3 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(147,51,234,0.8)] transition-all duration-300"
+                >
                   HIRE ME
-                </a>
-                <a href="/manifesto" className="flex-1 py-3 border border-purple-400 text-purple-400 font-black text-center hover:bg-purple-400 hover:text-black transition-all duration-300">
+                </Link>
+                <Link
+                  href="/manifesto"
+                  className="flex-1 py-3 border border-purple-400 text-purple-400 font-black text-center hover:bg-purple-400 hover:text-black transition-all duration-300"
+                >
                   MY STORY
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -477,9 +489,12 @@ export default function Portfolio() {
               </div>
               
               <div className="space-y-3">
-                <a href="/connect" className="block w-full py-3 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all duration-300">
+                <Link
+                  href="/connect"
+                  className="block w-full py-3 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all duration-300"
+                >
                   START PROJECT
-                </a>
+                </Link>
                 <Link href="/" className="block w-full py-3 border border-cyan-400 text-cyan-400 font-black text-center hover:bg-cyan-400 hover:text-black transition-all duration-300">
                   BACK TO VISION
                 </Link>

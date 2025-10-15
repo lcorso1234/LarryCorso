@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { APIService, useAPIConnection } from '@/lib/api-service';
@@ -502,22 +503,22 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
             
             {/* Right Icons - Desktop only */}
             <div className="hidden md:flex items-center space-x-2">
-              <a 
-                href="/manifesto" 
+              <Link
+                href="/manifesto"
                 className={`h-12 w-12 ${colors.rightIcon1Border} border-2 bg-black flex items-center justify-center hover:bg-red-400 hover:text-black transition-all duration-300 ${colors.rightIcon1Glow} ${colors.rightIcon1HoverGlow}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.rightIcon1Text} hover:text-black`} viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a 
-                href="/connect" 
+              </Link>
+              <Link
+                href="/connect"
                 className={`h-12 w-12 ${colors.rightIcon2Border} border-2 bg-black flex items-center justify-center hover:bg-purple-400 hover:text-black transition-all duration-300 ${colors.rightIcon2Glow} ${colors.rightIcon2HoverGlow}`}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.rightIcon2Text} hover:text-black`} viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           

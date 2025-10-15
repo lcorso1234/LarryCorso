@@ -1,11 +1,25 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { APIService } from '@/lib/api-service';
 
+interface PageSummary {
+  title?: string;
+  name?: string;
+  [key: string]: unknown;
+}
+
+interface SecurityLogEntry {
+  event?: string;
+  action?: string;
+  message?: string;
+  [key: string]: unknown;
+}
+
 interface AdminData {
-  pages?: Record<string, any>;  // Pages are stored as an object
-  securityLogs?: any[];        // Security logs are an array
+  pages?: Record<string, PageSummary>;
+  securityLogs?: SecurityLogEntry[];
 }
 
 export default function AdminDashboard() {
@@ -59,12 +73,52 @@ export default function AdminDashboard() {
           APIService.getSecurityLogs(token).catch(() => null),
         ]);
 
-        // Extract the actual data from API responses
-        const pages = pagesResponse?.pages || pagesResponse || {};
-        const securityLogs = securityLogsResponse?.logs || securityLogsResponse || [];
+        const extractPages = (input: unknown): Record<string, PageSummary> => {
+          const source =
+            input && typeof input === 'object' && !Array.isArray(input) && 'pages' in input
+              ? (input as { pages?: unknown }).pages
+              : input;
+          if (!source || typeof source !== 'object') {
+            return {};
+          }
+          if (Array.isArray(source)) {
+            return source.reduce<Record<string, PageSummary>>((acc, value, index) => {
+              if (value && typeof value === 'object') {
+                acc[String(index)] = value as PageSummary;
+              }
+              return acc;
+            }, {});
+          }
+          return Object.entries(source as Record<string, unknown>).reduce<Record<string, PageSummary>>(
+            (acc, [key, value]) => {
+              if (value && typeof value === 'object') {
+                acc[key] = value as PageSummary;
+              }
+              return acc;
+            },
+            {}
+          );
+        };
 
-  console.log('Loaded admin data:', { pages, securityLogs });
-  setAdminData({ pages, securityLogs });
+        const extractLogs = (input: unknown): SecurityLogEntry[] => {
+          const source =
+            input && typeof input === 'object' && !Array.isArray(input) && 'logs' in input
+              ? (input as { logs?: unknown }).logs
+              : input;
+          if (!Array.isArray(source)) {
+            return [];
+          }
+          return source.filter((log): log is SecurityLogEntry => !!log && typeof log === 'object');
+        };
+
+        const pagesData = extractPages(pagesResponse);
+        const securityLogData = extractLogs(securityLogsResponse);
+
+        console.log('Loaded admin data:', { pages: pagesData, securityLogs: securityLogData });
+        setAdminData({
+          pages: pagesData,
+          securityLogs: securityLogData,
+        });
     } catch (error) {
       console.error('Failed to load admin data:', error);
     }
@@ -147,9 +201,9 @@ export default function AdminDashboard() {
           </form>
           
           <div className="mt-6 text-center">
-            <a href="/" className="text-blue-400 hover:text-blue-300 underline font-mono">
+            <Link href="/" className="text-blue-400 hover:text-blue-300 underline font-mono">
               ← Back to Website
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -186,7 +240,7 @@ export default function AdminDashboard() {
               <div className="space-y-2">
                 <p className="text-gray-300">Total Pages: {Object.keys(adminData.pages).length}</p>
                 <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
-                  {Object.values(adminData.pages).map((page: any, index) => (
+                  {Object.values(adminData.pages).map((page, index) => (
                     <div key={index} className="border-b border-gray-700 pb-1">
                       {page.title || page.name || `Page ${index + 1}`}
                     </div>
@@ -224,26 +278,26 @@ export default function AdminDashboard() {
         <div className="mt-8 p-4 bg-gray-900 border border-yellow-500 rounded-lg">
           <h2 className="text-xl font-bold text-yellow-400 mb-4">🔧 API Test Center</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <a 
+            <Link
               href="/api-test"
               className="p-3 bg-black border border-green-500 rounded text-center text-green-400 hover:bg-green-500 hover:text-black transition-colors"
             >
               Full API Tester
-            </a>
-            <a 
+            </Link>
+            <Link
               href="/api/health"
               target="_blank"
               className="p-3 bg-black border border-blue-500 rounded text-center text-blue-400 hover:bg-blue-500 hover:text-black transition-colors"
             >
               Health Check
-            </a>
-            <a 
+            </Link>
+            <Link
               href="/api/connect"
               target="_blank"
               className="p-3 bg-black border border-purple-500 rounded text-center text-purple-400 hover:bg-purple-500 hover:text-black transition-colors"
             >
               Connectivity Test
-            </a>
+            </Link>
           </div>
         </div>
       </div>

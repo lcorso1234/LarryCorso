@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 // Frontend API utility functions
 export class FrontendAPI {
@@ -23,7 +23,7 @@ export class FrontendAPI {
     }
   }
 
-  static async testConnectivity(data?: any) {
+  static async testConnectivity(data?: Record<string, unknown>) {
     try {
       const response = await fetch(`${this.baseURL}/api/connect`, {
         method: data ? 'POST' : 'GET',
@@ -64,7 +64,7 @@ export class FrontendAPI {
   }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const apiInfo = {
       name: 'Larry Corso Portfolio API',
@@ -111,7 +111,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-export async function OPTIONS(request: NextRequest) {
+export async function OPTIONS() {
   const response = new NextResponse(null, { status: 200 });
   
   response.headers.set('Access-Control-Allow-Origin', '*');

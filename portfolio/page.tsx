@@ -244,32 +244,50 @@ export default function Portfolio() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/" className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]">
+              <Link
+                href="/"
+                className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]"
+              >
                 Home
-              </a>
-              <a href="/about" className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]">
+              </Link>
+              <Link
+                href="/about"
+                className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]"
+              >
                 About
-              </a>
-              <a href="/portfolio" className="px-6 py-3 border border-purple-400 text-black bg-purple-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-6 py-3 border border-purple-400 text-black bg-purple-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)]"
+              >
                 Portfolio
-              </a>
+              </Link>
               {/* Blog removed */}
-              <a href="/connect" className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]">
+              <Link
+                href="/connect"
+                className="px-6 py-3 border border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(147,51,234,0.5)] hover:shadow-[0_0_20px_rgba(147,51,234,1)]"
+              >
                 Connect
-              </a>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/manifesto" className="h-12 w-12 border-2 border-blue-400 bg-black flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.8)] hover:shadow-[0_0_25px_rgba(59,130,246,1)]">
+              <Link
+                href="/manifesto"
+                className="h-12 w-12 border-2 border-blue-400 bg-black flex items-center justify-center hover:bg-blue-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.8)] hover:shadow-[0_0_25px_rgba(59,130,246,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a href="/connect" className="h-12 w-12 border-2 border-cyan-400 bg-black flex items-center justify-center hover:bg-cyan-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.8)] hover:shadow-[0_0_25px_rgba(6,182,212,1)]">
+              </Link>
+              <Link
+                href="/connect"
+                className="h-12 w-12 border-2 border-cyan-400 bg-black flex items-center justify-center hover:bg-cyan-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.8)] hover:shadow-[0_0_25px_rgba(6,182,212,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-cyan-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -323,12 +341,18 @@ export default function Portfolio() {
               </div>
               
               <div className="flex gap-3">
-                <a href="/connect" className="flex-1 py-3 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(147,51,234,0.8)] transition-all duration-300">
+                <Link
+                  href="/connect"
+                  className="flex-1 py-3 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(147,51,234,0.8)] transition-all duration-300"
+                >
                   HIRE ME
-                </a>
-                <a href="/manifesto" className="flex-1 py-3 border border-purple-400 text-purple-400 font-black text-center hover:bg-purple-400 hover:text-black transition-all duration-300">
+                </Link>
+                <Link
+                  href="/manifesto"
+                  className="flex-1 py-3 border border-purple-400 text-purple-400 font-black text-center hover:bg-purple-400 hover:text-black transition-all duration-300"
+                >
                   MY STORY
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -375,9 +399,12 @@ export default function Portfolio() {
               </div>
               
               <div className="space-y-3">
-                <a href="/connect" className="block w-full py-3 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all duration-300">
+                <Link
+                  href="/connect"
+                  className="block w-full py-3 bg-gradient-to-r from-cyan-400 to-purple-500 text-black font-black text-center hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] transition-all duration-300"
+                >
                   START PROJECT
-                </a>
+                </Link>
                 <Link href="/" className="block w-full py-3 border border-cyan-400 text-cyan-400 font-black text-center hover:bg-cyan-400 hover:text-black transition-all duration-300">
                   BACK TO VISION
                 </Link>

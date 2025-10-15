@@ -1,3 +1,19 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About Larry Corso",
+  description:
+    "Meet Larry Corso, the cosmic developer guarding night missions with human-centered design, bold activism, and relentless creativity.",
+  keywords: [
+    "about Larry Corso",
+    "digital guardian",
+    "night worker",
+    "mission statement",
+    "retro manifesto",
+  ],
+};
+
 export default function About() {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -96,7 +112,7 @@ export default function About() {
           {/* Mission Statement */}
           <div className="bg-black/60 border border-yellow-400/50 rounded-[24px] p-12 backdrop-blur-sm shadow-[0_0_50px_rgba(255,255,0,0.2)]">
             <h2 className="text-4xl font-black mb-8 text-yellow-400">
-              LARRY CORSO'S MANIFESTO
+              LARRY CORSO&apos;S MANIFESTO
             </h2>
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-white/90">
@@ -104,7 +120,7 @@ export default function About() {
                 <span className="text-yellow-400 font-bold"> This planet needs protectors</span>, not exploiters.
               </p>
               <p className="text-white/90">
-                I don't build for the suits in boardrooms. Breaking through the barriers of convention, I create for the 
+                I don&apos;t build for the suits in boardrooms. Breaking through the barriers of convention, I create for the 
                 <span className="text-cyan-400 font-bold"> misfits, the dreamers, the rebels</span> who see the world 
                 not as it is, but as it could be.
               </p>
@@ -121,7 +137,7 @@ export default function About() {
             <div className="bg-black/40 border border-cyan-400/40 rounded-[20px] p-8 hover:bg-cyan-400/10 transition-all duration-300">
               <h3 className="text-2xl font-black text-cyan-400 mb-4">FOR THE EARTH</h3>
               <p className="text-white/80">
-                Technology that heals instead of harms. Solutions that protect our planet's future, 
+                Technology that heals instead of harms. Solutions that protect our planet&apos;s future, 
                 not exploit its resources.
               </p>
             </div>
@@ -157,22 +173,22 @@ export default function About() {
               READY TO WORK WITH LARRY CORSO?
             </h3>
             <p className="text-xl text-white/90 mb-8">
-              If you're fighting for something bigger than profit, if you're building for the future, 
-              if you're one of the weirdos and underdogs - let's create cosmic change together. From the outer edges of possibility to the heart of transformation.
+              If you&apos;re fighting for something bigger than profit, if you&apos;re building for the future, 
+              if you&apos;re one of the weirdos and underdogs - let&apos;s create cosmic change together. From the outer edges of possibility to the heart of transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a 
-                href="/connect" 
+              <Link
+                href="/connect"
                 className="px-12 py-4 bg-gradient-to-r from-purple-400 to-pink-500 text-white font-black text-xl rounded-[18px] hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105"
               >
                 CONTACT LARRY CORSO
-              </a>
-              <a 
-                href="/portfolio" 
+              </Link>
+              <Link
+                href="/portfolio"
                 className="px-12 py-4 bg-transparent border-2 border-purple-400 text-purple-400 font-black text-xl rounded-[18px] hover:bg-purple-400 hover:text-black hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105"
               >
                 SEE THE COSMIC WORK
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -204,32 +220,50 @@ export default function About() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
+              <Link
+                href="/"
+                className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]"
+              >
                 Home
-              </a>
-              <a href="/about" className="px-6 py-3 border border-yellow-400 text-black bg-yellow-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)]">
+              </Link>
+              <Link
+                href="/about"
+                className="px-6 py-3 border border-yellow-400 text-black bg-yellow-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)]"
+              >
                 About
-              </a>
-              <a href="/portfolio" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]"
+              >
                 Portfolio
-              </a>
+              </Link>
               {/* Blog removed */}
-              <a href="/connect" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
+              <Link
+                href="/connect"
+                className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]"
+              >
                 Connect
-              </a>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/manifesto" className="h-12 w-12 border-2 border-orange-400 bg-black flex items-center justify-center hover:bg-orange-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(251,146,60,0.8)] hover:shadow-[0_0_25px_rgba(251,146,60,1)]">
+              <Link
+                href="/manifesto"
+                className="h-12 w-12 border-2 border-orange-400 bg-black flex items-center justify-center hover:bg-orange-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(251,146,60,0.8)] hover:shadow-[0_0_25px_rgba(251,146,60,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a href="/connect" className="h-12 w-12 border-2 border-red-400 bg-black flex items-center justify-center hover:bg-red-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(248,113,113,0.8)] hover:shadow-[0_0_25px_rgba(248,113,113,1)]">
+              </Link>
+              <Link
+                href="/connect"
+                className="h-12 w-12 border-2 border-red-400 bg-black flex items-center justify-center hover:bg-red-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(248,113,113,0.8)] hover:shadow-[0_0_25px_rgba(248,113,113,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           

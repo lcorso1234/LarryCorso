@@ -57,7 +57,7 @@ export default function Blog() {
           <ScrollAnimation animation="fadeInUp" delay={0.3}>
             <div className="space-y-6 text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto">
               <p className="leading-relaxed">
-                The night worker's journal is being crafted in the shadows. 
+                The night worker&apos;s journal is being crafted in the shadows. 
                 <span className="text-blue-400 font-semibold"> Deep insights</span>, 
                 <span className="text-purple-400 font-semibold"> breakthrough strategies</span>, and 
                 <span className="text-green-400 font-semibold"> visionary perspectives</span> 

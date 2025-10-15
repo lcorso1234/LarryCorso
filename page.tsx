@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -8,7 +10,7 @@ export default function Home() {
             {/* Main Title */}
             <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black mb-8">
               <span className="bg-gradient-to-r from-yellow-400 via-gray-300 to-black bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,255,0,0.8)]">
-                I DON'T WORK FOR YOU
+                I DON&apos;T WORK FOR YOU
               </span>
             </h1>
 
@@ -59,12 +61,18 @@ export default function Home() {
 
             {/* Call to Action */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href="/portfolio" className="px-12 py-6 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-black text-xl border-2 border-yellow-400 hover:shadow-[0_0_30px_rgba(255,255,0,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+              <Link
+                href="/portfolio"
+                className="px-12 py-6 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-black text-xl border-2 border-yellow-400 hover:shadow-[0_0_30px_rgba(255,255,0,0.8)] transition-all duration-300 transform hover:scale-105 text-center"
+              >
                 WITNESS THE DARKNESS
-              </a>
-              <a href="/connect" className="px-12 py-6 bg-transparent border-2 border-gray-400 text-gray-300 font-black text-xl hover:bg-gray-400 hover:text-black hover:shadow-[0_0_30px_rgba(156,163,175,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+              </Link>
+              <Link
+                href="/connect"
+                className="px-12 py-6 bg-transparent border-2 border-gray-400 text-gray-300 font-black text-xl hover:bg-gray-400 hover:text-black hover:shadow-[0_0_30px_rgba(156,163,175,0.8)] transition-all duration-300 transform hover:scale-105 text-center"
+              >
                 SIGNAL THE BAT
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -95,32 +103,50 @@ export default function Home() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/" className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]">
+              <Link
+                href="/"
+                className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]"
+              >
                 Home
-              </a>
-              <a href="/about" className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]">
+              </Link>
+              <Link
+                href="/about"
+                className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]"
+              >
                 About
-              </a>
-              <a href="/portfolio" className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]">
+              </Link>
+              <Link
+                href="/portfolio"
+                className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]"
+              >
                 Portfolio
-              </a>
+              </Link>
               {/* Blog removed */}
-              <a href="/connect" className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]">
+              <Link
+                href="/connect"
+                className="px-6 py-3 border border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(255,20,147,0.5)] hover:shadow-[0_0_20px_rgba(255,20,147,1)]"
+              >
                 Connect
-              </a>
+              </Link>
             </div>
             
             <div className="flex items-center space-x-2">
-              <a href="/manifesto" className="h-12 w-12 border-2 border-red-400 bg-black flex items-center justify-center hover:bg-red-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.8)] hover:shadow-[0_0_25px_rgba(239,68,68,1)]">
+              <Link
+                href="/manifesto"
+                className="h-12 w-12 border-2 border-red-400 bg-black flex items-center justify-center hover:bg-red-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.8)] hover:shadow-[0_0_25px_rgba(239,68,68,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-red-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                 </svg>
-              </a>
-              <a href="/connect" className="h-12 w-12 border-2 border-purple-400 bg-black flex items-center justify-center hover:bg-purple-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(147,51,234,0.8)] hover:shadow-[0_0_25px_rgba(147,51,234,1)]">
+              </Link>
+              <Link
+                href="/connect"
+                className="h-12 w-12 border-2 border-purple-400 bg-black flex items-center justify-center hover:bg-purple-400 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(147,51,234,0.8)] hover:shadow-[0_0_25px_rgba(147,51,234,1)]"
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-purple-400 hover:text-black" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M18 3a1 1 0 00-1.447-.894L8.763 6H5a3 3 0 000 6h.28l1.771 5.316A1 1 0 008 18h1a1 1 0 001-1v-4.382l6.553 3.276A1 1 0 0018 15V3z" clipRule="evenodd" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
           

@@ -1,4 +1,5 @@
-import Navigation from '@/components/Navigation';
+import Link from "next/link";
+import Navigation from "@/components/Navigation";
 
 export default function About() {
   return (
@@ -48,7 +49,7 @@ export default function About() {
 
       {/* Content */}
       <div className="relative z-20 min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-4xl mx-auto space-y-12 text-center pb-32">\
+        <div className="max-w-4xl mx-auto space-y-12 text-center pb-32">
           
           {/* Main Title */}
           <div className="space-y-6">
@@ -98,7 +99,7 @@ export default function About() {
           {/* Mission Statement */}
           <div className="bg-black/60 border border-yellow-400/50 rounded-[24px] p-12 backdrop-blur-sm shadow-[0_0_50px_rgba(255,255,0,0.2)]">
             <h2 className="text-4xl font-black mb-8 text-yellow-400">
-              LARRY CORSO'S MANIFESTO
+              LARRY CORSO&apos;S MANIFESTO
             </h2>
             <div className="space-y-6 text-lg leading-relaxed">
               <p className="text-white/90">
@@ -106,7 +107,7 @@ export default function About() {
                 <span className="text-yellow-400 font-bold"> This planet needs protectors</span>, not exploiters.
               </p>
               <p className="text-white/90">
-                I don't build for the suits in boardrooms. Breaking through the barriers of convention, I create for the 
+                I don&apos;t build for the suits in boardrooms. Breaking through the barriers of convention, I create for the 
                 <span className="text-cyan-400 font-bold"> misfits, the dreamers, the rebels</span> who see the world 
                 not as it is, but as it could be.
               </p>
@@ -123,7 +124,7 @@ export default function About() {
             <div className="bg-black/40 border border-cyan-400/40 rounded-[20px] p-8 hover:bg-cyan-400/10 transition-all duration-300">
               <h3 className="text-2xl font-black text-cyan-400 mb-4">FOR THE EARTH</h3>
               <p className="text-white/80">
-                Technology that heals instead of harms. Solutions that protect our planet's future, 
+                Technology that heals instead of harms. Solutions that protect our planet&apos;s future, 
                 not exploit its resources.
               </p>
             </div>
@@ -159,22 +160,22 @@ export default function About() {
               READY TO WORK WITH LARRY CORSO?
             </h3>
             <p className="text-xl text-white/90 mb-8">
-              If you're fighting for something bigger than profit, if you're building for the future, 
-              if you're one of the weirdos and underdogs - let's create cosmic change together. From the outer edges of possibility to the heart of transformation.
+              If you&apos;re fighting for something bigger than profit, if you&apos;re building for the future, 
+              if you&apos;re one of the weirdos and underdogs - let&apos;s create cosmic change together. From the outer edges of possibility to the heart of transformation.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <a 
-                href="/connect" 
+              <Link
+                href="/connect"
                 className="px-12 py-4 bg-gradient-to-r from-purple-400 to-pink-500 text-white font-black text-xl rounded-[18px] hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105"
               >
                 CONTACT LARRY CORSO
-              </a>
-              <a 
-                href="/portfolio" 
+              </Link>
+              <Link
+                href="/portfolio"
                 className="px-12 py-4 bg-transparent border-2 border-purple-400 text-purple-400 font-black text-xl rounded-[18px] hover:bg-purple-400 hover:text-black hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105"
               >
                 SEE THE COSMIC WORK
-              </a>
+              </Link>
             </div>
           </div>
 
