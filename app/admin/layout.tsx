@@ -111,16 +111,7 @@ export default function AdminLayout({
                 >
                   Pages
                 </Link>
-                <Link
-                  href="/admin/blog"
-                  className={`px-3 py-2 rounded-md text-sm font-medium ${
-                    pathname.startsWith('/admin/blog')
-                      ? 'bg-gray-700 text-white'
-                      : 'text-gray-300 hover:text-white hover:bg-gray-700'
-                  }`}
-                >
-                  Blog
-                </Link>
+                
               </div>
             </div>
             <div className="flex items-center space-x-4">

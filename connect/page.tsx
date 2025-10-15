@@ -98,9 +98,7 @@ export default function Connect() {
               <a href="/portfolio" className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]">
                 Portfolio
               </a>
-              <a href="/blog" className="px-6 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)] hover:shadow-[0_0_20px_rgba(6,182,212,1)]">
-                Blog
-              </a>
+              {/* Blog removed */}
               <a href="/connect" className="px-6 py-3 border border-cyan-400 text-black bg-cyan-400 transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(6,182,212,0.5)]">
                 Connect
               </a>

@@ -8,10 +8,6 @@
       "destination": "/about"
     },
     {
-      "source": "/blog",
-      "destination": "/blog"
-    },
-    {
       "source": "/connect",
       "destination": "/connect"
     },

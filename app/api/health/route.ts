@@ -18,7 +18,6 @@ export async function GET(request: NextRequest) {
         admin_login: '/api/admin/login',
         admin_verify: '/api/admin/verify',
         admin_pages: '/api/admin/pages',
-        admin_blog: '/api/admin/blog-posts',
         admin_security: '/api/admin/security'
       },
       server_info: {

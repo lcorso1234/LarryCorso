@@ -213,9 +213,7 @@ export default function About() {
               <a href="/portfolio" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
                 Portfolio
               </a>
-              <a href="/blog" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
-                Blog
-              </a>
+              {/* Blog removed */}
               <a href="/connect" className="px-6 py-3 border border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm shadow-[0_0_10px_rgba(250,204,21,0.5)] hover:shadow-[0_0_20px_rgba(250,204,21,1)]">
                 Connect
               </a>

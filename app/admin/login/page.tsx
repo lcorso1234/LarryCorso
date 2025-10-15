@@ -15,6 +15,8 @@ export default function AdminLogin() {
     setError('');
 
     try {
+      console.log('Attempting login with password length:', password.length);
+      
       const response = await fetch('/api/admin/login', {
         method: 'POST',
         headers: {
@@ -23,13 +25,19 @@ export default function AdminLogin() {
         body: JSON.stringify({ password }),
       });
 
+      console.log('Login response status:', response.status);
+
       if (response.ok) {
+        const data = await response.json();
+        console.log('Login successful:', data);
         router.push('/admin/dashboard');
       } else {
-        const data = await response.json();
-        setError(data.error || 'Login failed');
+        const data = await response.json().catch(() => ({ error: 'Unknown error' }));
+        console.error('Login failed:', response.status, data);
+        setError(data.error || `Login failed (${response.status})`);
       }
     } catch (error) {
+      console.error('Network error:', error);
       setError('Network error. Please try again.');
     } finally {
       setLoading(false);

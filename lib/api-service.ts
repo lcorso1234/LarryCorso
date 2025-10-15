@@ -79,19 +79,7 @@ export class APIService {
     });
   }
 
-  // Get blog posts
-  static async getBlogPosts() {
-    return this.request('/api/admin/blog-posts');
-  }
-
-  // Update blog posts
-  static async updateBlogPosts(posts: any[], token: string) {
-    return this.request('/api/admin/blog-posts', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${token}` },
-      body: JSON.stringify({ posts }),
-    });
-  }
+  // (blog APIs removed)
 
   // Get security logs
   static async getSecurityLogs(token: string) {

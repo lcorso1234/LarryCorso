@@ -4,9 +4,8 @@ import { useState, useEffect } from 'react';
 import { APIService } from '@/lib/api-service';
 
 interface AdminData {
-  pages?: any[];
-  blogPosts?: any[];
-  securityLogs?: any[];
+  pages?: Record<string, any>;  // Pages are stored as an object
+  securityLogs?: any[];        // Security logs are an array
 }
 
 export default function AdminDashboard() {
@@ -55,13 +54,17 @@ export default function AdminDashboard() {
 
   const loadAdminData = async (token: string) => {
     try {
-      const [pages, blogPosts, securityLogs] = await Promise.all([
-        APIService.getPages().catch(() => null),
-        APIService.getBlogPosts().catch(() => null),
-        APIService.getSecurityLogs(token).catch(() => null),
-      ]);
+        const [pagesResponse, securityLogsResponse] = await Promise.all([
+          APIService.getPages().catch(() => null),
+          APIService.getSecurityLogs(token).catch(() => null),
+        ]);
 
-      setAdminData({ pages, blogPosts, securityLogs });
+        // Extract the actual data from API responses
+        const pages = pagesResponse?.pages || pagesResponse || {};
+        const securityLogs = securityLogsResponse?.logs || securityLogsResponse || [];
+
+  console.log('Loaded admin data:', { pages, securityLogs });
+  setAdminData({ pages, securityLogs });
     } catch (error) {
       console.error('Failed to load admin data:', error);
     }
@@ -179,11 +182,11 @@ export default function AdminDashboard() {
           {/* Pages Data */}
           <div className="p-4 bg-gray-900 border border-blue-500 rounded-lg">
             <h2 className="text-xl font-bold text-blue-400 mb-4">📄 Pages Data</h2>
-            {adminData.pages ? (
+            {adminData.pages && typeof adminData.pages === 'object' ? (
               <div className="space-y-2">
-                <p className="text-gray-300">Total Pages: {adminData.pages.length}</p>
+                <p className="text-gray-300">Total Pages: {Object.keys(adminData.pages).length}</p>
                 <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
-                  {adminData.pages.map((page, index) => (
+                  {Object.values(adminData.pages).map((page: any, index) => (
                     <div key={index} className="border-b border-gray-700 pb-1">
                       {page.title || page.name || `Page ${index + 1}`}
                     </div>
@@ -196,28 +199,11 @@ export default function AdminDashboard() {
           </div>
 
           {/* Blog Posts */}
-          <div className="p-4 bg-gray-900 border border-purple-500 rounded-lg">
-            <h2 className="text-xl font-bold text-purple-400 mb-4">📝 Blog Posts</h2>
-            {adminData.blogPosts ? (
-              <div className="space-y-2">
-                <p className="text-gray-300">Total Posts: {adminData.blogPosts.length}</p>
-                <div className="max-h-32 overflow-y-auto text-sm text-gray-400">
-                  {adminData.blogPosts.map((post, index) => (
-                    <div key={index} className="border-b border-gray-700 pb-1">
-                      {post.title || `Post ${index + 1}`}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              <p className="text-gray-500">No blog posts available</p>
-            )}
-          </div>
 
           {/* Security Logs */}
           <div className="p-4 bg-gray-900 border border-red-500 rounded-lg">
             <h2 className="text-xl font-bold text-red-400 mb-4">🛡️ Security Logs</h2>
-            {adminData.securityLogs ? (
+            {adminData.securityLogs && Array.isArray(adminData.securityLogs) ? (
               <div className="space-y-2">
                 <p className="text-gray-300">Recent Events: {adminData.securityLogs.length}</p>
                 <div className="max-h-32 overflow-y-auto text-sm text-gray-400">

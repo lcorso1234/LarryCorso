@@ -172,7 +172,6 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '/blog', label: 'Blog' },
     { href: '/connect', label: 'Connect' },
   ];
 
@@ -183,7 +182,6 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/portfolio', label: 'Portfolio' },
-        { href: '/blog', label: 'Blog' },
         { href: '/manifesto', label: 'Manifesto' },
         { href: '/connect', label: 'Connect' },
       ]
@@ -197,28 +195,21 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
   return (
     <>
       {/* Mobile Menu Overlay */}
+      {/* Simplified Mobile Menu: single bottom bar with MENU button that toggles an inline grid */}
       {isMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
-          onClick={() => setIsMenuOpen(false)}
-        />
-      )}
-
-      {/* Mobile Menu Popup */}
-      {isMenuOpen && (
-        <div className={`fixed bottom-20 left-4 right-4 bg-black ${colors.border} border-2 ${colors.glow} z-50 md:hidden rounded-lg`}>
-          <div className="p-4">
-            <div className="grid grid-cols-2 gap-3">
+        <div className={`fixed bottom-16 left-4 right-4 bg-black ${colors.border} border-2 ${colors.glow} z-50 md:hidden rounded-lg`}> 
+          <div className="p-3">
+            <div className="grid grid-cols-2 gap-2">
               {displayNavItems.map((item) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-4 py-3 ${colors.border} border ${
+                  className={`px-3 py-2 ${colors.border} border ${
                     isActive(item.href) 
                       ? `text-black ${theme === 'pink' ? 'bg-pink-400' : theme === 'yellow' ? 'bg-yellow-400' : theme === 'blue' ? 'bg-blue-400' : theme === 'green' ? 'bg-green-400' : 'bg-purple-400'}` 
                       : `${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black`
-                  } transition-all duration-300 font-mono uppercase tracking-wider text-sm ${colors.buttonGlow} ${colors.buttonHoverGlow} text-center`}
+                  } transition-all duration-200 font-mono uppercase tracking-wider text-sm text-center`}
                 >
                   {item.label}
                 </a>
@@ -231,14 +222,6 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
       {/* Mobile Navigation Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40">
         <div className={`bg-black ${colors.border} border-t-2 ${colors.glow} mx-4 mb-4 rounded-lg`}>
-          {/* API Connection Status Indicator */}
-          {!apiLoading && (
-            <div className={`flex items-center justify-center py-1 text-xs font-mono ${isApiConnected ? 'text-green-400' : 'text-red-400'}`}>
-              <div className={`w-2 h-2 rounded-full mr-2 ${isApiConnected ? 'bg-green-400' : 'bg-red-400'}`}></div>
-              {isApiConnected ? 'API CONNECTED' : 'API OFFLINE'}
-            </div>
-          )}
-          
           <div className="flex items-center justify-between px-4 py-3">
             {/* Share Icon */}
             <button 
