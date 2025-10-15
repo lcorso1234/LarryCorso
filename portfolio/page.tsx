@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import ScrollAnimation from '@/components/ScrollAnimation';
+import EnhancedButton from '@/components/EnhancedButton';
 
 export default function Portfolio() {
   const [showUserPopup, setShowUserPopup] = useState(false);
@@ -11,7 +13,7 @@ export default function Portfolio() {
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-blue-500/10 to-cyan-500/10"></div>
-        <div className="absolute inset-0 opacity-30 animate-pulse" 
+        <div className="absolute inset-0 opacity-30 pulse-slow" 
              style={{
                backgroundImage: 'linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px)',
                backgroundSize: '50px 50px'
@@ -20,77 +22,84 @@ export default function Portfolio() {
       </div>
 
       {/* Laser Beam Effects */}
-      <div className="absolute top-0 left-1/6 w-1 h-full bg-gradient-to-b from-purple-400 via-transparent to-blue-400 opacity-60 animate-pulse delay-500"></div>
-      <div className="absolute top-0 right-1/5 w-1 h-full bg-gradient-to-b from-cyan-400 via-transparent to-purple-400 opacity-60 animate-pulse delay-1000"></div>
-      <div className="absolute top-1/5 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-transparent to-cyan-400 opacity-60 animate-pulse delay-1500"></div>
+      <div className="absolute top-0 left-1/6 w-1 h-full bg-gradient-to-b from-purple-400 via-transparent to-blue-400 opacity-60 pulse-slow stagger-1"></div>
+      <div className="absolute top-0 right-1/5 w-1 h-full bg-gradient-to-b from-cyan-400 via-transparent to-purple-400 opacity-60 pulse-slow stagger-2"></div>
+      <div className="absolute top-1/5 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-transparent to-cyan-400 opacity-60 pulse-slow stagger-3"></div>
 
       {/* Main Content */}
       <div className="relative z-10 py-20 px-8 pb-32">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-8">
-              <span className="bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-500 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_20px_rgba(147,51,234,0.8)]">
-                MY PORTFOLIO
-              </span>
-            </h1>
-            <p className="text-2xl sm:text-3xl font-bold text-purple-400 drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">
-              WHERE VISION MEETS REALITY
-            </p>
-          </div>
+          <ScrollAnimation animation="slideInDown" delay={0.2}>
+            <div className="text-center mb-16">
+              <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-8 gpu-accelerated">
+                <span className="bg-gradient-to-r from-purple-400 via-blue-500 to-cyan-500 bg-clip-text text-transparent pulse-fast drop-shadow-[0_0_20px_rgba(147,51,234,0.8)]">
+                  MY PORTFOLIO
+                </span>
+              </h1>
+              <p className="text-2xl sm:text-3xl font-bold text-purple-400 drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+                WHERE VISION MEETS REALITY
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Portfolio Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {/* Project 1 */}
-            <div className="group bg-black/50 border border-purple-400/30 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.4)]">
-              <div className="h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-purple-400 mx-auto mb-4 transform rotate-45 group-hover:rotate-90 transition-transform duration-300"></div>
-                  <p className="text-purple-400 font-bold">E-COMMERCE REVOLUTION</p>
+            <ScrollAnimation animation="fadeInUp" delay={0.4}>
+              <div className="group bg-black/50 border border-purple-400/30 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(147,51,234,0.4)] gpu-accelerated mobile-touch">
+                <div className="h-64 bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-purple-400 mx-auto mb-4 transform rotate-45 group-hover:rotate-90 transition-transform duration-300 gpu-accelerated"></div>
+                    <p className="text-purple-400 font-bold">E-COMMERCE REVOLUTION</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-purple-400 mb-3">Digital Storefront</h3>
+                  <p className="text-gray-300 mb-4">Transformed a traditional retail business into a cyber-punk digital empire. Sales increased 400%.</p>
+                  <div className="flex gap-2 flex-wrap">
+                    <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Next.js</span>
+                    <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Tailwind</span>
+                    <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Node.js</span>
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-black text-purple-400 mb-3">Digital Storefront</h3>
-                <p className="text-gray-300 mb-4">Transformed a traditional retail business into a cyber-punk digital empire. Sales increased 400%.</p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Next.js</span>
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Tailwind</span>
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Node.js</span>
-                </div>
-              </div>
-            </div>
+            </ScrollAnimation>
 
             {/* Project 2 */}
-            <div className="group bg-black/50 border border-blue-400/30 overflow-hidden hover:border-blue-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]">
-              <div className="h-64 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-400 mx-auto mb-4 rounded-full group-hover:scale-110 transition-transform duration-300"></div>
-                  <p className="text-blue-400 font-bold">HEALTHCARE INNOVATION</p>
+            <ScrollAnimation animation="fadeInUp" delay={0.6}>
+              <div className="group bg-black/50 border border-blue-400/30 overflow-hidden hover:border-blue-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] gpu-accelerated mobile-touch">
+                <div className="h-64 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-blue-400 mx-auto mb-4 rounded-full group-hover:scale-110 transition-transform duration-300 gpu-accelerated"></div>
+                    <p className="text-blue-400 font-bold">HEALTHCARE INNOVATION</p>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-blue-400 mb-3">Medical Portal</h3>
+                  <p className="text-gray-300 mb-4">Created a futuristic patient management system that saved lives through better data visualization.</p>
+                  <div className="flex gap-2 flex-wrap">
+                    <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">React</span>
+                    <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Python</span>
+                    <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">PostgreSQL</span>
+                  </div>
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-black text-blue-400 mb-3">Medical Portal</h3>
-                <p className="text-gray-300 mb-4">Created a futuristic patient management system that saved lives through better data visualization.</p>
-                <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">React</span>
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Python</span>
-                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">PostgreSQL</span>
-                </div>
-              </div>
-            </div>
+            </ScrollAnimation>
 
             {/* Project 3 */}
-            <div className="group bg-black/50 border border-cyan-400/30 overflow-hidden hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)]">
-              <div className="h-64 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-cyan-400 mx-auto mb-4 transform -rotate-45 group-hover:rotate-45 transition-transform duration-300"></div>
-                  <p className="text-cyan-400 font-bold">CREATIVE AGENCY</p>
+            <ScrollAnimation animation="fadeInUp" delay={0.8}>
+              <div className="group bg-black/50 border border-cyan-400/30 overflow-hidden hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(34,211,238,0.4)] gpu-accelerated mobile-touch">
+                <div className="h-64 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-cyan-400 mx-auto mb-4 transform -rotate-45 group-hover:rotate-45 transition-transform duration-300 gpu-accelerated"></div>
+                    <p className="text-cyan-400 font-bold">CREATIVE AGENCY</p>
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-black text-cyan-400 mb-3">Art Collective</h3>
-                <p className="text-gray-300 mb-4">Built a digital gallery that became the epicenter of the underground art movement.</p>
-                <div className="flex gap-2 flex-wrap">
+                <div className="p-6">
+                  <h3 className="text-2xl font-black text-cyan-400 mb-3">Art Collective</h3>
+                  <p className="text-gray-300 mb-4">Built a digital gallery that became the epicenter of the underground art movement.</p>
+                  <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Vue.js</span>
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">WebGL</span>
                   <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Three.js</span>
@@ -182,21 +191,31 @@ export default function Portfolio() {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center py-16">
-            <h3 className="text-4xl sm:text-5xl font-black mb-8">
-              <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                READY TO CREATE SOMETHING LEGENDARY?
-              </span>
-            </h3>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <a href="/connect" className="px-12 py-6 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-xl border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
-                START A PROJECT
-              </a>
-              <a href="/manifesto" className="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 font-black text-xl hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
-                READ MY MANIFESTO
-              </a>
+          <ScrollAnimation animation="scaleIn" delay={0.8}>
+            <div className="text-center py-16">
+              <h3 className="text-4xl sm:text-5xl font-black mb-8">
+                <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  READY TO CREATE SOMETHING LEGENDARY?
+                </span>
+              </h3>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <EnhancedButton 
+                  href="/connect" 
+                  variant="primary"
+                  className="bg-gradient-to-r from-purple-400 to-blue-500 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transform hover:scale-105"
+                >
+                  START A PROJECT
+                </EnhancedButton>
+                <EnhancedButton 
+                  href="/manifesto" 
+                  variant="secondary"
+                  className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transform hover:scale-105"
+                >
+                  READ MY MANIFESTO
+                </EnhancedButton>
+              </div>
             </div>
-          </div>
+          </ScrollAnimation>
         </div>
       </div>
 
