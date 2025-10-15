@@ -100,7 +100,11 @@ export class APIService {
 
   // Frontend-specific utilities
   static async shareContent(title: string, text: string, url?: string) {
-    const shareData = { title, text, url: url || window.location.href };
+    const shareData = { 
+      title, 
+      text, 
+      url: url || window.location.href 
+    };
     
     try {
       // Log share attempt to backend
@@ -110,17 +114,34 @@ export class APIService {
         timestamp: new Date().toISOString(),
       });
 
-      // Use native sharing if available
-      if (navigator.share) {
+      // Check if Web Share API is supported (mainly mobile browsers)
+      if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+        await navigator.share(shareData);
+        return { success: true, method: 'native' };
+      } else if (navigator.share) {
+        // Fallback for browsers that support share but not canShare
         await navigator.share(shareData);
         return { success: true, method: 'native' };
       } else {
-        // Fallback to clipboard
-        await navigator.clipboard.writeText(`${title}\n${text}\n${shareData.url}`);
+        // Fallback to clipboard for desktop browsers
+        const shareText = `${title}\n${text}\n${shareData.url}`;
+        await navigator.clipboard.writeText(shareText);
         return { success: true, method: 'clipboard' };
       }
     } catch (error) {
       console.error('Share failed:', error);
+      
+      // Additional fallback for mobile devices if native share fails
+      if (navigator.clipboard) {
+        try {
+          const shareText = `${title}\n${text}\n${shareData.url}`;
+          await navigator.clipboard.writeText(shareText);
+          return { success: true, method: 'clipboard' };
+        } catch (clipboardError) {
+          console.error('Clipboard fallback failed:', clipboardError);
+        }
+      }
+      
       return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
     }
   }

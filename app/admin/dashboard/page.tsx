@@ -94,11 +94,11 @@ export default function AdminDashboard() {
             Unable to connect to the backend API. Please ensure the server is running.
           </p>
           <div className="text-center">
-                        <button
-              onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg font-mono text-white"
+            <button 
+              onClick={() => window.location.reload()}
+              className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded font-mono text-white"
             >
-              Logout
+              Retry Connection
             </button>
           </div>
         </div>

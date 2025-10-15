@@ -130,21 +130,38 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         window.location.origin
       );
 
-      if (!result.success) {
-        // Fallback to simple clipboard copy
-        await navigator.clipboard.writeText(window.location.origin);
-        alert('Website URL copied to clipboard!');
-      } else if (result.method === 'clipboard') {
-        alert('Website URL copied to clipboard!');
+      if (result.success) {
+        if (result.method === 'native') {
+          // Native share was used (mobile devices) - no additional feedback needed
+          console.log('Content shared via native share API');
+        } else if (result.method === 'clipboard') {
+          // Fallback to clipboard - show user feedback
+          alert('Website URL copied to clipboard!');
+        }
+      } else {
+        // If API service fails, try direct native share as final fallback
+        if (navigator.share) {
+          await navigator.share({
+            title: 'Larry Corso - Digital Creator & Developer',
+            text: 'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
+            url: window.location.origin
+          });
+        } else {
+          // Final fallback to clipboard
+          await navigator.clipboard.writeText(window.location.origin);
+          alert('Website URL copied to clipboard!');
+        }
       }
     } catch (error) {
       console.log('Sharing failed:', error);
-      // Final fallback
+      // Final fallback for any errors
       try {
         await navigator.clipboard.writeText(window.location.origin);
         alert('Website URL copied to clipboard!');
       } catch (clipboardError) {
         console.log('Clipboard access failed:', clipboardError);
+        // Show a more helpful message for mobile users
+        alert('Unable to share. Please copy this URL manually: ' + window.location.origin);
       }
     }
   };
@@ -199,21 +216,24 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
       {/* Mobile Menu Overlay */}
       {/* Simplified Mobile Menu: single bottom bar with MENU button that toggles an inline grid */}
       {isMenuOpen && (
-        <div className={`fixed bottom-16 left-4 right-4 bg-black ${colors.border} border-2 ${colors.glow} z-50 md:hidden rounded-lg`}> 
+        <div className={`fixed bottom-16 left-4 right-4 bg-black ${colors.border} border-2 ${colors.glow} z-50 md:hidden rounded-lg animate-in slide-in-from-bottom-4 duration-300`}> 
           <div className="p-3">
             <div className="grid grid-cols-2 gap-2">
-              {displayNavItems.map((item) => (
+              {displayNavItems.map((item, index) => (
                 <a
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-3 py-2 ${colors.border} border ${
+                  className={`px-3 py-2 ${colors.border} border rounded-lg ${
                     isActive(item.href) 
                       ? `text-black ${theme === 'pink' ? 'bg-pink-400' : theme === 'yellow' ? 'bg-yellow-400' : theme === 'blue' ? 'bg-blue-400' : theme === 'green' ? 'bg-green-400' : 'bg-purple-400'}` 
                       : `${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black`
-                  } transition-all duration-200 font-mono uppercase tracking-wider text-sm text-center`}
+                  } transition-all duration-200 font-mono uppercase tracking-wider text-sm text-center transform hover:scale-105 active:scale-95 active:translate-y-0.5 hover:shadow-md active:shadow-sm`}
+                  style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  {item.label}
+                  <span className="transition-transform duration-200 inline-block hover:scale-110">
+                    {item.label}
+                  </span>
                 </a>
               ))}
             </div>
@@ -225,33 +245,35 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-40">
         <div className={`bg-black ${colors.border} border-t-2 ${colors.glow} mx-4 mb-4 rounded-lg`}>
           <div className="flex items-center justify-between px-4 py-3">
-            {/* Share Icon */}
+            {/* Share Icon with Micro Interactions */}
             <button 
               onClick={handleShare}
-              className={`h-10 w-10 ${colors.leftIconBorder} border-2 rounded-lg flex items-center justify-center bg-black ${colors.leftIconGlow} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-300`}
+              className={`h-10 w-10 ${colors.leftIconBorder} border-2 rounded-lg flex items-center justify-center bg-black ${colors.leftIconGlow} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-200 transform hover:scale-105 active:scale-95 active:translate-y-0.5 hover:shadow-lg active:shadow-sm`}
               title="Share this website"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.leftIconText}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.leftIconText} transition-transform duration-200 hover:rotate-12`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
               </svg>
             </button>
             
-            {/* Menu Button */}
+            {/* Menu Button with Enhanced Micro Interactions */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`px-6 py-2 ${colors.border} border-2 ${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-300 font-mono uppercase tracking-wider text-sm ${colors.buttonGlow} ${colors.buttonHoverGlow} rounded`}
+              className={`px-6 py-2 ${colors.border} border-2 ${colors.text} ${theme === 'pink' ? 'hover:bg-pink-400' : theme === 'yellow' ? 'hover:bg-yellow-400' : theme === 'blue' ? 'hover:bg-blue-400' : theme === 'green' ? 'hover:bg-green-400' : 'hover:bg-purple-400'} hover:text-black transition-all duration-200 font-mono uppercase tracking-wider text-sm ${colors.buttonGlow} ${colors.buttonHoverGlow} rounded transform hover:scale-105 active:scale-95 active:translate-y-0.5 hover:shadow-lg active:shadow-sm`}
             >
-              MENU
+              <span className={`transition-transform duration-200 inline-block ${isMenuOpen ? 'rotate-180' : ''}`}>
+                MENU
+              </span>
             </button>
             
-            {/* Shield Icon */}
+            {/* Heart Icon with Micro Interactions */}
             <button 
               onClick={handleSecurity}
-              className={`h-10 w-10 ${colors.rightIcon2Border} border-2 rounded-lg flex items-center justify-center bg-black ${colors.rightIcon2Glow} ${theme === 'pink' ? 'hover:bg-purple-400' : theme === 'yellow' ? 'hover:bg-red-400' : theme === 'blue' ? 'hover:bg-purple-400' : theme === 'green' ? 'hover:bg-yellow-400' : 'hover:bg-orange-400'} hover:text-black transition-all duration-300`}
-              title="Guardian of the Night - View Manifesto"
+              className={`h-10 w-10 ${colors.rightIcon2Border} border-2 rounded-lg flex items-center justify-center bg-black ${colors.rightIcon2Glow} ${theme === 'pink' ? 'hover:bg-purple-400' : theme === 'yellow' ? 'hover:bg-red-400' : theme === 'blue' ? 'hover:bg-purple-400' : theme === 'green' ? 'hover:bg-yellow-400' : 'hover:bg-orange-400'} hover:text-black transition-all duration-200 transform hover:scale-110 active:scale-95 active:translate-y-0.5 hover:shadow-lg active:shadow-sm`}
+              title="Love & Manifesto"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.rightIcon2Text}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <svg xmlns="http://www.w3.org/2000/svg" className={`h-5 w-5 ${colors.rightIcon2Text} transition-transform duration-200 hover:scale-125 active:scale-90`} fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
               </svg>
             </button>
           </div>
@@ -259,7 +281,7 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
       </div>
 
       {/* Desktop Navigation - Fixed bottom menu */}
-      <div className="fixed bottom-0 left-0 right-0 mb-2 z-30">
+      <div className="hidden md:block fixed bottom-0 left-0 right-0 mb-2 z-30">
         <div className={`bg-black ${colors.border} border-2 ${colors.glow} mx-auto mb-2 max-w-5xl relative overflow-hidden`}>
           {/* Tron Grid Pattern Background */}
           <div className="absolute inset-0 opacity-20">
