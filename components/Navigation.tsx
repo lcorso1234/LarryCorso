@@ -172,6 +172,7 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
     { href: '/portfolio', label: 'Portfolio' },
+    { href: '/blog', label: 'Blog' },
     { href: '/connect', label: 'Connect' },
   ];
 
@@ -182,6 +183,7 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
         { href: '/portfolio', label: 'Portfolio' },
+        { href: '/blog', label: 'Blog' },
         { href: '/manifesto', label: 'Manifesto' },
         { href: '/connect', label: 'Connect' },
       ]

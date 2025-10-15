@@ -36,7 +36,7 @@ export default function Portfolio() {
               </span>
             </h1>
             <p className="text-2xl sm:text-3xl font-bold text-purple-400 drop-shadow-[0_0_10px_rgba(147,51,234,0.5)]">
-              WHERE VISION MEETS REALITY
+              WHERE STRATEGIC PLANNING CREATES DIGITAL EMPIRES
             </p>
           </div>
 
@@ -51,12 +51,12 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-purple-400 mb-3">Digital Storefront</h3>
-                <p className="text-gray-300 mb-4">Transformed a traditional retail business into a cyber-punk digital empire. Sales increased 400%.</p>
+                <h3 className="text-2xl font-black text-purple-400 mb-3">Brand Strategy <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Through strategic planning and vision, I transformed ReLEAF from an impersonal shopping experience into a completely personalized digital ecosystem. My comprehensive brand strategy and user experience planning catapulted them to TOP 3 in the United States. <span className="text-yellow-400 font-bold">Seeking crowdfunding to scale globally.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Next.js</span>
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Tailwind</span>
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Node.js</span>
+                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Strategic Planning</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Brand Vision</span>
+                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">UX Strategy</span>
                 </div>
               </div>
             </div>
@@ -70,12 +70,12 @@ export default function Portfolio() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-blue-400 mb-3">Medical Portal</h3>
-                <p className="text-gray-300 mb-4">Created a futuristic patient management system that saved lives through better data visualization.</p>
+                <h3 className="text-2xl font-black text-blue-400 mb-3">Mental Health <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Solved the critical client-therapist mismatch problem by innovating a revolutionary filtering system based on authentic content. My strategic approach connects clients with perfectly aligned therapists through genuine self-expression rather than clinical questionnaires. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize mental healthcare.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">React</span>
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Python</span>
-                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">PostgreSQL</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Matching Strategy</span>
+                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Content Analysis</span>
+                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Authentic Filtering</span>
                 </div>
               </div>
             </div>
@@ -85,16 +85,16 @@ export default function Portfolio() {
               <div className="h-64 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-cyan-400 mx-auto mb-4 transform -rotate-45 group-hover:rotate-45 transition-transform duration-300"></div>
-                  <p className="text-cyan-400 font-bold">CREATIVE AGENCY</p>
+                  <p className="text-cyan-400 font-bold">EARTH HARMONY</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-cyan-400 mb-3">Art Collective</h3>
-                <p className="text-gray-300 mb-4">Built a digital gallery that became the epicenter of the underground art movement.</p>
+                <h3 className="text-2xl font-black text-cyan-400 mb-3">Earth Homes <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Conceived a revolutionary solution to end global conflicts and environmental crisis through earth homes and bee integration. My visionary design uses curved architecture instead of harsh edges to create perfect harmony, fundamentally transforming how humanity lives on Earth. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save the planet.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Vue.js</span>
-                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">WebGL</span>
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Three.js</span>
+                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Global Peace Strategy</span>
+                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Harmonic Architecture</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Ecosystem Integration</span>
                 </div>
               </div>
             </div>
@@ -104,16 +104,16 @@ export default function Portfolio() {
               <div className="h-64 bg-gradient-to-br from-pink-500/20 to-orange-500/20 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-pink-400 mx-auto mb-4 rounded-lg group-hover:rotate-180 transition-transform duration-300"></div>
-                  <p className="text-pink-400 font-bold">TECH STARTUP</p>
+                  <p className="text-pink-400 font-bold">NANO REVOLUTION</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-pink-400 mb-3">SaaS Platform</h3>
-                <p className="text-gray-300 mb-4">Launched a B2B platform that disrupted an entire industry. Now valued at $50M.</p>
+                <h3 className="text-2xl font-black text-pink-400 mb-3">Nano Technology <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Pioneering nano technology integration within healthcare systems to revolutionize patient care at the molecular level. My strategic vision combines microscopic innovation with macro healthcare transformation, creating targeted treatment delivery systems that will reshape modern medicine. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize healthcare through nano innovation.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">TypeScript</span>
-                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">AWS</span>
-                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Redis</span>
+                  <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">Nano Engineering</span>
+                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Healthcare Systems</span>
+                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Molecular Medicine</span>
                 </div>
               </div>
             </div>
@@ -123,16 +123,16 @@ export default function Portfolio() {
               <div className="h-64 bg-gradient-to-br from-green-500/20 to-cyan-500/20 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-400 mx-auto mb-4 rounded-full group-hover:pulse transition-all duration-300"></div>
-                  <p className="text-green-400 font-bold">ENVIRONMENTAL IMPACT</p>
+                  <p className="text-green-400 font-bold">SUSTAINABLE FASHION</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-green-400 mb-3">Climate App</h3>
-                <p className="text-gray-300 mb-4">Created a carbon tracking platform that helped 100K+ users reduce their environmental footprint.</p>
+                <h3 className="text-2xl font-black text-green-400 mb-3">Clothing and Fashion <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Revolutionizing the fashion industry through sustainable materials and ethical production that doesn't compromise style for conscience. My visionary approach to clothing transforms fast fashion into a force for environmental healing while keeping humans looking absolutely legendary. <span className="text-yellow-400 font-bold">Seeking crowdfunding to make fashion sustainable and fierce.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Svelte</span>
-                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">GraphQL</span>
-                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">MongoDB</span>
+                  <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Sustainable Materials</span>
+                  <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Ethical Production</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Style Revolution</span>
                 </div>
               </div>
             </div>
@@ -142,16 +142,187 @@ export default function Portfolio() {
               <div className="h-64 bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-yellow-400 mx-auto mb-4 rounded-sm group-hover:rounded-full transition-all duration-300"></div>
-                  <p className="text-yellow-400 font-bold">EDUCATION PLATFORM</p>
+                  <p className="text-yellow-400 font-bold">GAMING REVOLUTION</p>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-2xl font-black text-yellow-400 mb-3">Learning Hub</h3>
-                <p className="text-gray-300 mb-4">Built an interactive learning platform that revolutionized online education for 50K+ students.</p>
+                <h3 className="text-2xl font-black text-yellow-400 mb-3">Gaming <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Creating next-generation gaming experiences that blur the lines between virtual reality and consciousness expansion. My game design philosophy weaponizes fun to unlock human potential, making players stronger, smarter, and more connected to their purpose. <span className="text-yellow-400 font-bold">Seeking crowdfunding to gamify human evolution.</span></p>
                 <div className="flex gap-2 flex-wrap">
-                  <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Angular</span>
-                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Firebase</span>
-                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Docker</span>
+                  <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">VR Innovation</span>
+                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Consciousness Design</span>
+                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Human Potential</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 7 */}
+            <div className="group bg-black/50 border border-indigo-400/30 overflow-hidden hover:border-indigo-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(99,102,241,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-indigo-400 mx-auto mb-4 transform skew-x-12 group-hover:skew-x-0 transition-transform duration-300"></div>
+                  <p className="text-indigo-400 font-bold">EDUCATIONAL REVOLUTION</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-indigo-400 mb-3">Educational Systems <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Dismantling the archaic education industrial complex and rebuilding it from the ground up! My radical framework turns passive students into active knowledge warriors through immersive learning ecosystems that actually prepare minds for the future, not the past. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize how humanity learns.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-indigo-400/20 text-indigo-400 text-sm border border-indigo-400/50">Neural Learning</span>
+                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Future Readiness</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Mind Liberation</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 8 */}
+            <div className="group bg-black/50 border border-orange-400/30 overflow-hidden hover:border-orange-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,146,60,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-orange-500/20 to-red-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-orange-400 mx-auto mb-4 transform rotate-12 group-hover:rotate-45 transition-transform duration-300 rounded-full"></div>
+                  <p className="text-orange-400 font-bold">ANIMAL LIBERATION</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-orange-400 mb-3">Animal Shelter <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Building the world's most badass animal sanctuary that actually gives a damn about every creature on this planet! My revolutionary shelter design creates healing environments for animals AND fish, combining cutting-edge veterinary care with emotional rehabilitation that restores their trust in humanity. No animal left behind. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save every animal and fish on Earth.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Animal Rehabilitation</span>
+                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Marine Sanctuary</span>
+                  <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Healing Environments</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 9 */}
+            <div className="group bg-black/50 border border-teal-400/30 overflow-hidden hover:border-teal-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-teal-500/20 to-green-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-teal-400 mx-auto mb-4 transform rotate-45 group-hover:rotate-90 transition-transform duration-300 rounded-lg"></div>
+                  <p className="text-teal-400 font-bold">ANCESTRAL JOURNEYS</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-teal-400 mb-3">Global Travel Agency <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Reconnecting displaced Americans with their ancestral homelands to rebuild what was lost! My revolutionary travel agency doesn't just book trips - we orchestrate homecoming missions that help people rediscover their roots and contribute to rebuilding their ancestral communities with modern infrastructure and ancient wisdom. <span className="text-yellow-400 font-bold">Seeking crowdfunding to reconnect humanity with its origins.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Heritage Reconnection</span>
+                  <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Infrastructure Building</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Cultural Restoration</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 10 */}
+            <div className="group bg-black/50 border border-amber-400/30 overflow-hidden hover:border-amber-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(245,158,11,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-amber-400 mx-auto mb-4 transform rotate-12 group-hover:rotate-45 transition-transform duration-300 rounded-sm"></div>
+                  <p className="text-amber-400 font-bold">ANCIENT TREASURES</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-amber-400 mb-3">Relic Collection <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Hunting down humanity's lost treasures and sharing their secrets with the world! My relic collection mission rescues ancient artifacts from obscurity and creates immersive experiences that let people touch, feel, and learn from our ancestors' wisdom. History isn't meant to gather dust - it's meant to inspire the future. <span className="text-yellow-400 font-bold">Seeking crowdfunding to preserve and share ancient wisdom.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-amber-400/20 text-amber-400 text-sm border border-amber-400/50">Artifact Recovery</span>
+                  <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Historical Preservation</span>
+                  <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Interactive Museums</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 11 */}
+            <div className="group bg-black/50 border border-violet-400/30 overflow-hidden hover:border-violet-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(139,92,246,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-violet-500/20 to-purple-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-violet-400 mx-auto mb-4 transform scale-75 group-hover:scale-100 transition-transform duration-300 rounded-full"></div>
+                  <p className="text-violet-400 font-bold">OUTCAST SANCTUARY</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-violet-400 mb-3">Community for Outcasts <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Creating the world's first true sanctuary where society's outcasts can finally feel safe, understood, and valued! My revolutionary community model provides judgment-free spaces where people can heal from trauma, addiction, and rejection while building genuine connections with others who truly get it. No masks required here. <span className="text-yellow-400 font-bold">Seeking crowdfunding to build safe havens for the forgotten.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-violet-400/20 text-violet-400 text-sm border border-violet-400/50">Safe Spaces</span>
+                  <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Trauma Recovery</span>
+                  <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Authentic Connection</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 12 */}
+            <div className="group bg-black/50 border border-rose-400/30 overflow-hidden hover:border-rose-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,113,133,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-rose-500/20 to-pink-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-rose-400 mx-auto mb-4 transform rotate-0 group-hover:rotate-12 transition-transform duration-300 rounded-full"></div>
+                  <p className="text-rose-400 font-bold">FUTURE FREEDOM</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-rose-400 mb-3">Music & Kid Books <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Crafting revolutionary music and children's books that plant seeds of freedom in young minds before society can cage their spirits! My creative arsenal guides the next generation toward Earth liberation through stories and songs that teach them to question everything, love fiercely, and never surrender their wild hearts to conformity. <span className="text-yellow-400 font-bold">Seeking crowdfunding to raise freedom fighters through art.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-rose-400/20 text-rose-400 text-sm border border-rose-400/50">Freedom Music</span>
+                  <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">Liberation Stories</span>
+                  <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Wild Heart Preservation</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 13 */}
+            <div className="group bg-black/50 border border-emerald-400/30 overflow-hidden hover:border-emerald-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(52,211,153,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-emerald-500/20 to-teal-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-emerald-400 mx-auto mb-4 transform skew-y-6 group-hover:skew-y-0 transition-transform duration-300 rounded-lg"></div>
+                  <p className="text-emerald-400 font-bold">AUTHENTIC CINEMA</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-emerald-400 mb-3">Movie Industry Revolution <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Dismantling Hollywood's fake-ass system and rebuilding cinema with actors who can actually ACT and stories that reflect real human truth! My revolutionary studio prioritizes raw talent over pretty faces, authentic emotions over CGI spectacle, and life lessons that actually matter over mindless entertainment. Time to make movies that heal souls instead of numbing them. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring truth back to cinema.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-emerald-400/20 text-emerald-400 text-sm border border-emerald-400/50">Authentic Acting</span>
+                  <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Truth Storytelling</span>
+                  <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Soul Healing Cinema</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 14 */}
+            <div className="group bg-black/50 border border-slate-400/30 overflow-hidden hover:border-slate-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(148,163,184,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-slate-500/20 to-gray-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-slate-400 mx-auto mb-4 transform rotate-45 group-hover:rotate-90 transition-transform duration-300 rounded-full"></div>
+                  <p className="text-slate-400 font-bold">THE PENGUIN CAFE</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-slate-400 mb-3">Restaurant Experience <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Revolutionizing dining through "The Penguin Cafe" - where spontaneity is the spice of life! My home-restaurant network lets people transform their homes into cultural dining experiences, serving family recipes in environments that celebrate their heritage and bring pure joy. No corporate chains, just authentic souls sharing their culture through food and love. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring authentic dining back to humanity.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-slate-400/20 text-slate-400 text-sm border border-slate-400/50">Home Restaurants</span>
+                  <span className="px-3 py-1 bg-gray-400/20 text-gray-400 text-sm border border-gray-400/50">Cultural Celebration</span>
+                  <span className="px-3 py-1 bg-zinc-400/20 text-zinc-400 text-sm border border-zinc-400/50">Spontaneous Joy</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 15 */}
+            <div className="group bg-black/50 border border-lime-400/30 overflow-hidden hover:border-lime-400 transition-all duration-300 hover:shadow-[0_0_30px_rgba(163,230,53,0.4)]">
+              <div className="h-64 bg-gradient-to-br from-lime-500/20 to-green-500/20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-lime-400 mx-auto mb-4 transform rotate-0 group-hover:rotate-180 transition-transform duration-300 rounded-lg"></div>
+                  <p className="text-lime-400 font-bold">BEBO MARKETPLACE</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-2xl font-black text-lime-400 mb-3">Bebo Shopping Platform <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
+                <p className="text-gray-300 mb-4">Building Bebo - the anti-Amazon marketplace where real entrepreneurs showcase their genuine, handcrafted products without corporate interference! My platform cuts out the middleman bullshit and connects people directly with passionate creators who pour their souls into every product. No fake reviews, no mass production - just authentic goods from authentic humans. <span className="text-yellow-400 font-bold">Seeking crowdfunding to empower genuine entrepreneurs worldwide.</span></p>
+                <div className="flex gap-2 flex-wrap">
+                  <span className="px-3 py-1 bg-lime-400/20 text-lime-400 text-sm border border-lime-400/50">Genuine Products</span>
+                  <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Entrepreneur Support</span>
+                  <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Authentic Commerce</span>
                 </div>
               </div>
             </div>
@@ -159,25 +330,25 @@ export default function Portfolio() {
 
           {/* Skills Section */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-black mb-8 text-purple-400">MY ARSENAL</h2>
+            <h2 className="text-4xl sm:text-5xl font-black mb-8 text-purple-400">MY STRATEGIC ARSENAL</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
               <div className="bg-black/50 border border-cyan-400/50 p-4 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)] transition-all duration-300">
-                <p className="text-cyan-400 font-bold">React</p>
+                <p className="text-cyan-400 font-bold">Strategic Planning</p>
               </div>
               <div className="bg-black/50 border border-blue-400/50 p-4 hover:border-blue-400 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] transition-all duration-300">
-                <p className="text-blue-400 font-bold">Next.js</p>
+                <p className="text-blue-400 font-bold">Brand Vision</p>
               </div>
               <div className="bg-black/50 border border-purple-400/50 p-4 hover:border-purple-400 hover:shadow-[0_0_20px_rgba(147,51,234,0.3)] transition-all duration-300">
-                <p className="text-purple-400 font-bold">TypeScript</p>
+                <p className="text-purple-400 font-bold">UX Architecture</p>
               </div>
               <div className="bg-black/50 border border-green-400/50 p-4 hover:border-green-400 hover:shadow-[0_0_20px_rgba(34,197,94,0.3)] transition-all duration-300">
-                <p className="text-green-400 font-bold">Node.js</p>
+                <p className="text-green-400 font-bold">Business Strategy</p>
               </div>
               <div className="bg-black/50 border border-pink-400/50 p-4 hover:border-pink-400 hover:shadow-[0_0_20px_rgba(236,72,153,0.3)] transition-all duration-300">
-                <p className="text-pink-400 font-bold">Python</p>
+                <p className="text-pink-400 font-bold">Market Analysis</p>
               </div>
               <div className="bg-black/50 border border-orange-400/50 p-4 hover:border-orange-400 hover:shadow-[0_0_20px_rgba(255,165,0,0.3)] transition-all duration-300">
-                <p className="text-orange-400 font-bold">AWS</p>
+                <p className="text-orange-400 font-bold">Growth Planning</p>
               </div>
             </div>
           </div>
@@ -186,12 +357,18 @@ export default function Portfolio() {
           <div className="text-center py-16">
             <h3 className="text-4xl sm:text-5xl font-black mb-8">
               <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                READY TO CREATE SOMETHING LEGENDARY?
+                READY TO CHANGE THE WORLD?
               </span>
             </h3>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              These world-changing projects need visionaries, innovators, and changemakers. Join the revolution.
+            </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <a href="/connect" className="px-12 py-6 bg-gradient-to-r from-purple-400 to-blue-500 text-black font-black text-xl border-2 border-purple-400 hover:shadow-[0_0_30px_rgba(147,51,234,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
                 START A PROJECT
+              </a>
+              <a href="mailto:lawrence@rumidesign.tech?subject=I Want To Help Change The World&body=Hello Lawrence,%0A%0AI'm interested in joining your world-changing initiatives. I want to help with:%0A%0A- Brand Strategy%0A- Mental Health Revolution%0A- Earth Homes & Global Harmony%0A- Nano Technology Healthcare%0A- Clothing & Fashion Impact%0A- Gaming Innovation%0A- Educational Systems Revolution%0A- Animal Shelter & Liberation%0A- Global Travel & Heritage Agency%0A- Relic Collection & Ancient Wisdom%0A- Community for Outcasts & Recovery%0A- Music & Kid Books for Earth Freedom%0A- Movie Industry Revolution & Truth Cinema%0A- The Penguin Cafe Restaurant Experience%0A- Bebo Authentic Shopping Platform%0A%0AHere's how I can contribute:%0A%0ABest regards" className="px-12 py-6 bg-gradient-to-r from-green-400 to-cyan-400 text-black font-black text-xl border-2 border-green-400 hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
+                WE ARE HIRING 🌍
               </a>
               <a href="/manifesto" className="px-12 py-6 bg-transparent border-2 border-cyan-400 text-cyan-400 font-black text-xl hover:bg-cyan-400 hover:text-black hover:shadow-[0_0_30px_rgba(0,255,255,0.8)] transition-all duration-300 transform hover:scale-105 text-center">
                 READ MY MANIFESTO

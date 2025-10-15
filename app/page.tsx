@@ -13,7 +13,7 @@ export default function Home() {
             <ScrollAnimation animation="slideInDown" delay={0.2}>
               <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black mb-8 gpu-accelerated">
                 <span className="bg-gradient-to-r from-yellow-400 via-gray-300 to-black bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,255,0,0.8)]">
-                  I DON&apos;T WORK FOR YOU
+                  I DON'T WORK FOR YOU
                 </span>
               </h1>
             </ScrollAnimation>

@@ -17,7 +17,7 @@ export default function Connect() {
           <div className="max-w-4xl mx-auto px-8">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black mb-8">
               <span className="bg-gradient-to-r from-pink-400 via-purple-500 to-cyan-500 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_20px_rgba(236,72,153,0.8)]">
-                LET&apos;S CONNECT
+                LET'S CONNECT
               </span>
             </h1>
             <p className="text-2xl sm:text-3xl font-bold text-pink-400 drop-shadow-[0_0_10px_rgba(236,72,153,0.5)]">
