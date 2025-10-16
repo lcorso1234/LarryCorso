@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Batman-style bat symbol for favicon -->
+  <rect width="32" height="32" fill="#FFD700"/>
+  <g transform="translate(16, 16)">
+    <path fill="#000000" d="
+      M 0,-8
+      L -2,-7 L -4,-8 L -6,-7 L -8,-5 
+      Q -10,-3 -11,-2 L -12,0 L -11,2 L -9,3
+      L -7,2 L -5,1 L -3,2 L -1,3
+      L 0,4
+      L 1,3 L 3,2 L 5,1 L 7,2 L 9,3
+      L 11,2 L 12,0 L 11,-2
+      Q 10,-3 8,-5
+      L 6,-7 L 4,-8 L 2,-7
+      Z
+      M -3,-2
+      Q -4,0 -5,1
+      L -3,0
+      Z
+      M 3,-2
+      Q 4,0 5,1
+      L 3,0
+      Z
+    "/>
+  </g>
+</svg>

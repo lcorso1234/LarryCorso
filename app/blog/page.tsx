@@ -143,7 +143,6 @@ const mockBlogPosts: BlogPost[] = [
 export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string>('podcast');
   const [currentPage, setCurrentPage] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedImage, setSelectedImage] = useState<{url: string, title: string} | null>(null);
   const postsPerPage = 3;
 
@@ -168,35 +167,16 @@ export default function Blog() {
     };
   }, [selectedImage]);
 
-  // Filter posts based on category and search
+  // Filter posts based on category
   const filteredPosts = mockBlogPosts.filter(post => {
     const matchesCategory = post.category === selectedCategory;
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    return matchesCategory;
   });
 
   // Pagination
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
   const startIndex = (currentPage - 1) * postsPerPage;
   const currentPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage);
-
-  const categories = [
-    { id: 'all', name: 'All Content', icon: '🌟' },
-    { id: 'podcast', name: 'Podcasts', icon: '🎙️' },
-    { id: 'video', name: 'Videos', icon: '🎥' },
-    { id: 'art', name: 'Art & Design', icon: '🎨' }
-  ];
-
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case 'podcast': return 'text-green-400 border-green-400';
-      case 'video': return 'text-red-400 border-red-400';
-      case 'art': return 'text-purple-400 border-purple-400';
-      default: return 'text-gray-400 border-gray-400';
-    }
-  };
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
@@ -413,13 +393,6 @@ export default function Blog() {
                           className="absolute inset-0 w-full h-full"
                         />
                       </div>
-                    </div>
-                  )}
-                  
-                  {/* Debug info for art posts */}
-                  {post.category === 'art' && (
-                    <div className="text-xs text-gray-500 mb-2">
-                      Image URL: {post.imageUrl || 'No image URL'} | Category: {post.category}
                     </div>
                   )}
                   
