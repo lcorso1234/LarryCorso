@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Navigation from '@/components/Navigation';
-import ScrollAnimation from '@/components/ScrollAnimation';
 
 interface BlogPost {
   id: string;
