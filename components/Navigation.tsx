@@ -343,7 +343,7 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
           setIsTransitioning(false);
         }, 200);
       }, 100);
-    }, 1500);
+    }, 1700);
   };
 
   const navItems = [
