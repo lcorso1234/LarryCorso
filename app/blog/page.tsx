@@ -1,5 +1,6 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import ScrollAnimation from '@/components/ScrollAnimation';
 
@@ -13,17 +14,71 @@ interface BlogPost {
   thumbnail?: string;
   tags: string[];
   artDescription?: string; // Added for art pieces
+  spotifyUrl?: string; // Added for Spotify podcast links
+  imageUrl?: string; // Added for art images
+  videoUrl?: string; // Added for embedded videos
 }
 
 const mockBlogPosts: BlogPost[] = [
   {
-    id: '1',
-    title: 'Mental Health Matching Through Authentic Content',
-    excerpt: 'How I solved the therapist-client mismatch problem using genuine self-expression instead of clinical questionnaires...',
+    id: 'spotify-episode-1',
+    title: 'Recreate the American Dream',
+    excerpt: 'We can do this the easy way or the fun way.',
     category: 'podcast',
     date: '2024-10-15',
-    duration: '45:32',
-    tags: ['Mental Health', 'Innovation', 'Therapy', 'Authenticity']
+    duration: 'Listen on Spotify',
+    tags: ['American Dream', 'Revolution', 'Change', 'Featured'],
+    spotifyUrl: 'https://open.spotify.com/episode/7xmltZAOVTZatg5ButnbPE?si=V_w91XyrSW-7mBMDDJmMEw'
+  },
+  {
+    id: 'little-man-knows-best',
+    title: 'How It All Began',
+    excerpt: 'When the smallest voice in the room carries the biggest truth...',
+    category: 'art',
+    date: '2024-10-15',
+    tags: ['Wisdom', 'Digital Art', 'Truth', 'Revolution'],
+    imageUrl: '/little-man-knows-best.jpg',
+    artDescription: 'Sometimes the person who knows best is the one nobody listens to. Here stands our psychedelic prophet, small but mighty, surrounded by all the "important" people with their serious faces and formal poses. While they debate politics and power in their fancy clothes and elaborate ruffs, our little friend sees right through it all with those glowing, all-knowing eyes. This piece is about the wisdom that comes from being underestimated, overlooked, dismissed. The big men with their weapons and authority think they control the room, but the real power belongs to the one who refuses to play their game. Those wild colors radiating from his being represent the electric truth that conventional wisdom fears - the knowledge that comes from existing outside the system, from seeing the world with fresh eyes unclouded by tradition and expectation. The little man knows best because he hasn\'t been trained to forget what actually matters. While everyone else performs importance, he embodies authenticity. His very presence asks the question: What if the answers we seek aren\'t in the history books or the boardrooms, but in the minds of those brave enough to remain beautifully, brilliantly different?'
+  },
+  {
+    id: 'party-amidst-peaceful',
+    title: 'Run Run Run',
+    excerpt: 'When digital joy crashes the most solemn historical gathering in American mythology...',
+    category: 'art',
+    date: '2024-10-15',
+    tags: ['Historical', 'Digital Art', 'Liberation', 'Joy'],
+    imageUrl: '/party-amidst-peaceful.jpg',
+    artDescription: 'Here stands the liberator - not in the form you expected, but in the purest form of all: unbridled joy. This tiny pink rebel has crashed the first Thanksgiving, that carefully constructed American myth of peace and gratitude, and brought something the history books forgot to mention - actual celebration. While everyone else performs their roles in this sanitized version of history, our little friend just... parties. Because sometimes the most revolutionary act is refusing to be serious about things that were never as serious as we pretend they were. This piece asks the uncomfortable questions: What if the real liberators aren\'t the ones who write the history books? What if freedom looks like a cartoon character who doesn\'t give a damn about your solemn traditions? What if the most authentic moment in this entire scene is the one thing that doesn\'t belong? The Pilgrims and Native Americans in their formal poses represent all the ways we\'ve been taught to remember history - static, sanitized, safe. But life is messy and joyful and ridiculous, and sometimes it takes a pink digital anarchist to remind us that the best parties happen when you stop asking permission to exist.'
+  },
+  {
+    id: 'hiding-amidst-boring',
+    title: 'Z',
+    excerpt: 'When digital rebellion infiltrates the most sophisticated classical art salon...',
+    category: 'art',
+    date: '2024-10-15',
+    tags: ['Digital Art', 'Classical', 'Rebellion', 'Hidden'],
+    imageUrl: '/hiding-amidst-boring.jpg',
+    artDescription: 'Sometimes the most radical act is simply existing where you don\'t belong. In this piece, a tiny digital rebel has snuck into the most proper, most sophisticated art salon of the 18th century. While everyone else discusses serious matters in their powdered wigs and formal attire, our little friend just... exists. Unapologetically modern. Unapologetically colorful. Unapologetically alive in a room full of people playing by rules that were never meant for them. This is about finding your tribe by refusing to hide who you are, even when - especially when - you\'re surrounded by everything society says you should be instead. The classical figures represent all the "proper" ways we\'re supposed to behave, dress, think, create. But look closer and you\'ll find the magic hiding in plain sight. Sometimes the most beautiful thing in the room is the thing that doesn\'t belong there at all. It\'s a reminder that every space needs its rebels, its color, its refusal to take itself too seriously.'
+  },
+  {
+    id: 'beauty-mask-typography',
+    title: 'Beauty Wears A Mask',
+    excerpt: 'Nothing is as it seems - vibrant typography that reveals the hidden truths behind aesthetic facades...',
+    category: 'art',
+    date: '2024-10-15',
+    tags: ['Typography', 'Digital Art', 'Philosophy', 'Truth'],
+    imageUrl: '/beauty-mask-art.jpg',
+    artDescription: 'Beauty wears a mask and nothing is as it seems. This piece strips away the pretense to reveal what lies beneath our polished surfaces. The flowing typography dances across darkness, each letter a revelation, each color a different facet of truth we\'re afraid to show. The word "Beauty" flows like liquid silk, but look closer - the other words whisper secrets about authenticity, about the masks we all wear to hide our real selves. This isn\'t just art; it\'s a mirror reflecting the beautiful mess of being human. The vibrant blues, passionate reds, and electric cyans don\'t just look pretty - they scream the truth that beauty isn\'t about perfection, it\'s about having the courage to show your scars alongside your strengths. In a world obsessed with filters and facades, this piece dares to ask: what if the most beautiful thing about you is exactly what you\'re trying to hide?'
+  },
+  {
+    id: 'astronaut-classical',
+    title: 'Meagre Company 1678',
+    excerpt: 'When a modern astronaut crashes the most formal portrait session in Dutch history...',
+    category: 'art',
+    date: '2024-10-15',
+    tags: ['Digital Art', 'Classical', 'Time Travel', 'Humor'],
+    imageUrl: '/astronaut-classical.jpg',
+    artDescription: 'This piece embodies the number one rule: PLAY! I took a stuffy, formal Dutch Golden Age group portrait and dropped a space explorer right into the middle of their serious gathering. The astronaut stands there casually waving while these 17th-century gentlemen in their elaborate ruffs and formal poses look on. It\'s about breaking the rules of time, space, and artistic convention. Why should art be confined to one era? Why can\'t past and future dance together? This is what happens when you refuse to color inside the lines of history - you create something that makes people smile and question everything they thought they knew about "proper" art. The contrast between the astronaut\'s modern suit and the merchants\' period clothing creates a visual conversation across centuries, proving that creativity knows no boundaries when you remember to play.'
   },
   {
     id: '2',
@@ -36,186 +91,52 @@ const mockBlogPosts: BlogPost[] = [
   },
   {
     id: '3',
-    title: 'Nano Technology in Healthcare: The Molecular Revolution',
-    excerpt: 'Exploring how nano-engineering will transform medicine at the cellular level, featuring live lab demonstrations...',
+    title: 'The Cheshire Cat Website',
+    excerpt: 'This got its name from a roommate in a psych ward who had a tattoo on his arm of the Cheshire cat from Alice in Wonderland.',
     category: 'video',
     date: '2024-10-10',
     duration: '22:15',
-    tags: ['Nano Technology', 'Healthcare', 'Innovation', 'Medicine']
+    tags: ['Website', 'Story', 'Alice in Wonderland', 'Personal'],
+    videoUrl: 'https://www.youtube.com/embed/dluvgCj8Pm8?si=5CXU7s47MDVtXd__'
   },
   {
     id: '4',
+    title: 'The easy way or the fun way',
+    excerpt: 'Sometimes the choice is simple - but which path will you take?',
+    category: 'video',
+    date: '2024-10-08',
+    duration: '0:60',
+    tags: ['Choice', 'Philosophy', 'Life', 'Decision'],
+    videoUrl: 'https://www.youtube.com/embed/WqQWSbDBNww'
+  },
+  {
+    id: '4b',
+    title: 'Still Choose Love',
+    excerpt: 'In a world that tries to harden us, sometimes the most radical act is to keep choosing love.',
+    category: 'video',
+    date: '2024-10-08',
+    duration: '0:60',
+    tags: ['Love', 'Choice', 'Hope', 'Philosophy'],
+    videoUrl: 'https://www.youtube.com/embed/7l-miL_SGvE'
+  },
+  {
+    id: '4c',
+    title: 'Ground yourself',
+    excerpt: 'In the chaos of modern life, finding your center is not a luxury - it\'s a necessity.',
+    category: 'video',
+    date: '2024-10-08',
+    duration: '0:60',
+    tags: ['Grounding', 'Mindfulness', 'Self-Care', 'Balance'],
+    videoUrl: 'https://www.youtube.com/embed/FAXi2PbUi-U'
+  },
+  {
+    id: '4d',
     title: 'Animal Shelter Revolution: Design for Healing',
     excerpt: 'Visual tour of the badass animal sanctuary that actually gives a damn, showing the healing environments in action...',
     category: 'video',
     date: '2024-10-08',
     duration: '15:44',
     tags: ['Animals', 'Shelter', 'Design', 'Compassion']
-  },
-  {
-    id: '5',
-    title: 'The Penguin Cafe: Visual Identity & Brand Story',
-    excerpt: 'Complete brand development for the revolutionary home restaurant concept...',
-    category: 'art',
-    date: '2024-10-05',
-    tags: ['Branding', 'Restaurant', 'Culture', 'Design'],
-    artDescription: 'This brand identity captures the essence of spontaneity and cultural celebration. The logo features warm, welcoming curves that mirror the Earth Homes philosophy - no harsh edges, only flowing connections. The color palette draws from spices and warmth, creating an identity that feels like home regardless of whose kitchen you\'re in. Each visual element tells the story of families sharing their heritage through food, transforming strangers into friends around dinner tables across the world.'
-  },
-  {
-    id: '6',
-    title: 'Building Communities for Outcasts: Hope Through Design',
-    excerpt: 'How we\'re building safe havens where society\'s forgotten can finally heal and thrive...',
-    category: 'podcast',
-    date: '2024-10-03',
-    duration: '52:18',
-    tags: ['Community', 'Healing', 'Social Impact', 'Recovery']
-  },
-  {
-    id: '7',
-    title: 'Bebo Platform: Authentic Commerce Revolution',
-    excerpt: 'Behind the scenes look at building the anti-Amazon marketplace for genuine creators and entrepreneurs...',
-    category: 'video',
-    date: '2024-10-01',
-    duration: '28:33',
-    tags: ['E-commerce', 'Entrepreneurship', 'Authenticity', 'Business']
-  },
-  {
-    id: '8',
-    title: 'Freedom Music: Album Art for Liberation',
-    excerpt: 'Visual concepts for music that plants seeds of freedom in young minds...',
-    category: 'art',
-    date: '2024-09-28',
-    tags: ['Music', 'Freedom', 'Children', 'Liberation'],
-    artDescription: 'These album covers break every rule of children\'s music design. Instead of cartoons and primary colors, I created mystical landscapes that spark curiosity and wonder. Each piece represents a different aspect of freedom - wild animals roaming free, children dancing in moonlight, trees growing through concrete. The typography flows like music itself, never confined to rigid boxes. This is art that refuses to talk down to children, instead treating them as the wise souls they are before society teaches them to doubt their magic.'
-  },
-  {
-    id: '9',
-    title: 'Movie Industry Truth: Authentic Cinema Revolution',
-    excerpt: 'Why Hollywood is broken and how we\'re building cinema that actually matters...',
-    category: 'video',
-    date: '2024-09-25',
-    duration: '19:27',
-    tags: ['Film', 'Hollywood', 'Authenticity', 'Revolution']
-  },
-  {
-    id: '10',
-    title: 'Earth Homes Architecture: Blueprints for Harmony',
-    excerpt: 'Visual exploration of curved architecture designed to create global peace...',
-    category: 'art',
-    date: '2024-09-22',
-    tags: ['Architecture', 'Peace', 'Design', 'Harmony'],
-    artDescription: 'These architectural renderings challenge everything we think we know about building design. Every line flows like water, every space breathes like a living organism. I\'ve spent months studying how sharp edges create psychological tension - in our homes, our hearts, our world. These Earth Homes eliminate that violence through organic curves that mirror nature\'s perfect patterns. The technical drawings show not just how to build these structures, but how to build a more peaceful world, one curved wall at a time.'
-  },
-  // Additional Podcast Content
-  {
-    id: '11',
-    title: 'ReLEAF: Revolutionary Forest Restoration Technology',
-    excerpt: 'How advanced AI and biotechnology can restore entire forests in record time...',
-    category: 'podcast',
-    date: '2024-09-20',
-    duration: '41:12',
-    tags: ['Environment', 'AI', 'Biotechnology', 'Forests']
-  },
-  {
-    id: '12',
-    title: 'Global Travel Revolution: Beyond Mass Tourism',
-    excerpt: 'Creating authentic travel experiences that actually benefit local communities...',
-    category: 'podcast',
-    date: '2024-09-18',
-    duration: '36:45',
-    tags: ['Travel', 'Community', 'Culture', 'Authenticity']
-  },
-  {
-    id: '13',
-    title: 'Educational System Rebellion: Learning Without Limits',
-    excerpt: 'Why traditional education is failing and how we can revolutionize learning...',
-    category: 'podcast',
-    date: '2024-09-15',
-    duration: '48:33',
-    tags: ['Education', 'Innovation', 'Learning', 'Revolution']
-  },
-  {
-    id: '14',
-    title: 'Clothing Revolution: Fashion That Heals the Planet',
-    excerpt: 'Sustainable fashion that doesn\'t compromise on style or ethics...',
-    category: 'podcast',
-    date: '2024-09-12',
-    duration: '33:21',
-    tags: ['Fashion', 'Sustainability', 'Ethics', 'Environment']
-  },
-  // Additional Video Content
-  {
-    id: '15',
-    title: 'Gaming for Good: Virtual Worlds, Real Impact',
-    excerpt: 'How gaming technology can solve real-world problems and create positive change...',
-    category: 'video',
-    date: '2024-09-10',
-    duration: '25:18',
-    tags: ['Gaming', 'Technology', 'Social Impact', 'Innovation']
-  },
-  {
-    id: '16',
-    title: 'Relic Collection: Preserving Human Stories',
-    excerpt: 'Documentary tour through the collection that preserves forgotten histories...',
-    category: 'video',
-    date: '2024-09-08',
-    duration: '31:44',
-    tags: ['History', 'Culture', 'Preservation', 'Stories']
-  },
-  {
-    id: '17',
-    title: 'Brand Strategy: Authentic Identity in Fake World',
-    excerpt: 'Live brand development session showing how authentic brands cut through the noise...',
-    category: 'video',
-    date: '2024-09-05',
-    duration: '18:52',
-    tags: ['Branding', 'Strategy', 'Authenticity', 'Marketing']
-  },
-  {
-    id: '18',
-    title: 'Nano Technology Lab Tour: The Future is Tiny',
-    excerpt: 'Behind-the-scenes look at cutting-edge nano research facilities...',
-    category: 'video',
-    date: '2024-09-03',
-    duration: '27:16',
-    tags: ['Nano Technology', 'Science', 'Research', 'Innovation']
-  },
-  // Additional Art Content
-  {
-    id: '19',
-    title: 'Mental Health Visual Identity: Healing Through Design',
-    excerpt: 'Brand identity for the therapeutic matching platform that prioritizes authentic connection...',
-    category: 'art',
-    date: '2024-09-01',
-    tags: ['Mental Health', 'Branding', 'Therapy', 'Healing'],
-    artDescription: 'This visual identity breaks every rule of mental health branding. Instead of sterile blues and corporate safety, I created a warm, organic system that feels like a trusted friend. The logo breathes with gentle curves, the typography flows like conversation, and the color palette draws from nature\'s most calming moments - sunset oranges, forest greens, ocean blues. Every element communicates that healing happens through human connection, not clinical distance.'
-  },
-  {
-    id: '20',
-    title: 'Gaming Universe: Visual Design for Virtual Worlds',
-    excerpt: 'Complete visual system for gaming platforms that prioritize player wellbeing...',
-    category: 'art',
-    date: '2024-08-29',
-    tags: ['Gaming', 'UI/UX', 'Virtual Reality', 'Design'],
-    artDescription: 'Gaming design that refuses to exploit addiction patterns. Every interface element is designed to enhance the gaming experience while respecting players\' time and mental health. The visual language draws from nature and organic forms, creating virtual spaces that feel like sanctuaries rather than casinos. Color schemes shift based on play time, gently encouraging healthy breaks, while achievement systems celebrate progress over grinding.'
-  },
-  {
-    id: '21',
-    title: 'Educational Revolution: Visual Learning Systems',
-    excerpt: 'Design concepts for learning platforms that adapt to every student\'s unique potential...',
-    category: 'art',
-    date: '2024-08-26',
-    tags: ['Education', 'Learning', 'UI/UX', 'Innovation'],
-    artDescription: 'Educational design that treats every student as a genius waiting to be discovered. The interface morphs and adapts, presenting information in dozens of different ways until it clicks for each individual learner. Visual metaphors replace rigid categories, allowing knowledge to flow and connect naturally. The color psychology supports different learning states - energizing oranges for active exploration, calming blues for deep focus, inspiring purples for creative synthesis.'
-  },
-  {
-    id: '22',
-    title: 'Travel Platform: Cultural Bridge Visual Identity',
-    excerpt: 'Brand design for authentic travel experiences that celebrate local communities...',
-    category: 'art',
-    date: '2024-08-24',
-    tags: ['Travel', 'Culture', 'Community', 'Branding'],
-    artDescription: 'This travel brand identity celebrates the beauty of cultural exchange without exploitation. The visual system draws inspiration from traditional patterns and colors from around the world, creating a unified language that honors diversity. Typography flows like ancient scripts, photos are framed like windows into other worlds, and the overall aesthetic feels like a passport to authentic human connection rather than tourist consumption.'
   }
 ];
 
@@ -223,7 +144,29 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string>('podcast');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedImage, setSelectedImage] = useState<{url: string, title: string} | null>(null);
   const postsPerPage = 3;
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+
+    if (selectedImage) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
 
   // Filter posts based on category and search
   const filteredPosts = mockBlogPosts.filter(post => {
@@ -257,6 +200,50 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-6xl max-h-full">
+            {/* Retro Neon Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-pink-500/20 rounded-lg animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-blue-400/10 via-green-400/10 to-yellow-400/10 rounded-lg"></div>
+            
+            {/* Neon Border Effect */}
+            <div className="absolute inset-0 rounded-lg border-2 border-cyan-400/50 shadow-[0_0_20px_rgba(0,255,255,0.5),inset_0_0_20px_rgba(0,255,255,0.1)]"></div>
+            <div className="absolute inset-2 rounded-lg border border-pink-400/30 shadow-[0_0_15px_rgba(236,72,153,0.3)]"></div>
+            
+            {/* Image */}
+            <Image
+              src={selectedImage.url}
+              alt={selectedImage.title}
+              width={1200}
+              height={800}
+              className="relative z-10 max-w-full max-h-[80vh] object-contain rounded-lg"
+              unoptimized
+            />
+            
+            {/* Close Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedImage(null);
+              }}
+              className="absolute top-4 right-4 z-20 w-12 h-12 bg-black/70 border-2 border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center justify-center text-xl font-bold rounded-full shadow-[0_0_15px_rgba(0,255,255,0.5)]"
+            >
+              ×
+            </button>
+            
+            {/* Title */}
+            <div className="absolute bottom-4 left-4 right-4 z-20 bg-black/80 border border-cyan-400/50 p-4 rounded backdrop-blur-sm">
+              <h3 className="text-cyan-400 font-bold text-lg">{selectedImage.title}</h3>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Animated Background Grid */}
       <div className="absolute inset-0 bg-black">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-pink-500/5"></div>
@@ -272,27 +259,27 @@ export default function Blog() {
       <Navigation theme="blue" leftIcon="🦇" />
 
       {/* Main Content */}
-      <div className="relative z-10 py-20 px-8 pb-32">
+      <div className="relative z-10 py-12 sm:py-20 px-4 sm:px-8 pb-20 sm:pb-32">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h1 className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black mb-4">
               <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(0,255,255,0.5)]">
                 MEDIA HUB
               </span>
             </h1>
-            <p className="text-xl text-gray-300 mb-12">
+            <p className="text-sm sm:text-xl text-gray-300 mb-8 sm:mb-12 px-2">
               🎙️ Podcasts • 📺 Videos • 🎨 Art - Choose Your Experience
             </p>
 
             {/* Category Selection Buttons */}
-            <div className="flex justify-center gap-6 mb-16">
+            <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 mb-12 sm:mb-16 px-2">
               <button
                 onClick={() => {
                   setSelectedCategory('podcast');
                   setCurrentPage(1);
                 }}
-                className={`px-12 py-4 text-xl font-bold border-2 transition-all duration-300 ${
+                className={`px-6 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-bold border-2 transition-all duration-300 ${
                   selectedCategory === 'podcast'
                     ? 'bg-cyan-400 text-black border-cyan-400 shadow-[0_0_30px_rgba(0,255,255,0.8)]'
                     : 'bg-transparent text-cyan-400 border-cyan-400/50 hover:border-cyan-400 hover:shadow-[0_0_15px_rgba(0,255,255,0.4)]'
@@ -306,7 +293,7 @@ export default function Blog() {
                   setSelectedCategory('video');
                   setCurrentPage(1);
                 }}
-                className={`px-12 py-4 text-xl font-bold border-2 transition-all duration-300 ${
+                className={`px-6 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-bold border-2 transition-all duration-300 ${
                   selectedCategory === 'video'
                     ? 'bg-purple-500 text-white border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.8)]'
                     : 'bg-transparent text-purple-400 border-purple-400/50 hover:border-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)]'
@@ -320,7 +307,7 @@ export default function Blog() {
                   setSelectedCategory('art');
                   setCurrentPage(1);
                 }}
-                className={`px-12 py-4 text-xl font-bold border-2 transition-all duration-300 ${
+                className={`px-6 sm:px-12 py-3 sm:py-4 text-lg sm:text-xl font-bold border-2 transition-all duration-300 ${
                   selectedCategory === 'art'
                     ? 'bg-pink-500 text-white border-pink-500 shadow-[0_0_30px_rgba(236,72,153,0.8)]'
                     : 'bg-transparent text-pink-400 border-pink-400/50 hover:border-pink-400 hover:shadow-[0_0_15px_rgba(236,72,153,0.4)]'
@@ -332,30 +319,30 @@ export default function Blog() {
           </div>
 
           {/* Section Title */}
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-cyan-400">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 gap-4 px-2">
+            <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400">
               Latest {selectedCategory === 'podcast' ? 'Podcasts' : selectedCategory === 'video' ? 'Videos' : 'Art'}
             </h2>
             
             {/* Pagination Controls */}
             {totalPages > 1 && (
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 sm:gap-4">
                 <button
                   onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                   disabled={currentPage === 1}
-                  className="w-12 h-12 border-2 border-cyan-400 text-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center justify-center"
+                  className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-cyan-400 text-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                 >
                   ←
                 </button>
                 
-                <span className="text-cyan-400 font-bold">
+                <span className="text-cyan-400 font-bold text-sm sm:text-base">
                   {currentPage} / {totalPages}
                 </span>
                 
                 <button
                   onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                   disabled={currentPage === totalPages}
-                  className="w-12 h-12 border-2 border-cyan-400 text-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center justify-center"
+                  className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-cyan-400 text-cyan-400 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-cyan-400 hover:text-black transition-all duration-300 flex items-center justify-center text-sm sm:text-base"
                 >
                   →
                 </button>
@@ -364,41 +351,97 @@ export default function Blog() {
           </div>
 
           {/* Content Grid */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-2">
             {currentPosts.map((post, index) => (
               <div key={post.id} className="group">
-                <div className={`bg-black/50 border-2 p-6 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] ${
+                <div className={`bg-black/50 border-2 p-4 sm:p-6 transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,255,0.3)] ${
                   selectedCategory === 'podcast' ? 'border-cyan-400/30 hover:border-cyan-400' :
                   selectedCategory === 'video' ? 'border-purple-400/30 hover:border-purple-400' :
                   'border-pink-400/30 hover:border-pink-400'
                 }`}>
-                  <h3 className={`text-xl font-bold mb-4 ${
+                  <h3 className={`text-lg sm:text-xl font-bold mb-3 sm:mb-4 ${
                     selectedCategory === 'podcast' ? 'text-cyan-400' :
                     selectedCategory === 'video' ? 'text-purple-400' :
                     'text-pink-400'
                   }`}>
                     {post.title}
                   </h3>
+
+                  {/* Art Image */}
+                  {post.category === 'art' && post.imageUrl && (
+                    <div className="mb-3 sm:mb-4 cursor-pointer group/image">
+                      <div 
+                        className="relative overflow-hidden rounded border border-pink-400/30 hover:border-cyan-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,255,255,0.3)]"
+                        onClick={() => setSelectedImage({url: post.imageUrl!, title: post.title})}
+                      >
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-pink-500/0 group-hover/image:from-cyan-500/20 group-hover/image:to-pink-500/20 transition-all duration-300 z-10 flex items-center justify-center">
+                          <div className="opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 bg-black/70 px-4 py-2 rounded border border-cyan-400 text-cyan-400 font-bold">
+                            Click to Expand 🔍
+                          </div>
+                        </div>
+                        
+                        <Image 
+                          src={post.imageUrl} 
+                          alt={post.title}
+                          width={400}
+                          height={300}
+                          className="w-full h-48 sm:h-64 object-cover group-hover/image:scale-105 transition-transform duration-300"
+                          unoptimized
+                          onError={(e) => {
+                            console.log('Image failed to load:', post.imageUrl);
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Video Embed */}
+                  {post.category === 'video' && post.videoUrl && (
+                    <div className="mb-3 sm:mb-4">
+                      <div className="relative aspect-video rounded border border-purple-400/30 overflow-hidden hover:border-purple-400 transition-all duration-300 hover:shadow-[0_0_20px_rgba(168,85,247,0.3)]">
+                        <iframe 
+                          width="100%" 
+                          height="100%" 
+                          src={post.videoUrl}
+                          title={post.title}
+                          frameBorder="0" 
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                          referrerPolicy="strict-origin-when-cross-origin" 
+                          allowFullScreen
+                          className="absolute inset-0 w-full h-full"
+                        />
+                      </div>
+                    </div>
+                  )}
                   
-                  <p className="text-gray-300 mb-4 leading-relaxed">
+                  {/* Debug info for art posts */}
+                  {post.category === 'art' && (
+                    <div className="text-xs text-gray-500 mb-2">
+                      Image URL: {post.imageUrl || 'No image URL'} | Category: {post.category}
+                    </div>
+                  )}
+                  
+                  <p className="text-gray-300 mb-3 sm:mb-4 leading-relaxed text-sm sm:text-base">
                     {post.excerpt}
                   </p>
 
                   {/* Art Description */}
                   {post.category === 'art' && post.artDescription && (
-                    <div className="mb-4 p-4 bg-pink-500/10 border border-pink-400/30">
-                      <p className="text-gray-300 text-sm leading-relaxed">
+                    <div className="mb-3 sm:mb-4 p-3 sm:p-4 bg-pink-500/10 border border-pink-400/30">
+                      <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                         {post.artDescription}
                       </p>
                     </div>
                   )}
 
                   {/* Meta Info */}
-                  <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-4">
-                      <span className="text-sm text-gray-400">📅 {post.date}</span>
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                      <span className="text-xs sm:text-sm text-gray-400">📅 {post.date}</span>
                       {post.duration && (
-                        <span className={`text-sm ${
+                        <span className={`text-xs sm:text-sm ${
                           selectedCategory === 'podcast' ? 'text-cyan-400' :
                           selectedCategory === 'video' ? 'text-purple-400' :
                           'text-pink-400'
@@ -408,9 +451,20 @@ export default function Blog() {
                       )}
                     </div>
                     
-                    <button className="px-4 py-2 bg-black/50 border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-white transition-all duration-300">
-                      Page not found
-                    </button>
+                    {post.spotifyUrl ? (
+                      <a 
+                        href={post.spotifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 sm:px-4 py-2 bg-green-600 border border-green-500 text-white hover:bg-green-500 hover:border-green-400 transition-all duration-300 flex items-center gap-1 sm:gap-2 text-xs sm:text-sm"
+                      >
+                        🎵 <span className="hidden sm:inline">Listen on </span>Spotify
+                      </a>
+                    ) : (
+                      <button className="px-3 sm:px-4 py-2 bg-black/50 border border-gray-600 text-gray-400 hover:border-gray-400 hover:text-white transition-all duration-300 text-xs sm:text-sm">
+                        Page not found
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -419,10 +473,10 @@ export default function Blog() {
 
           {/* No Results */}
           {filteredPosts.length === 0 && (
-            <div className="text-center py-16">
-              <div className="text-6xl mb-4">🔍</div>
-              <h3 className="text-2xl font-bold text-cyan-400 mb-2">No Content Found</h3>
-              <p className="text-gray-400">No {selectedCategory} content available</p>
+            <div className="text-center py-12 sm:py-16 px-4">
+              <div className="text-4xl sm:text-6xl mb-4">🔍</div>
+              <h3 className="text-xl sm:text-2xl font-bold text-cyan-400 mb-2">No Content Found</h3>
+              <p className="text-gray-400 text-sm sm:text-base">No {selectedCategory} content available</p>
             </div>
           )}
         </div>
