@@ -368,7 +368,7 @@ export default function Blog() {
                           className="w-full h-48 sm:h-64 object-cover group-hover/image:scale-105 transition-transform duration-300"
                           unoptimized
                           onError={(e) => {
-                            console.log('Image failed to load:', post.imageUrl);
+                            // Hide image if it fails to load (silently)
                             e.currentTarget.style.display = 'none';
                           }}
                         />

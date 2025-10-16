@@ -1,3 +1,60 @@
+# LarryCorso — Next.js media site
+
+This repository contains a Next.js app (App Router) built with TypeScript and Tailwind CSS.
+
+Quick start
+
+1. Install deps:
+
+```bash
+npm install
+```
+
+2. Run dev server:
+
+```bash
+npm run dev
+```
+
+3. Build for production locally:
+
+```bash
+npm run build
+npm start
+```
+
+Cleaning before push
+
+Make sure the following files are not committed: `node_modules/`, `.next/`, and any local env files. A `.gitignore` is included.
+
+Upload to GitHub
+
+If this repo isn't yet on GitHub, run:
+
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+gh repo create <your-username>/<repo-name> --public --source=. --remote=origin
+git push -u origin main
+```
+
+If already a repo, simply:
+
+```bash
+git add .
+git commit -m "Clean repo and add README"
+git push
+```
+
+Deploy
+
+For quick hosting use Vercel. Connect your GitHub repo and Vercel will build automatically. Ensure you do not run lint in build pipeline or fix lint errors before deploying if your CI enforces lint.
+
+Notes
+
+- This README provides minimal steps. If you want, I can add a CONTRIBUTING.md, license, or CI config next.
+
 # DGC Digital Cosmos Website
 
 A Next.js cyberpunk-themed portfolio and contact site for Digital Genesis Collective.
