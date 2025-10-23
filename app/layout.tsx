@@ -103,6 +103,41 @@ export default function RootLayout({
             `,
           }}
         />
+        {/*
+          JSON-LD address / LocalBusiness schema for SEO.
+          IMPORTANT: update the placeholder address/telephone/email below with your real business/contact data.
+        */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Larry Corso",
+              "url": "https://rumidesign.tech",
+              "logo": "https://rumidesign.tech/logo.svg",
+              "sameAs": [
+                "https://twitter.com/rumidesign",
+                "https://www.linkedin.com/in/larrycorso"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "123 Night St",
+                "addressLocality": "YourCity",
+                "addressRegion": "YourState",
+                "postalCode": "12345",
+                "addressCountry": "US"
+              },
+              "telephone": "+1-555-555-5555",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+1-555-555-5555",
+                "contactType": "customer service",
+                "email": "mailto:hello@rumidesign.tech"
+              }
+            })
+          }}
+        />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
