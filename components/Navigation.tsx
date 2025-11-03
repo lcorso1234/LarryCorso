@@ -110,7 +110,7 @@ const themeColors = {
 
 const leftIconText = {
   pink: 'LOVE',
-  yellow: 'LARRY',
+  yellow: 'PLUTO',
   blue: 'TECH',
   green: 'BLOG',
   purple: 'SOUL',
@@ -128,8 +128,8 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
   const handleShare = async () => {
     try {
       const result = await APIService.shareContent(
-        'Larry Corso - Digital Creator & Developer',
-        'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
+        'Pluto Smoke - Digital Creator & Developer',
+        'Check out Pluto Smoke\'s portfolio and blog about tech, creativity, and digital innovation.',
         window.location.origin
       );
 
@@ -145,8 +145,8 @@ export default function Navigation({ theme, leftIcon }: NavigationProps) {
         // If API service fails, try direct native share as final fallback
         if (navigator.share) {
           await navigator.share({
-            title: 'Larry Corso - Digital Creator & Developer',
-            text: 'Check out Larry Corso\'s portfolio and blog about tech, creativity, and digital innovation.',
+            title: 'Pluto Smoke - Digital Creator & Developer',
+            text: 'Check out Pluto Smoke\'s portfolio and blog about tech, creativity, and digital innovation.',
             url: window.location.origin
           });
         } else {

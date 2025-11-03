@@ -12,28 +12,38 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteName = "Larry Corso";
-const siteTitle = "Larry Corso | Night-Mode Product Visionary";
+const siteName = "Lawrence Corso • Pluto Smoke";
+const siteUrl = "https://rumidesign.tech";
+const siteTitle =
+  "Lawrence Corso (Pluto Smoke) | Night-Mode Visionary & Guardian of Outcasts";
 const siteDescription =
-  "Meet Larry Corso, the night-working product visionary crafting neon-soaked digital experiences for bold teams, weirdos, and underdogs.";
+  "Lawrence “Pluto Smoke” Corso crafts night-mode product strategy, Earth home ecosystems, and crowdfunding campaigns that champion outcasts, rebels, and future-focused communities.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
     default: siteTitle,
-    template: "%s | Larry Corso",
+    template: "%s | Pluto Smoke",
   },
   description: siteDescription,
   keywords: [
+    "Lawrence Corso",
     "Larry Corso",
+    "Pluto Smoke",
+    "night-mode strategist",
     "night developer",
-    "retro design",
-    "digital product visionary",
     "creative technologist",
+    "digital product visionary",
+    "Earth homes innovation",
+    "supporting the outcasts",
+    "crowdfunding strategist",
+    "brand storytelling",
     "portfolio",
+    "Pluto Smoke portfolio",
   ],
-  authors: [{ name: "Larry Corso" }],
-  creator: "Larry Corso",
-  publisher: "Larry Corso",
+  authors: [{ name: "Lawrence Corso", url: siteUrl }],
+  creator: "Lawrence Corso",
+  publisher: "Lawrence Corso",
   robots: {
     index: true,
     follow: true,
@@ -41,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteTitle,
     description: siteDescription,
-    url: "https://rumidesign.tech",
+    url: siteUrl,
     siteName,
     locale: "en_US",
     type: "website",
@@ -50,7 +60,7 @@ export const metadata: Metadata = {
         url: "/marketing-logo.png",
         width: 1200,
         height: 630,
-        alt: "Larry Corso neon crest over a retro gradient background",
+        alt: "Pluto Smoke neon crest over a retro gradient background",
       },
     ],
   },
@@ -68,15 +78,15 @@ export const metadata: Metadata = {
     ],
     shortcut: ["/favicon.ico"],
   },
-  category: "portfolio",
+  category: "Creative Portfolio",
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   viewport: {
     width: "device-width",
     initialScale: 1,
   },
-  themeColor: "#0f172a",
+  themeColor: "#000000",
 };
 
 export default function RootLayout({
@@ -103,39 +113,46 @@ export default function RootLayout({
             `,
           }}
         />
-        {/*
-          JSON-LD address / LocalBusiness schema for SEO.
-          IMPORTANT: update the placeholder address/telephone/email below with your real business/contact data.
-        */}
+        {/* JSON-LD Person schema for SEO. Update contact channels as needed. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "name": "Larry Corso",
-              "url": "https://rumidesign.tech",
-              "logo": "https://rumidesign.tech/logo.svg",
+              "@type": "Person",
+              "name": "Lawrence Corso",
+              "alternateName": ["Larry Corso", "Pluto Smoke"],
+              "url": siteUrl,
+              "description": siteDescription,
+              "jobTitle":
+                "Creative Technologist & Night-Mode Product Visionary",
+              "brand": {
+                "@type": "Brand",
+                "name": "Pluto Smoke",
+                "slogan":
+                  "Night-mode product visionary supporting the outcasts.",
+                "url": siteUrl,
+                "logo": `${siteUrl}/logo.svg`,
+              },
               "sameAs": [
                 "https://twitter.com/rumidesign",
-                "https://www.linkedin.com/in/larrycorso"
+                "https://www.linkedin.com/in/larrycorso",
               ],
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "123 Night St",
-                "addressLocality": "YourCity",
-                "addressRegion": "YourState",
-                "postalCode": "12345",
-                "addressCountry": "US"
-              },
-              "telephone": "+1-555-555-5555",
+              "knowsAbout": [
+                "Earth homes",
+                "crowdfunding campaigns",
+                "supporting the outcasts",
+                "digital brand strategy",
+                "creative technology",
+              ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+1-555-555-5555",
-                "contactType": "customer service",
-                "email": "mailto:hello@rumidesign.tech"
-              }
-            })
+                "contactType": "partnership inquiries",
+                "email": "mailto:lawrence@rumidesign.tech",
+                "areaServed": ["US", "Global"],
+                "availableLanguage": ["English"],
+              },
+            }),
           }}
         />
       </head>

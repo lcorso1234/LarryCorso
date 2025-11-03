@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the comprehensive security measures implemented to protect the Larry Corso website against malicious attacks and unauthorized access.
+This document outlines the comprehensive security measures implemented to protect the Pluto Smoke website against malicious attacks and unauthorized access.
 
 ## Security Layers Implemented
 

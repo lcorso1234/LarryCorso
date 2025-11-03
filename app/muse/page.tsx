@@ -25,7 +25,7 @@ const quoteCollections: QuoteCollection[] = [
           'Find joy in the fear of losing. Because you are feeling you are losing something you are living.',
           'For life is an adventure and to lose is to live.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -35,18 +35,18 @@ const quoteCollections: QuoteCollection[] = [
           'To see beyond the world unknown by looking in!',
           'To create magic out of nothingness. To fall. Oh what it is like to fall from great heights.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['Dreams are my currency and wherever I go, they follow.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
           'This life is but a wild ride. It\'s filled with ups and downs, swings and turns.',
           'I hold the wheel carefully as I move to the other side.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -54,14 +54,14 @@ const quoteCollections: QuoteCollection[] = [
           'When the wind blows, he goes with it. From the turmoil, the bird sheds old feathers.',
           'Reawakened to light up the sky.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
           'A free bird flies high and flows with the winds of life.',
           'Learn to soar in this world. If resistance comes from the left, take the lighter path...go right.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -69,19 +69,19 @@ const quoteCollections: QuoteCollection[] = [
           'From second to second, day to day, lifetime to lifetime.',
           'A new sweet song for the soul.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['And just like that....We\'re back.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ["I'm a dreamer without a cause."],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['To say it, is to lose it.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
@@ -97,7 +97,7 @@ const quoteCollections: QuoteCollection[] = [
           'I lost hope in being a friend, a son, a brother, a partner.',
           'God showed me how hard it was to be him.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -105,14 +105,14 @@ const quoteCollections: QuoteCollection[] = [
           'The spirit took control a long time ago. In coming back in the world...the ego fought with all it had left.',
           'The spirit let the ego fight itself to death, until being in the world and out of the world became the same.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
           'God show me the way. Light up my path. Bring me back to you.',
           'Allow me to be encompassed by your warmth. Let me dissolve in you and become you.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -120,7 +120,7 @@ const quoteCollections: QuoteCollection[] = [
           'The one flying blind.',
           'Knowing that the lost journey will bring him back to the heavens.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -130,11 +130,11 @@ const quoteCollections: QuoteCollection[] = [
           'Although we may have faltered or doubted, we keep moving towards the Supreme, pure love and joy on earth.',
           'Rebels in love, OutCasts of passion. The one\'s who don\'t conform no matter how hard it gets because they follow their Spirit above all things....Keep Moving in whatever direction lights you up!',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ["It's the light in us, it cannot be contained."],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
@@ -148,19 +148,19 @@ const quoteCollections: QuoteCollection[] = [
           'The books I read guide me, the people I am with show me love, the blue sky gives me comfort.',
           'I marvel at the birds singing, the trees in the sunlight.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['When you fall for me, the whole world will learn to fall in love again.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['To see a thousand faces in one woman.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ["I'm in love wherever I go. The earth is my home."],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -170,7 +170,7 @@ const quoteCollections: QuoteCollection[] = [
           'The bridges came burning down, the floods swallowed our world.',
           "I'm just a drunken sailor man, at the bottom of the ocean, In love with a star.",
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
@@ -180,14 +180,14 @@ const quoteCollections: QuoteCollection[] = [
     quotes: [
       {
         body: ['Love is a temporary madness and I get it out of my system in the most reckless and undisciplined manner possible.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
           'I love her always, still. I had to let her go. It was the only way she could be free.',
           'She deserves a life of magic and laughter, not one of sadness and screams.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -197,7 +197,7 @@ const quoteCollections: QuoteCollection[] = [
           'I slow danced with the sounds of love. There in the kitchen, she waited and watched.',
           'Effortlessly puzzled of the changes he was going through.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -205,11 +205,11 @@ const quoteCollections: QuoteCollection[] = [
           'She speaks softly to her loved ones in her polish tongue. Sweet sounds of sadness pour through me to her.',
           "I cramp her style with foolish games I play. She's weak, but true. She's always been. She fears nothing.",
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['Do you want to fight? Or do you want to fall in love. Again and again and again and again.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
@@ -223,7 +223,7 @@ const quoteCollections: QuoteCollection[] = [
           'To face it with a smile. To keep your lamp lit amidst your darkness.',
           'To maintain your inner glory despite the wreckage and rubble.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -232,11 +232,11 @@ const quoteCollections: QuoteCollection[] = [
           'I mount the scaffold with perfect coolness.',
           'Indeed, a God.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['Freed from the shackles of my past. I climb.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -245,11 +245,11 @@ const quoteCollections: QuoteCollection[] = [
           'I am focused like a laser, yet I am a wanderer.',
           'I have no home, but wherever I go I am home. I seek the twilight, the never ending riddle.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: ['The world raised me. The trees nourished me. A woman saved me.'],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
@@ -265,7 +265,7 @@ const quoteCollections: QuoteCollection[] = [
           'The waves crash, but I am unmoved.',
           'Stillness in the hurricane of the my thoughts. I move on to the great awakening.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -275,7 +275,7 @@ const quoteCollections: QuoteCollection[] = [
           'Through it all I became broke and depressed, but I now know the strength of my spirit and the power of my heart.',
           'I met countless others just like me, fighting their way to the promise land.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -284,7 +284,7 @@ const quoteCollections: QuoteCollection[] = [
           'Heaven was sent below to lend a hand to an old friend. Pulled from the dirt, I rose quietly.',
           'Night time became morning with laughter in my heart. I smiled at the world once more.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -293,7 +293,7 @@ const quoteCollections: QuoteCollection[] = [
           "I'm chasing a vision that no understands, but me and have been ostracized for it.",
           'Amongst it all, I have become my own master.',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -303,7 +303,7 @@ const quoteCollections: QuoteCollection[] = [
           'It makes it hard to be sure of my next moves. I\'m all out of decisions and whims.',
           "I've seen some of the darkest corners of the world. Lessons from gang members in prison, you gotta stand on your own two.",
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
       {
         body: [
@@ -315,23 +315,40 @@ const quoteCollections: QuoteCollection[] = [
           'All I had was a lemon picked from a strangers tree. He was delighted.',
           'When they arrested me all I repeated was, "The earth is dying. The earth is dying."',
         ],
-        author: 'Larry Corso',
+        author: 'Pluto Smoke',
       },
     ],
   },
 ];
 
 export const metadata: Metadata = {
-  title: 'Muse • Electric Wisdom Chamber',
+  title: "Muse • Lawrence 'Pluto Smoke' Corso",
   description:
-    'Step into the Muse chamber where Larry Corso arranges quotes, rituals, and radiant mantras to ignite the spirit and invite bold creation.',
+    "Step into Lawrence 'Pluto Smoke' Corso's Muse chamber packed with rituals, Earth home inspiration, and messages for the outcasts.",
   keywords: [
-    'Larry Corso muse',
-    'creative quotes',
-    'spirit ignition',
-    'digital wisdom',
+    'Lawrence Corso inspiration',
+    'Pluto Smoke muse',
+    'supporting the outcasts',
+    'Earth homes creativity',
     'ritual of innovation',
+    'Larry Corso wisdom',
   ],
+  openGraph: {
+    title: "Muse • Lawrence 'Pluto Smoke' Corso",
+    description:
+      "Curated mantras and insights from Lawrence 'Pluto Smoke' Corso for rebels building Earth homes and future movements.",
+    url: 'https://rumidesign.tech/muse',
+    type: 'website',
+  },
+  twitter: {
+    title: "Muse • Lawrence 'Pluto Smoke' Corso",
+    description:
+      "Muse drops from Pluto Smoke to empower Earth home builders, crowdfunding outcasts, and creative rebels.",
+    card: 'summary_large_image',
+  },
+  alternates: {
+    canonical: 'https://rumidesign.tech/muse',
+  },
 };
 
 export default function Muse() {
@@ -399,7 +416,7 @@ export default function Muse() {
       </section>
 
       <footer className="pb-32 text-center text-[0.65rem] uppercase tracking-[0.45em] text-[#9CA3AF]">
-        © {footerYear} Larry Corso · Muse Edition
+        © {footerYear} Pluto Smoke · Muse Edition
       </footer>
 
       <Navigation theme="blue" leftIcon="MUSE" />

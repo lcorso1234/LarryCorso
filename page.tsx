@@ -1,20 +1,8 @@
-import Link from "next/link";
+import { notFound } from 'next/navigation';
 
 export default function Home() {
-  return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
-      {/* Main Content */}
-      <div className="relative z-10">
-        <section className="min-h-screen flex flex-col justify-center items-center px-8 text-center pb-32">
-          <div className="max-w-6xl mx-auto">
-            {/* Main Title */}
-            <h1 className="text-6xl sm:text-8xl lg:text-9xl font-black mb-8">
-              <span className="bg-gradient-to-r from-yellow-400 via-gray-300 to-black bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(255,255,0,0.8)]">
-                I DON&apos;T WORK FOR YOU
-              </span>
-            </h1>
-
-            {/* Night Work Declaration */}
+  notFound();
+}
             <div className="mb-12">
               <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black mb-6">
                 <span className="bg-gradient-to-r from-yellow-400 to-gray-600 bg-clip-text text-transparent animate-pulse drop-shadow-[0_0_15px_rgba(255,255,0,0.6)]">

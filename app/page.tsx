@@ -4,16 +4,35 @@ import ScrollAnimation from "@/components/ScrollAnimation";
 import EnhancedButton from "@/components/EnhancedButton";
 
 export const metadata: Metadata = {
-  title: "Night Vision Home",
+  title: "Lawrence Corso Night Vision Studio",
   description:
-    "Explore Larry Corso&apos;s neon-charged home base, where late-night creativity, bold manifesto statements, and cosmic calls to action come alive.",
+    "Explore Lawrence 'Pluto Smoke' Corso's neon-charged headquarters where Earth home innovation, crowdfunding strategies, and support for the outcasts ignite after dark.",
   keywords: [
-    "hero section",
-    "creative manifesto",
-    "nocturnal developer",
-    "retro futurism",
-    "Larry Corso home",
+    "Lawrence Corso",
+    "Larry Corso",
+    "Pluto Smoke",
+    "night-mode strategist",
+    "Earth homes visionary",
+    "supporting the outcasts",
+    "crowdfunding strategist",
+    "creative technologist portfolio",
   ],
+  openGraph: {
+    title: "Lawrence Corso Night Vision Studio",
+    description:
+      "Discover how Lawrence 'Pluto Smoke' Corso powers Earth home ecosystems, underdog movements, and visionary crowdfunding campaigns from his nocturnal HQ.",
+    url: "https://rumidesign.tech/",
+    type: "website",
+  },
+  twitter: {
+    title: "Lawrence Corso Night Vision Studio",
+    description:
+      "Lawrence 'Pluto Smoke' Corso builds night-mode strategy, Earth home experiences, and support systems for outcasts and rebels.",
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://rumidesign.tech/",
+  },
 };
 
 export default function Home() {

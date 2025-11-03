@@ -52,7 +52,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-purple-400 mb-3">Brand Strategy <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Through strategic planning and vision, I transformed ReLEAF from an impersonal shopping experience into a completely personalized digital ecosystem. My comprehensive brand strategy and user experience planning catapulted them to TOP 3 in the United States. <span className="text-yellow-400 font-bold">Seeking crowdfunding to scale globally.</span></p>
+                <p className="text-gray-300 mb-4">Through strategic planning and vision, I transformed ReLEAF from an impersonal shopping experience into a completely personalized digital ecosystem. My comprehensive brand strategy and user experience planning catapulted them to TOP 3 in the United States. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to scale globally.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Strategic Planning</span>
                   <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Brand Vision</span>
@@ -71,7 +71,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-blue-400 mb-3">Mental Health <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Solved the critical client-therapist mismatch problem by innovating a revolutionary filtering system based on authentic content. My strategic approach connects clients with perfectly aligned therapists through genuine self-expression rather than clinical questionnaires. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize mental healthcare.</span></p>
+                <p className="text-gray-300 mb-4">Solved the critical client-therapist mismatch problem by innovating a revolutionary filtering system based on authentic content. My strategic approach connects clients with perfectly aligned therapists through genuine self-expression rather than clinical questionnaires. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize mental healthcare.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-blue-400/20 text-blue-400 text-sm border border-blue-400/50">Matching Strategy</span>
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Content Analysis</span>
@@ -90,7 +90,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-cyan-400 mb-3">Earth Homes <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Conceived a revolutionary solution to end global conflicts and environmental crisis through earth homes and bee integration. My visionary design uses curved architecture instead of harsh edges to create perfect harmony, fundamentally transforming how humanity lives on Earth. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save the planet.</span></p>
+                <p className="text-gray-300 mb-4">Conceived a revolutionary solution to end global conflicts and environmental crisis through earth homes and bee integration. My visionary design uses curved architecture instead of harsh edges to create perfect harmony, fundamentally transforming how humanity lives on Earth. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to save the planet.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Global Peace Strategy</span>
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Harmonic Architecture</span>
@@ -109,7 +109,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-pink-400 mb-3">Nano Technology <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Pioneering nano technology integration within healthcare systems to revolutionize patient care at the molecular level. My strategic vision combines microscopic innovation with macro healthcare transformation, creating targeted treatment delivery systems that will reshape modern medicine. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize healthcare through nano innovation.</span></p>
+                <p className="text-gray-300 mb-4">Pioneering nano technology integration within healthcare systems to revolutionize patient care at the molecular level. My strategic vision combines microscopic innovation with macro healthcare transformation, creating targeted treatment delivery systems that will reshape modern medicine. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize healthcare through nano innovation.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">Nano Engineering</span>
                   <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Healthcare Systems</span>
@@ -128,7 +128,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-green-400 mb-3">Clothing and Fashion <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Revolutionizing the fashion industry through sustainable materials and ethical production that doesn&apos;t compromise style for conscience. My visionary approach to clothing transforms fast fashion into a force for environmental healing while keeping humans looking absolutely legendary. <span className="text-yellow-400 font-bold">Seeking crowdfunding to make fashion sustainable and fierce.</span></p>
+                <p className="text-gray-300 mb-4">Revolutionizing the fashion industry through sustainable materials and ethical production that doesn&apos;t compromise style for conscience. My visionary approach to clothing transforms fast fashion into a force for environmental healing while keeping humans looking absolutely legendary. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to make fashion sustainable and fierce.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Sustainable Materials</span>
                   <span className="px-3 py-1 bg-cyan-400/20 text-cyan-400 text-sm border border-cyan-400/50">Ethical Production</span>
@@ -147,7 +147,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-yellow-400 mb-3">Gaming <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Creating next-generation gaming experiences that blur the lines between virtual reality and consciousness expansion. My game design philosophy weaponizes fun to unlock human potential, making players stronger, smarter, and more connected to their purpose. <span className="text-yellow-400 font-bold">Seeking crowdfunding to gamify human evolution.</span></p>
+                <p className="text-gray-300 mb-4">Creating next-generation gaming experiences that blur the lines between virtual reality and consciousness expansion. My game design philosophy weaponizes fun to unlock human potential, making players stronger, smarter, and more connected to their purpose. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to gamify human evolution.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">VR Innovation</span>
                   <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Consciousness Design</span>
@@ -166,7 +166,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-indigo-400 mb-3">Educational Systems <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Dismantling the archaic education industrial complex and rebuilding it from the ground up! My radical framework turns passive students into active knowledge warriors through immersive learning ecosystems that actually prepare minds for the future, not the past. <span className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize how humanity learns.</span></p>
+                <p className="text-gray-300 mb-4">Dismantling the archaic education industrial complex and rebuilding it from the ground up! My radical framework turns passive students into active knowledge warriors through immersive learning ecosystems that actually prepare minds for the future, not the past. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to revolutionize how humanity learns.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-indigo-400/20 text-indigo-400 text-sm border border-indigo-400/50">Neural Learning</span>
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Future Readiness</span>
@@ -185,7 +185,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-orange-400 mb-3">Animal Shelter <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Building the world&apos;s most badass animal sanctuary that actually gives a damn about every creature on this planet! My revolutionary shelter design creates healing environments for animals AND fish, combining cutting-edge veterinary care with emotional rehabilitation that restores their trust in humanity. No animal left behind. <span className="text-yellow-400 font-bold">Seeking crowdfunding to save every animal and fish on Earth.</span></p>
+                <p className="text-gray-300 mb-4">Building the world&apos;s most badass animal sanctuary that actually gives a damn about every creature on this planet! My revolutionary shelter design creates healing environments for animals AND fish, combining cutting-edge veterinary care with emotional rehabilitation that restores their trust in humanity. No animal left behind. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to save every animal and fish on Earth.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-orange-400/20 text-orange-400 text-sm border border-orange-400/50">Animal Rehabilitation</span>
                   <span className="px-3 py-1 bg-red-400/20 text-red-400 text-sm border border-red-400/50">Marine Sanctuary</span>
@@ -204,7 +204,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-teal-400 mb-3">Global Travel Agency <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Reconnecting displaced Americans with their ancestral homelands to rebuild what was lost! My revolutionary travel agency doesn&apos;t just book trips - we orchestrate homecoming missions that help people rediscover their roots and contribute to rebuilding their ancestral communities with modern infrastructure and ancient wisdom. <span className="text-yellow-400 font-bold">Seeking crowdfunding to reconnect humanity with its origins.</span></p>
+                <p className="text-gray-300 mb-4">Reconnecting displaced Americans with their ancestral homelands to rebuild what was lost! My revolutionary travel agency doesn&apos;t just book trips - we orchestrate homecoming missions that help people rediscover their roots and contribute to rebuilding their ancestral communities with modern infrastructure and ancient wisdom. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to reconnect humanity with its origins.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Heritage Reconnection</span>
                   <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Infrastructure Building</span>
@@ -223,7 +223,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-amber-400 mb-3">Relic Collection <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Hunting down humanity&apos;s lost treasures and sharing their secrets with the world! My relic collection mission rescues ancient artifacts from obscurity and creates immersive experiences that let people touch, feel, and learn from our ancestors&apos; wisdom. History isn&apos;t meant to gather dust - it&apos;s meant to inspire the future. <span className="text-yellow-400 font-bold">Seeking crowdfunding to preserve and share ancient wisdom.</span></p>
+                <p className="text-gray-300 mb-4">Hunting down humanity&apos;s lost treasures and sharing their secrets with the world! My relic collection mission rescues ancient artifacts from obscurity and creates immersive experiences that let people touch, feel, and learn from our ancestors&apos; wisdom. History isn&apos;t meant to gather dust - it&apos;s meant to inspire the future. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to preserve and share ancient wisdom.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-amber-400/20 text-amber-400 text-sm border border-amber-400/50">Artifact Recovery</span>
                   <span className="px-3 py-1 bg-yellow-400/20 text-yellow-400 text-sm border border-yellow-400/50">Historical Preservation</span>
@@ -242,7 +242,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-violet-400 mb-3">Community for Outcasts <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Creating the world&apos;s first true sanctuary where society&apos;s outcasts can finally feel safe, understood, and valued! My revolutionary community model provides judgment-free spaces where people can heal from trauma, addiction, and rejection while building genuine connections with others who truly get it. No masks required here. <span className="text-yellow-400 font-bold">Seeking crowdfunding to build safe havens for the forgotten.</span></p>
+                <p className="text-gray-300 mb-4">Creating the world&apos;s first true sanctuary where society&apos;s outcasts can finally feel safe, understood, and valued! My revolutionary community model provides judgment-free spaces where people can heal from trauma, addiction, and rejection while building genuine connections with others who truly get it. No masks required here. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to build safe havens for the forgotten.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-violet-400/20 text-violet-400 text-sm border border-violet-400/50">Safe Spaces</span>
                   <span className="px-3 py-1 bg-purple-400/20 text-purple-400 text-sm border border-purple-400/50">Trauma Recovery</span>
@@ -261,7 +261,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-rose-400 mb-3">Music & Kid Books <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Crafting revolutionary music and children&apos;s books that plant seeds of freedom in young minds before society can cage their spirits! My creative arsenal guides the next generation toward Earth liberation through stories and songs that teach them to question everything, love fiercely, and never surrender their wild hearts to conformity. <span className="text-yellow-400 font-bold">Seeking crowdfunding to raise freedom fighters through art.</span></p>
+                <p className="text-gray-300 mb-4">Crafting revolutionary music and children&apos;s books that plant seeds of freedom in young minds before society can cage their spirits! My creative arsenal guides the next generation toward Earth liberation through stories and songs that teach them to question everything, love fiercely, and never surrender their wild hearts to conformity. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to raise freedom fighters through art.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-rose-400/20 text-rose-400 text-sm border border-rose-400/50">Freedom Music</span>
                   <span className="px-3 py-1 bg-pink-400/20 text-pink-400 text-sm border border-pink-400/50">Liberation Stories</span>
@@ -280,7 +280,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-emerald-400 mb-3">Movie Industry Revolution <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Dismantling Hollywood&apos;s fake-ass system and rebuilding cinema with actors who can actually ACT and stories that reflect real human truth! My revolutionary studio prioritizes raw talent over pretty faces, authentic emotions over CGI spectacle, and life lessons that actually matter over mindless entertainment. Time to make movies that heal souls instead of numbing them. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring truth back to cinema.</span></p>
+                <p className="text-gray-300 mb-4">Dismantling Hollywood&apos;s fake-ass system and rebuilding cinema with actors who can actually ACT and stories that reflect real human truth! My revolutionary studio prioritizes raw talent over pretty faces, authentic emotions over CGI spectacle, and life lessons that actually matter over mindless entertainment. Time to make movies that heal souls instead of numbing them. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to bring truth back to cinema.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-emerald-400/20 text-emerald-400 text-sm border border-emerald-400/50">Authentic Acting</span>
                   <span className="px-3 py-1 bg-teal-400/20 text-teal-400 text-sm border border-teal-400/50">Truth Storytelling</span>
@@ -299,7 +299,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-slate-400 mb-3">Restaurant Experience <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Revolutionizing dining through &quot;The Penguin Cafe&quot; - where spontaneity is the spice of life! My home-restaurant network lets people transform their homes into cultural dining experiences, serving family recipes in environments that celebrate their heritage and bring pure joy. No corporate chains, just authentic souls sharing their culture through food and love. <span className="text-yellow-400 font-bold">Seeking crowdfunding to bring authentic dining back to humanity.</span></p>
+                <p className="text-gray-300 mb-4">Revolutionizing dining through &quot;The Penguin Cafe&quot; - where spontaneity is the spice of life! My home-restaurant network lets people transform their homes into cultural dining experiences, serving family recipes in environments that celebrate their heritage and bring pure joy. No corporate chains, just authentic souls sharing their culture through food and love. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to bring authentic dining back to humanity.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-slate-400/20 text-slate-400 text-sm border border-slate-400/50">Home Restaurants</span>
                   <span className="px-3 py-1 bg-gray-400/20 text-gray-400 text-sm border border-gray-400/50">Cultural Celebration</span>
@@ -318,7 +318,7 @@ export default function Portfolio() {
               </div>
               <div className="p-6">
                 <h3 className="text-2xl font-black text-lime-400 mb-3">Bebo Shopping Platform <span className="text-sm text-yellow-400">[WORK IN PROGRESS]</span></h3>
-                <p className="text-gray-300 mb-4">Building Bebo - the anti-Amazon marketplace where real entrepreneurs showcase their genuine, handcrafted products without corporate interference! My platform cuts out the middleman bullshit and connects people directly with passionate creators who pour their souls into every product. No fake reviews, no mass production - just authentic goods from authentic humans. <span className="text-yellow-400 font-bold">Seeking crowdfunding to empower genuine entrepreneurs worldwide.</span></p>
+                <p className="text-gray-300 mb-4">Building Bebo - the anti-Amazon marketplace where real entrepreneurs showcase their genuine, handcrafted products without corporate interference! My platform cuts out the middleman bullshit and connects people directly with passionate creators who pour their souls into every product. No fake reviews, no mass production - just authentic goods from authentic humans. <a href="https://gofund.me/c1c7232ea" target="_blank" rel="noopener noreferrer" className="text-yellow-400 font-bold">Seeking crowdfunding to empower genuine entrepreneurs worldwide.</a></p>
                 <div className="flex gap-2 flex-wrap">
                   <span className="px-3 py-1 bg-lime-400/20 text-lime-400 text-sm border border-lime-400/50">Genuine Products</span>
                   <span className="px-3 py-1 bg-green-400/20 text-green-400 text-sm border border-green-400/50">Entrepreneur Support</span>

@@ -1,5 +1,36 @@
+import type { Metadata } from "next";
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
+
+export const metadata: Metadata = {
+  title: "Manifesto | Lawrence 'Pluto Smoke' Corso",
+  description:
+    "Read the manifesto of Lawrence 'Pluto Smoke' Corso, the night-mode guardian building Earth homes and protecting outcasts through visionary tech.",
+  keywords: [
+    "Lawrence Corso manifesto",
+    "Pluto Smoke philosophy",
+    "supporting the outcasts",
+    "Earth homes vision",
+    "Larry Corso mission",
+    "night-mode technologist",
+  ],
+  openGraph: {
+    title: "Manifesto | Lawrence 'Pluto Smoke' Corso",
+    description:
+      "Dive into Pluto Smoke's guiding principles of love-first innovation, Earth protection, and relentless support for the underdogs.",
+    url: "https://rumidesign.tech/manifesto",
+    type: "article",
+  },
+  twitter: {
+    title: "Manifesto | Lawrence 'Pluto Smoke' Corso",
+    description:
+      "Lawrence 'Pluto Smoke' Corso declares his mission to uplift the outcasts, build Earth homes, and code with love.",
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://rumidesign.tech/manifesto",
+  },
+};
 
 export default function Manifesto() {
   return (

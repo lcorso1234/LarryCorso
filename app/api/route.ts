@@ -67,7 +67,7 @@ export class FrontendAPI {
 export async function GET() {
   try {
     const apiInfo = {
-      name: 'Larry Corso Portfolio API',
+      name: 'Pluto Smoke Portfolio API',
       version: '1.0.0',
       description: 'Frontend-Backend connectivity API for portfolio website',
       documentation: {

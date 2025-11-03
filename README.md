@@ -1,4 +1,4 @@
-# LarryCorso — Next.js media site
+# Pluto Smoke — Next.js media site
 
 This repository contains a Next.js app (App Router) built with TypeScript and Tailwind CSS.
 

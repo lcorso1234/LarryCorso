@@ -1,4 +1,35 @@
+import type { Metadata } from "next";
 import Navigation from '@/components/Navigation';
+
+export const metadata: Metadata = {
+  title: "Connect with Lawrence Corso | Pluto Smoke Transmission",
+  description:
+    "Send a direct transmission to Lawrence 'Pluto Smoke' Corso for Earth home collaborations, crowdfunding strategy, and support for the outcasts.",
+  keywords: [
+    "contact Lawrence Corso",
+    "connect with Larry Corso",
+    "Pluto Smoke contact",
+    "Earth homes collaborations",
+    "support the outcasts",
+    "crowdfunding strategist",
+  ],
+  openGraph: {
+    title: "Connect with Lawrence Corso | Pluto Smoke Transmission",
+    description:
+      "Reach Lawrence 'Pluto Smoke' Corso for night-mode strategy, Earth home visions, and underdog alliances.",
+    url: "https://rumidesign.tech/connect",
+    type: "website",
+  },
+  twitter: {
+    title: "Connect with Lawrence Corso | Pluto Smoke Transmission",
+    description:
+      "Open a direct channel to Lawrence 'Pluto Smoke' Corso for visionary collaborations and support for the outcasts.",
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://rumidesign.tech/connect",
+  },
+};
 
 export default function Connect() {
   const emailLink = 'mailto:lawrence@rumidesign.tech?subject=Digital Vision Project&body=Hello Lawrence,%0A%0AI have a project vision I\'d like to discuss.%0A%0ABest regards';
